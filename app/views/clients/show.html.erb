@@ -1,0 +1,27 @@
+<h1>Clients#show</h1>
+<p>Find me in app/views/clients/show.html.erb</p>
+
+<h3>Client Info</h3>
+<p><%= @client.fname %></p>
+<p><%= @client.lname %></p>
+<p><%= @client.address %></p>
+<p><%= @client.business_name %></p>
+<p><%= @client.email %></p>
+<p><%= @client.phone %></p>
+
+<h3>Add Job</h3>
+<%= form_for @job do |f| %>
+<p><%= f.label :name %></p>
+<p><%= f.text_field :name %></p>
+<p><%= f.label :description_of_job %></p>
+<p><%= f.text_field :job_description %></p>
+<p><%= f.label :price %></p>
+<p><%= f.text_field :price %></p>
+<p><%= f.label :current_balance %></p>
+<p><%= f.text_field :balance %></p>
+<p><%= f.label :job_date %></p>
+<p><%= f.text_field :date_of_job %></p>
+<p><%= f.label :notes %></p>
+<p><%= f.text_field :notes %></p>
+<p><%= f.submit "Add Job" %></p>
+<% end %>

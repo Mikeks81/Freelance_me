@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  client_id: 
+  job_description: MyText
+  price: 1
+  date_of_job: 2016-02-19
+  balance: 1
+  job_complete: false
+  balance_zero: false
+  notes: MyText
+
+two:
+  client_id: 
+  job_description: MyText
+  price: 1
+  date_of_job: 2016-02-19
+  balance: 1
+  job_complete: false
+  balance_zero: false
+  notes: MyText

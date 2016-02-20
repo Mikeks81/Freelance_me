@@ -1,0 +1,35 @@
+<h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p>
+Hello <%= @user.fname %>
+
+
+<div class="add_client_form">
+	<h3>Add a Client</h3>
+	<a href="#">Add Client +</a>
+	<%= form_for @client do |f| %>
+	<p><%= f.label :first_name %></p>
+	<p><%= f.text_field :fname %></p>
+	<p><%= f.label :last_name %></p>
+	<p><%= f.text_field :lname %></p>
+	<p><%= f.label :address %></p>
+	<p><%= f.text_field :address %></p>
+	<p><%= f.label :phone_number %></p>
+	<p><%= f.text_field :phone %></p>
+	<p><%= f.label :email %></p>
+	<p><%= f.text_field :email %></p>
+	<p><%= f.label :business_name %></p>
+	<p><%= f.text_field :business_name %></p>
+	<p><%= f.submit "Add Client" %></p>
+	<% end %>
+</div>
+
+<div class="client_list">
+<h3>Client List</h3>
+	<% @clients.each do |c| %>
+		<p><%= c.fname %><%= c.lname %></p>
+		<p><%= c.business_name %></p>
+		<p><%= c.email %></p>
+		<p><%= link_to "View Client", client_path(c) %></p>
+		<hr>
+	<% end %>
+</div>
