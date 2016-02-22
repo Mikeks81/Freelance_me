@@ -4,9 +4,11 @@ Rails.application.routes.draw do
 
  resources :sessions
  get 'users/calendar' => 'users#calendar'
+ get 'users/invoice' => 'users#invoice'
  resources :users
  resources :clients do
   resources :jobs
+  get '/jobs/:id/invoice' => 'jobs#invoice'
  end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -13,8 +13,9 @@
 	<p>Price: <%= @job.price%></p>
 	<p>Balance: <%= @job.balance%></p>
 	<p>Notes: <%= @job.notes%></p>
-	<p><%= link_to :controller => "jobs", :action =>'show', format: 'pdf' do %>
-		<%='Printable Receipt (PDF)' %>
-		<% end %>
+	<p><%#= link_to 'Printable Receipt (PDF)', url_for([@client,@job],:controller => "jobs", :action =>'invoice', format: 'pdf') %></p>
+	<p><%#= link_to :controller => "jobs", :action =>'invoice', format: 'pdf' do %>
+		<%#='Printable Receipt (PDF)' %>
+		<%# end %>
 	</p>
 </div>

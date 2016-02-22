@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script src="//cdn.ckeditor.com/4.5.7/full/ckeditor.js"></script>
 </head>
 <body>
 <% if current_user %>
@@ -15,6 +16,7 @@
 			<div class="nav_buttons">
 				<li><%= link_to "Dashboard", user_path(current_user) %></li>
 				<li><%= link_to "Clients", clients_path %></li>
+				<li><%#= link_to "Invoice", users_invoice_path %></li>
 				<li><%= link_to "Calendar", users_calendar_path %></li>
 				<li><%= link_to "Email", clients_path %></li>
 				<li><%= link_to "Analytics", clients_path %></li>
