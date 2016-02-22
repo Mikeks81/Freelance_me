@@ -16,5 +16,11 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    @user = current_user
+    if @user
+      flash[:notice]="Successfully logged out"
+      session.clear
+      redirect_to root_path
+    end
   end
 end
