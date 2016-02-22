@@ -1,5 +1,8 @@
 <div class="sign_up">
 	<h1>Sign Up</h1>
+	<% if flash[:notice] %>
+		<%= flash[:notice] %>
+	<%end%>
 	<%= form_for @user do |f| %>
 		<p><%= f.label :first_name %></p>
 		<p><%= f.text_field :fname %></p>

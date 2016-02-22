@@ -7,6 +7,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<nav>
+	<div class="nav_bar">
+		<img src="http://placehold.it/100x100">
+		<ul>
+			<div class="nav_buttons">
+				<li><%= link_to "Dashboard", user_path(current_user) %></li>
+				<li><%= link_to "Clients", clients_path %></li>
+				<li><%= link_to "Calendar", clients_path %></li>
+				<li><%= link_to "Email", clients_path %></li>
+				<li><%= link_to "Analytics", clients_path %></li>
+				<li><%= link_to "Clients", clients_path %></li>
+			</div>
+			<div class="log_in_out">
+			<% if current_user %>
+				<li><%= link_to "Log Out", session_path(current_user), method: :delete %> </li>
+			<% else %>
+				<li><%= link_to "Log In", sessions_path %></li>
+			<% end %>
+			</div>
+		</ul>
+	</div>	
+</nav>
 <% if flash[:notice] %>
 	<%= flash[:notice] %>
 <%end%>

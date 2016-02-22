@@ -27,6 +27,15 @@ class UsersController < ApplicationController
   def update
   end
 
+  def calendar
+    @user = current_user
+    @jobs = Job.all
+    respond_to do |format| 
+      format.html
+      format.js
+    end
+  end
+
   def destroy
   end
 
