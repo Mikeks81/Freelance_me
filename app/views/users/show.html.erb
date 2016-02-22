@@ -8,8 +8,8 @@ Hello <%= @user.fname %>
 	<% if flash[:notice] %>
 		<%= flash[:notice] %>
 	<%end%>
-	<a href="#">Add Client +</a>
-	<%= form_for @client do |f| %>
+	<%= button_tag "Add Client +", type: "button" %>
+	<%= form_for(@client, remote: true)  do |f| %>
 		<p><%= f.label :first_name %></p>
 		<p><%= f.text_field :fname %></p>
 		<p><%= f.label :last_name %></p>
@@ -22,17 +22,18 @@ Hello <%= @user.fname %>
 		<p><%= f.text_field :email %></p>
 		<p><%= f.label :business_name %></p>
 		<p><%= f.text_field :business_name %></p>
-		<p><%= f.submit "Add Client" %></p>
+		<p><%= f.submit "Add Client"%></p>
 	<% end %>
 </div>
 
-<div class="client_list">
+<div class="client_list_container">
 <h3>Client List</h3>
-	<% @clients.each do |c| %>
-		<p><%= c.fname %><%= c.lname %></p>
-		<p><%= c.business_name %></p>
-		<p><%= c.email %></p>
-		<p><%= link_to "View Client", client_path(c) %></p>
-		<hr>
-	<% end %>
+	
+		<div class="client_list">
+				<%= render partial: 'client_list', locals: {clients: @clients} %>
+		</div>
+</div>
+
+<div class="container">
+<%= render partial: 'calendar', locals: {events: @jobs} %>
 </div>

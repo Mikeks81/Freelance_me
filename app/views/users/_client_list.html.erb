@@ -1,0 +1,11 @@
+<% @clients.each do |c| %>
+	<% if c.user_id == current_user.id %>
+		<p><%= c.fname %><%= c.lname %></p>
+		<p><%= c.business_name %></p>
+		<p><%= c.email %></p>
+		<p><%= link_to "View Client", client_path(c) %></p>
+		<hr>
+		<% else %>
+			<p>You have no Clients.</p>
+	<% end %>
+<% end %>

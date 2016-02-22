@@ -16,9 +16,18 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @client = Client.new
-    @clients = Client.all
+    if current_user
+      @user = User.find(params[:id])
+      @client = Client.new
+      @clients = Client.all
+      @jobs = Job.all
+      respond_to do |format|
+        format.html
+        format.js
+      end
+    else 
+      redirect_to root_path
+    end
   end
 
   def edit
