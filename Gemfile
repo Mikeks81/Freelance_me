@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'simple_calendar', '~> 2.0', '>= 2.0.6'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use postgresql as the database for Active Record

@@ -1,27 +1,37 @@
 <h1>Clients#show</h1>
 <p>Find me in app/views/clients/show.html.erb</p>
 
-<h3>Client Info</h3>
-<p><%= @client.fname %></p>
-<p><%= @client.lname %></p>
-<p><%= @client.address %></p>
-<p><%= @client.business_name %></p>
-<p><%= @client.email %></p>
-<p><%= @client.phone %></p>
+<div class="client_info">
+	<h3>Client Info</h3>
+		<p><%= @client.fname %></p>
+		<p><%= @client.lname %></p>
+		<p><%= @client.address %></p>
+		<p><%= @client.business_name %></p>
+		<p><%= @client.email %></p>
+		<p><%= @client.phone %></p>
+</div>
 
-<h3>Add Job</h3>
-<%= form_for @job do |f| %>
-<p><%= f.label :name %></p>
-<p><%= f.text_field :name %></p>
-<p><%= f.label :description_of_job %></p>
-<p><%= f.text_field :job_description %></p>
-<p><%= f.label :price %></p>
-<p><%= f.text_field :price %></p>
-<p><%= f.label :current_balance %></p>
-<p><%= f.text_field :balance %></p>
-<p><%= f.label :job_date %></p>
-<p><%= f.text_field :date_of_job %></p>
-<p><%= f.label :notes %></p>
-<p><%= f.text_field :notes %></p>
-<p><%= f.submit "Add Job" %></p>
-<% end %>
+<div class="add_job_form">
+	<h3>Add Job</h3>
+	<% if flash[:notice] %>
+		<%= flash[:notice] %>
+	<%end%>
+	<%= form_for [@client,@job] do |f| %>
+		<p><%= f.label :name %></p>
+		<p><%= f.text_field :name %></p>
+		<p><%= f.label :description_of_job %></p>
+		<p><%= f.text_area :job_description %></p>
+		<p><%= f.label :price %></p>
+		<p><%= f.text_field :price %></p>
+		<p><%= f.label :current_balance %></p>
+		<p><%= f.text_field :balance %></p>
+		<p><%= f.label :job_date %></p>
+		<p><%= f.date_select :date_of_job %></p>
+		<p><%= f.label :time_of_job %></p>
+		<p><%= f.time_select :time, {ampm: true} %></p>
+		<p><%= f.label :notes %></p>
+		<p><%= f.text_area :notes %></p>
+		<%#= f.hidden_field :client_id, value: @client.id %>
+		<p><%= f.submit "Add Job" %></p>
+	<% end %>
+</div>

@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+
  root 'sessions#index'
+
  resources :sessions
+ get 'users/calendar' => 'users#calendar'
  resources :users
- resources :clients
- resources :jobs
+ resources :clients do
+  resources :jobs
+ end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

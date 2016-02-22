@@ -1,0 +1,11 @@
+<%= month_calendar events: @jobs do |date, jobs| %>
+ 	<%= date %>
+	 	<% jobs.each do |job| %>
+		  <div>
+			  <% if job.client.user_id == current_user.id %>
+			  	<%= link_to "#{job.name}", client_job_path(job.client_id,job.id) %>
+			  	<%#= job.time.strftime("%I:%M %p") %>
+			  <% end %>
+		  </div>	
+	  	<% end %>
+<% end %>
