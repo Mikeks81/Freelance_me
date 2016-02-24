@@ -1,39 +1,51 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-Hello <%= @user.fname %>
 
-
-<div class="add_client_form">
-	<h3>Add a Client</h3>
-	<% if flash[:notice] %>
-		<%= flash[:notice] %>
-	<%end%>
-	<%= button_tag "Add Client +", type: "button" %>
-	<%= form_for(@client, remote: true)  do |f| %>
-		<p><%= f.label :first_name %></p>
-		<p><%= f.text_field :fname %></p>
-		<p><%= f.label :last_name %></p>
-		<p><%= f.text_field :lname %></p>
-		<p><%= f.label :address %></p>
-		<p><%= f.text_field :address %></p>
-		<p><%= f.label :phone_number %></p>
-		<p><%= f.text_field :phone %></p>
-		<p><%= f.label :email %></p>
-		<p><%= f.text_field :email %></p>
-		<p><%= f.label :business_name %></p>
-		<p><%= f.text_field :business_name %></p>
-		<p><%= f.submit "Add Client"%></p>
-	<% end %>
+<div class="user_greeting">
+	<h2>Hello <%= @user.fname %></h2>
 </div>
 
-<div class="client_list_container">
-<h3>Client List</h3>
-	
+<div class="client_container">
+	<div class="add_client_form_container">
+		<h3>Add a Client</h3>
+		<% if flash[:notice] %>
+			<%= flash[:notice] %>
+		<%end%>
+		<%= button_tag "Add Client +", type: "button", id: :add_client_button %>
+		<div class="add_client_form">
+			<%= form_for(@client, remote: true)  do |f| %>
+				<p><%= f.label :first_name %></p>
+				<p><%= f.text_field :fname %></p>
+				<p><%= f.label :last_name %></p>
+				<p><%= f.text_field :lname %></p>
+				<p><%= f.label :address %></p>
+				<p><%= f.text_field :address %></p>
+				<p><%= f.label :phone_number %></p>
+				<p><%= f.text_field :phone %></p>
+				<p><%= f.label :email %></p>
+				<p><%= f.text_field :email %></p>
+				<p><%= f.label :business_name %></p>
+				<p><%= f.text_field :business_name %></p>
+				<p><%= f.submit "Submit"%></p>
+			<% end %>
+		</div>
+	</div>
+	<div class="client_list_container">
+		<h3>Client List</h3>
 		<div class="client_list">
 				<%= render partial: 'client_list', locals: {clients: @clients} %>
 		</div>
+	</div>
+</div>
 </div>
 
-<div class="container">
-<%= render partial: 'calendar', locals: {events: @jobs} %>
+
+<div class="calendar">
+	<div class="container">
+	<%= render partial: 'calendar', locals: {events: @jobs} %>
+	</div>
 </div>
+
+
+
+
+
+

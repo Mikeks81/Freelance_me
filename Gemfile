@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
 
+# wkhtmltopdf-binary is needed by wicked_pdf - it's a html to PDF renderer
+gem 'wkhtmltopdf-binary'
+# wicked_pdf is a wkhtmltopdf-binary wrapper
+gem 'wicked_pdf'
 gem 'bootstrap-sass', '~> 3.3.6'
+#simple_calendar generates a calendar and allows parsing of data from server to calendar dates.
 gem 'simple_calendar', '~> 2.0', '>= 2.0.6'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'

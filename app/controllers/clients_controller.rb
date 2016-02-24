@@ -1,4 +1,8 @@
 class ClientsController < ApplicationController
+  def index 
+    @clients = Client.all
+  end
+
   def create
     @user = current_user
     @client = current_user.clients.build(client_params)

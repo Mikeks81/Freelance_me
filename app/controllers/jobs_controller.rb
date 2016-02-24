@@ -18,7 +18,40 @@ class JobsController < ApplicationController
   def update
   end
 
+  def new 
+
+  end
+
   def show
+    @client = Client.find(params[:client_id])
+    @job = Job.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => 'file_name',
+        :template => 'jobs/show.pdf.erb',
+        :layout => 'pdf.html.erb',
+        :show_as_html => params[:debug].present?
+      end
+    end
+  end
+
+  def send_pdf
+    @client = Client.find(params[:client_id])
+    @job = Job.find(params[:id])
+    pdf = render_to_string :pdf => "file_name",
+        :template => 'jobs/show.pdf.erb',
+        :layout => 'pdf.html.erb'
+    JobPDF.pdf_email(pdf,@client,@job).deliver
+    # mail(:subject => 'Your Invoice', :to => @client.email) do |format|
+    #   format.text
+    #   format.pdf do
+    #     attachments['invoice.pdf'] = WickedPdf.new.pdf_from_string(
+    #       render_to_string(:pdf => "file_name",:template => 'jobs/show.pdf.erb',
+    #         :layout => 'pdf.html.erb')
+    #       )
+    #   end
+    # end
   end
 
   def destroy
