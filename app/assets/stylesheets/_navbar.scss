@@ -1,0 +1,21 @@
+@mixin margin_padding($num){
+	margin: $num;
+	padding: $num;
+}
+
+.nav_bar{
+	position: fixed;
+	width: 100px;
+	height: 100vh;
+	box-shadow: 0 0 6px #ccc;
+	float: left;
+
+	ul {
+		list-style: none;
+		@include margin_padding(0)
+	}
+	a {
+		text-decoration: none;
+		color: #888;
+	}
+}

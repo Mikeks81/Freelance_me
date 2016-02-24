@@ -9,7 +9,8 @@ Rails.application.routes.draw do
  resources :clients do
   resources :jobs
   get '/jobs/:id/invoice' => 'jobs#invoice'
- end
+  get '/jobs/:id/send_pdf' => 'jobs#send_pdf'
+ end  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

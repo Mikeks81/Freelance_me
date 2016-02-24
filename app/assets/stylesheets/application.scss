@@ -16,16 +16,75 @@
  */
 // @import "bootstrap-sprockets";
 // @import "bootstrap";
+
+@mixin margin_padding($num){
+	margin: $num;
+	padding: $num;
+}
+
 *{
 	font-family: Arial;
+	color: #888;
 }
 
-.container{
-	width: 80%;
-	margin: 0 auto;	
 
+
+body{
+	@include margin_padding(0);
 }
 
-#cke_editor1{
-	width: 60%;
+
+@import 'navbar';
+
+.site_container{
+	margin-left: 100px;
+	padding: 20px;
 }
+
+.user_greeting{
+	width: 90%;
+	top: 0;
+}
+.client_container{
+	width:40%;
+	float: left;
+
+	.add_client_form_container{
+		width: 100%;
+	}
+	.add_client_form {
+		display:none;
+	}
+	.client_list_container{
+		width: 100%;
+
+		h3{
+			@include margin_padding(0);
+		}
+		.client_box{
+			padding-left: 10px;
+			border:1px solid #ccc;
+		}
+		p{ 
+			display: inline-block;
+		}
+		.client_job_list{
+			display: none;
+		}
+	}
+}
+
+.calendar{
+	width:50%;
+	float: left;
+	margin-right: 80px;
+	.container{
+		width: 100%;
+		margin: 0 auto;
+		margin-left: 40px;
+		display: inline-block;
+
+	}
+}
+
+

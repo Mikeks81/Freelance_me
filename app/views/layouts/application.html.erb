@@ -9,15 +9,12 @@
 </head>
 <body>
 <% if current_user %>
-<nav>
-	<div class="nav_bar">
+<div class="nav_bar">
+	<nav>	
 		<img src="http://placehold.it/100x100">
 		<ul>
 			<div class="nav_buttons">
 				<li><%= link_to "Dashboard", user_path(current_user) %></li>
-				<li><%= link_to "Clients", clients_path %></li>
-				<li><%#= link_to "Invoice", users_invoice_path %></li>
-				<li><%= link_to "Calendar", users_calendar_path %></li>
 				<li><%= link_to "Email", clients_path %></li>
 				<li><%= link_to "Analytics", clients_path %></li>
 				<li><%= link_to "Clients", clients_path %></li>
@@ -29,15 +26,16 @@
 				<li><%= link_to "Log In", sessions_path %></li>
 			<% end %>
 			</div>
-		</ul>
-	</div>	
-</nav>
+		</ul>	
+	</nav>
+</div>
 <% end %>
 <% if flash[:notice] %>
 	<%= flash[:notice] %>
 <%end%>
-
+<div class="site_container">
 <%= yield %>
+</div>
 
 </body>
 </html>

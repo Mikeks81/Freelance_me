@@ -15,6 +15,9 @@
 	<p>Notes: <%= @job.notes%></p>
 	<p><%= link_to :controller => "jobs", :action =>'show', format: 'pdf' do %>
 		<%='Printable Receipt (PDF)' %>
+		<% end %></p>
+	<p><%= link_to :controller => "jobs", :action => "send_pdf", format: 'pdf', client_id: @client.id, id: @job.id do %>
+		<%= 'Email PDF' %>
 		<% end %>
 	</p>
 </div>
