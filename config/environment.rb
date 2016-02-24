@@ -1,5 +1,6 @@
 # Load the Rails application.
 require File.expand_path('../application', __FILE__)
+
 ActionMailer::Base.smtp_settings = {
   :user_name => ENV['SGUSER_NAME'],
   :password => ENV['SGPASSWORD'],

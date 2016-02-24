@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'pry'
 # wkhtmltopdf-binary is needed by wicked_pdf - it's a html to PDF renderer
 gem 'wkhtmltopdf-binary'
 # wicked_pdf is a wkhtmltopdf-binary wrapper
