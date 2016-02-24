@@ -39,40 +39,41 @@ body{
 .site_container{
 	margin-left: 100px;
 	padding: 20px;
+	overflow: auto;
 }
 
 .user_greeting{
 	width: 90%;
 	top: 0;
 }
-.client_container{
-	width:40%;
-	float: left;
+// .client_container{
+// 	width:40%;
+// 	float: left;
 
-	.add_client_form_container{
-		width: 100%;
-	}
+// 	.add_client_form_container{
+// 		width: 100%;
+// 	}
 	.add_client_form {
 		display:none;
 	}
-	.client_list_container{
-		width: 100%;
+// 	.client_list_container{
+// 		width: 100%;
 
-		h3{
-			@include margin_padding(0);
-		}
-		.client_box{
-			padding-left: 10px;
-			border:1px solid #ccc;
-		}
-		p{ 
-			display: inline-block;
-		}
-		.client_job_list{
-			display: none;
-		}
-	}
-}
+// 		h3{
+// 			@include margin_padding(0);
+// 		}
+// 		.client_box{
+// 			padding-left: 10px;
+// 			border:1px solid #ccc;
+// 		}
+// 		p{ 
+// 			display: inline-block;
+// 		}
+// 		.client_job_list{
+// 			display: none;
+// 		}
+// 	}
+// }
 
 .calendar{
 	width:50%;
@@ -87,4 +88,10 @@ body{
 	}
 }
 
+// ######## Job Show ############
+.job_list_show {
+	width: 60%;
+	height: 100vh;
+	float: left;
+}
 

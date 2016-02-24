@@ -7,6 +7,27 @@
   
 </head>
 <body>
+<h1>Jobs#show</h1>
+<p>Find me in app/views/jobs/show.html.erb</p>
+<div class="client_list">
+		<%#= render partial: 'client_list', locals: {clients: @clients} %>
+</div>
+
+<div class="job_list">
+	<p>Client Name: <%= @job.client.fname%></p>
+	<p>Job Name: <%= @job.name%></p>
+	<p>Job Description: <%= @job.job_description%></p>
+	<p>Date of Job: <%= @job.date_of_job%></p>
+	<p>Time: <%= @job.time.strftime("%I:%M %p")%></p>
+	<p>Price: <%= @job.price%></p>
+	<p>Balance: <%= @job.balance%></p>
+	<p>Notes: <%= @job.notes%></p>
+	<p><%#= link_to 'Printable Receipt (PDF)', url_for([@client,@job],:controller => "jobs", :action =>'invoice', format: 'pdf') %></p>
+	<p><%#= link_to :controller => "jobs", :action =>'invoice', format: 'pdf' do %>
+		<%#='Printable Receipt (PDF)' %>
+		<%# end %>
+	</p>
+</div>
 
 <script src=""></script>
 </body>

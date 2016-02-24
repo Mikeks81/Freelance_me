@@ -42,7 +42,7 @@ class JobsController < ApplicationController
     pdf = render_to_string :pdf => "file_name",
         :template => 'jobs/show.pdf.erb',
         :layout => 'pdf.html.erb'
-    JobPDF.pdf_email(pdf,@client,@job).deliver
+    JobPDF.pdf_email(pdf,@client,@job).deliver_now
     # mail(:subject => 'Your Invoice', :to => @client.email) do |format|
     #   format.text
     #   format.pdf do

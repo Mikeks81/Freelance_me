@@ -1,23 +1,47 @@
-<h1>Jobs#show</h1>
-<p>Find me in app/views/jobs/show.html.erb</p>
+<h3>Client Info</h3>
 <div class="client_list">
 		<%#= render partial: 'client_list', locals: {clients: @clients} %>
 </div>
 
-<div class="job_list">
-	<p>Client Name: <%= @job.client.fname%></p>
-	<p>Job Name: <%= @job.name%></p>
-	<p>Job Description: <%= @job.job_description%></p>
-	<p>Date of Job: <%= @job.date_of_job%></p>
-	<p>Time: <%= @job.time%></p>
-	<p>Price: <%= @job.price%></p>
-	<p>Balance: <%= @job.balance%></p>
-	<p>Notes: <%= @job.notes%></p>
-	<p><%= link_to :controller => "jobs", :action =>'show', format: 'pdf' do %>
-		<%='Printable Receipt (PDF)' %>
-		<% end %></p>
-	<p><%= link_to :controller => "jobs", :action => "send_pdf", format: 'pdf', client_id: @client.id, id: @job.id do %>
-		<%= 'Email PDF' %>
-		<% end %>
-	</p>
+<div class="job_list_show">
+	<div class="edit_job">
+		<%= button_tag "Edit Job", type: "button", id: :edit_job_button %>
+	</div>
+		<p>Client Name: <%= @job.client.fname%></p>
+		<p>Job Name: <%= @job.name%></p>
+		<p>Job Description: <%= @job.job_description%></p>
+		<p>Date of Job: <%= @job.date_of_job%></p>
+		<p>Time: <%= @job.time.strftime("%I:%M %p")%></p>
+		<p>Price: <%= @job.price%></p>
+		<p>Balance: <%= @job.balance%></p>
+		<p>Notes: <%= @job.notes%></p>
+			<div class="pdf_options">
+				<p><%= link_to :controller => "jobs", :action =>'show', format: 'pdf' do %>
+						<%='Printable (PDF)' %>
+						<% end %></p>
+					<p><%= link_to :controller => "jobs", :action => "send_pdf", format: 'pdf', client_id: @client.id, id: @job.id do %>
+						<%= 'Email (PDF)' %></p>
+				</div>
+			<% end %>
+</div>
+<div class="edit_job_form">
+	<h3>Edit Job</h3>
+	<%= form_for [@client,@job] do |f| %>
+		<p><%= f.label :name %></p>
+		<p><%= f.text_field :name %></p>
+		<p><%= f.label :description_of_job %></p>
+		<p><%= f.text_area :job_description %></p>
+		<p><%= f.label :price %></p>
+		<p><%= f.text_field :price %></p>
+		<p><%= f.label :current_balance %></p>
+		<p><%= f.text_field :balance %></p>
+		<p><%= f.label :job_date %></p>
+		<p><%= f.date_select :date_of_job %></p>
+		<p><%= f.label :time_of_job %></p>
+		<p><%= f.time_select :time, {ampm: true} %></p>
+		<p><%= f.label :notes %></p>
+		<p><%= f.text_area :notes %></p>
+		<%#= f.hidden_field :client_id, value: @client.id %>
+		<p><%= f.submit "Update" %></p>
+	<% end %>
 </div>
