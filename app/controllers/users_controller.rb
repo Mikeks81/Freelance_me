@@ -31,9 +31,20 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = current_user
+
   end
 
   def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    if @user.save
+      flash[:notice] = "Account Updated"
+      redirect_to edit_user_path(@user)
+    else
+      flash[:notice] = "#{errors.full_messages.first}"
+      redirect_to edit_user_path(@user)
+    end
   end
 
   def calendar
@@ -46,6 +57,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user = current_user
+    @user.destroy
+    flash[:notice] = "Account Removed"
+    redirect_to @user
   end
 
   private 

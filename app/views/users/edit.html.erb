@@ -1,2 +1,27 @@
 <h1>Users#edit</h1>
 <p>Find me in app/views/users/edit.html.erb</p>
+<h3>Account Details</h3>
+
+<div class="user_profile">
+	<h4>Profile</h4>
+
+	<p>First Name: <%= @user.fname %></p>
+	<p>Last Name: <%= @user.lname %></p>
+	<p>Email: <%= @user.email %></p>
+	<p>Business Name: <%= @user.business_name %></p>
+	<p>Number of Clients: <%= @user.clients.count %></p>
+</div>
+<!-- <p>Number of Jobs: </p> -->
+<div class="edit_user_form">
+	<%= form_for @user do |f| %>
+	<p><%= f.label :first_name %></p>
+	<p><%= f.text_field :fname %></p>
+	<p><%= f.label :last_name %></p>
+	<p><%= f.text_field :lname %></p>
+	<p><%= f.label :email %></p>
+	<p><%= f.text_field :email %></p>
+	<p><%= f.label :business_name %></p>
+	<p><%= f.text_field :business_name %></p>
+	<p><%= f.submit "Edit Account" %></p>
+	<% end %>
+</div>

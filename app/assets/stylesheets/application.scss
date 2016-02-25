@@ -46,34 +46,35 @@ body{
 	width: 90%;
 	top: 0;
 }
-// .client_container{
-// 	width:40%;
-// 	float: left;
-
-// 	.add_client_form_container{
-// 		width: 100%;
-// 	}
-	.add_client_form {
-		display:none;
+.client_container{
+	width: 42%;
+	max-width: 42%;
+	float:left;
+	.add_client_button button{
+		width: 100%;
+		border: 1px solid #ccc;
+		border-radius: 3px;
+		background: transparent;
 	}
-// 	.client_list_container{
-// 		width: 100%;
+	.add_client_form{
+		display: none;
+	}
+	.client_box{
+		border: 1px solid #ccc;
+		border-radius: 3px;
+		margin: 5px;
+		padding: 10px;
+	}
+	.client_box p {
+		display: inline-block;
+		font-size: 13px;
+	}
 
-// 		h3{
-// 			@include margin_padding(0);
-// 		}
-// 		.client_box{
-// 			padding-left: 10px;
-// 			border:1px solid #ccc;
-// 		}
-// 		p{ 
-// 			display: inline-block;
-// 		}
-// 		.client_job_list{
-// 			display: none;
-// 		}
-// 	}
-// }
+	.client_job_list{
+		display: none;
+	}
+
+}
 
 .calendar{
 	width:50%;
@@ -85,6 +86,31 @@ body{
 		margin-left: 40px;
 		display: inline-block;
 
+	}
+	.calendar_nav{
+		margin-bottom: 3px;
+	}
+	.calendar_back{
+		width: 40px;
+		display: inline-block;
+		border: 1px solid #ccc;
+		border-radius: 3px;
+		text-align: center;
+	}
+	.calendar_back a {
+		padding: 10px;
+		text-decoration: none;
+	}
+	.calendar_fwd{
+		width: 40px;
+		display: inline-block;
+		border: 1px solid #ccc;
+		border-radius: 3px;
+		text-align: center;
+	}
+	.calendar_fwd a {
+		padding: 10px;
+		text-decoration: none;
 	}
 }
 

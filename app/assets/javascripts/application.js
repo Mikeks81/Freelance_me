@@ -15,14 +15,20 @@
 //= require_tree .
 
 $(function(){
+
 	$('#add_client_button').on('click',
 		function(){
 			$('.add_client_form').toggle(350);
 		});
 	$("#show_jobs").on('click',
-		function(){
-			$('.client_job_list').toggle(100);
-			
-
+		function(e){
+			e.preventDefault();
+			// $('.client_job_list').toggle(100);
+			$(this).parent().next().toggle(100);
 		});
+	$("#add_client_submit").on('click',
+		function(){
+			$('.add_client_form').toggle(350);
+		});
+	
 });

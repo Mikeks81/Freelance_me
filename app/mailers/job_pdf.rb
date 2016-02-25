@@ -1,4 +1,4 @@
-class JobPDF < ApplicationMailer
+class JobPdf < ApplicationMailer
 	default :from => 'info@MichaelSimonitsch.com'
 
 	def pdf_email(pdf=nil, client, job)
@@ -12,6 +12,10 @@ class JobPDF < ApplicationMailer
  #    :subject => 'Invoice from #{@user.fname}" "#{@user.lname}' )
  #  	end
 
-  	
+	  def send_signup_email(user)
+		@user = user
+	mail( :to => @user.email,
+	:subject => 'Thanks for signing up for our amazing app' )
+  end
 
 end

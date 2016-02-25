@@ -24,6 +24,9 @@
 				</div>
 			<% end %>
 </div>
+<div class="delete_job">
+	<%= link_to 'Delete Job', [@client,@job], method: :delete %>	
+</div>
 <div class="edit_job_form">
 	<h3>Edit Job</h3>
 	<%= form_for [@client,@job] do |f| %>
