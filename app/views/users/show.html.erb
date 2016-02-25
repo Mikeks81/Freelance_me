@@ -1,3 +1,50 @@
+<div class="outer_modal">
+	<div class="inner_modal">
+	<p class="modal_close_button"><a href="#">&#10008;</a></p>
+	<h2>Add Client</h2>
+		<div class="add_client_form">
+			<%= form_for @client do |f| %>
+				<div class="form_label_field">
+					<p><%= f.label :first_name %> :</p>
+					<p><%= f.text_field :fname %></p>
+				</div>
+				<div class="form_label_field">
+				<p><%= f.label :last_name %> :</p>
+				<p><%= f.text_field :lname %></p>
+				</div>
+				<div class="form_label_field">
+				<p><%= f.label :street_and_apt %> :</p>
+				<p><%= f.text_field :street %></p>
+				</div>
+				<div class="form_label_field">
+				<p><%= f.label :city %> :</p>
+				<p><%= f.text_field :city %></p>
+				</div>
+				<div class="form_label_field">
+				<p><%= f.label :state %> :</p>
+				<p><%= f.text_field :state %>
+				</div>
+				<div class="form_label_field">
+				<p><%= f.label :zip %> :</p>
+				<p><%= f.text_field :zip %></p>
+				</div>
+				<div class="form_label_field">
+				<p><%= f.label :phone_number %> :</p>
+				<p><%= f.text_field :phone %></p>
+				</div>
+				<div class="form_label_field">
+				<p><%= f.label :email %> :</p>
+				<p><%= f.text_field :email %></p>
+				</div>
+				<div class="form_label_field">
+				<p><%= f.label :business_name %> :</p>
+				<p><%= f.text_field :business_name %></p>
+				</div>
+				<p><%= f.submit "Submit", id: :add_client_submit %></p>
+			<% end %>
+		</div>
+	</div>
+</div>
 
 <div class="user_greeting">
 	<h2>Hello <%= @user.fname %></h2>
@@ -18,33 +65,17 @@
 			<%= button_tag "Add Client +", type: "button", id: :add_client_button %>
 		</div>
 	</div>
+
 	<div class="client_list_container">
 		<h3>Client List</h3>
-		<div class="add_client_form">
-			<%= form_for(@client, remote: true)  do |f| %>
-				<p><%= f.label :first_name %></p>
-				<p><%= f.text_field :fname %></p>
-				<p><%= f.label :last_name %></p>
-				<p><%= f.text_field :lname %></p>
-				<p><%= f.label :street_and_apt %></p>
-				<p><%= f.text_field :street %></p>
-				<p><%= f.label :city %></p>
-				<p><%= f.text_field :city %>
-				<p><%= f.label :state %></p>
-				<p><%= f.text_field :state %>
-				<p><%= f.label :zip %></p>
-				<p><%= f.text_field :zip %>
-				<p><%= f.label :phone_number %></p>
-				<p><%= f.text_field :phone %></p>
-				<p><%= f.label :email %></p>
-				<p><%= f.text_field :email %></p>
-				<p><%= f.label :business_name %></p>
-				<p><%= f.text_field :business_name %></p>
-				<p><%= f.submit "Submit", id: :add_client_submit %></p>
-			<% end %>
-		</div>
 	</div>
+
 	<div class="client_list">
 			<%= render partial: 'client_list', locals: {clients: @clients} %>
 	</div>
+
+</div>
+
+<div class="todo_list">
+	<%= render partial: 'todos/todo', locals: {todo: @todo, date: @date, todos: @todos} %>
 </div>

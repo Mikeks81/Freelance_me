@@ -3,20 +3,23 @@ class TodosController < ApplicationController
   	@user = current_user
   	@todo = Todo.new
   	@date = Date.today
-  	# @d = @d.strftime("%B%e%Y")
-  	@todos = Todo.all.last
+  	@todos = Todo.all
   end
   
   def create
-  	@user = current_user
-  	@todo = @user.todos.build(todo_params)
-  	if @todo.save
-  		flash[:notice] = "Task added"
-  		redirect_to todos_path
-  	else
-  		flash[:notice] = "#{errors.full_messages.first}"
-  		redirect_to todos_path
-  	end
+      @date = Date.today
+      @todos = Todo.all
+  	@todo = current_user.todos.build(todo_params)
+  	# respond_to do |format|
+	  	if @todo.save
+	  		# format.html { redirect_to user_show(current_user), notice: "Task added"}
+	  		# format.js
+	  		redirect_to user_path(current_user)
+	  	else
+	  		# format.html { redirect_to user_path(current_user), alert: "Task could not be removed" }
+	  		redirect_to user_path(current_user)
+	  	end
+	  # end
   end
   
   def show
@@ -24,12 +27,23 @@ class TodosController < ApplicationController
   end
 
   def destroy
-  
+  	@todo = Todo.find(params[:id])
+		respond_to do |format|
+	  	if @todo.destroy
+  			format.html {redirect_to user_show(current_user), notice: "Task Removed"}
+  			format.js 
+  		else
+  			format.html { redirect_to user_path(current_user), alert: "Task Could not be Removed" }
+  		end 
+
+  	end
+  	# flash[:notice] = "Task Removed"
+  	# redirect_to user_path(current_user)
   end
 
   private
 
   def todo_params
-  	params.require(:todo).permit(:item, :date)
+  	params.require(:todo).permit(:item, :date, :completed)
   end
 end

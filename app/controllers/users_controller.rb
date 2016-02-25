@@ -21,6 +21,9 @@ class UsersController < ApplicationController
       @client = Client.new
       @clients = Client.all
       @jobs = Job.all
+      @todo = Todo.new
+      @date = Date.today
+      @todos = Todo.all
       respond_to do |format|
         format.html
         format.js

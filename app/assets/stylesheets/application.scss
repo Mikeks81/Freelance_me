@@ -41,7 +41,59 @@ body{
 	padding: 20px;
 	overflow: auto;
 }
+.outer_modal{
+	position: fixed;
+	width: 90%;
+	height: 95vh;
+	background-color: rgba(147, 147, 147, 0.85);
+	display: none;
+	.inner_modal{
+		width: 470px;
+		margin: 0 auto;
+		text-align: center;
+	}
+	.modal_close_button{
+		@include margin_padding(0);
+		position: absolute;
+		right: 30px;
+		top: 20px;
+		font-size: 30px;
+	}
+	.modal_close_button a {
+		color: white;
+		padding: 10px;
+		text-decoration: none;
+	}
+	.form_label_field{
+		display:flex;
+		justify-content: space-between;
+	}
+	.form_label_field label,p,h2{
+		color: white;
+	}
+	.form_label_field label {
+		font-size: 20px;
+	}
+	.form_label_field input {
+		width: 300px;
+		height: 30px;
+		color: white;
+		font-size: 20px;
+		border-radius: 3px;
+		background-color: transparent;
+		border: 1px solid white;
+	}
+	#add_client_submit{
+		width: 100%;
+		height: 30px;
+		color: white;
+		font-size: 20px;
+		border-radius: 3px;
+		border: 1px solid white;
+		background: transparent;
 
+	}
+}
 .user_greeting{
 	width: 90%;
 	top: 0;
@@ -55,9 +107,6 @@ body{
 		border: 1px solid #ccc;
 		border-radius: 3px;
 		background: transparent;
-	}
-	.add_client_form{
-		display: none;
 	}
 	.client_box{
 		border: 1px solid #ccc;
@@ -84,6 +133,8 @@ body{
 		width: 100%;
 		margin: 0 auto;
 		margin-left: 40px;
+		margin-bottom: 30px;
+
 		display: inline-block;
 
 	}
@@ -111,6 +162,26 @@ body{
 	.calendar_fwd a {
 		padding: 10px;
 		text-decoration: none;
+	}
+}
+
+.todo_list{
+	float: left;
+	width: 45.8%;
+	margin-left: 40px;
+	padding: 0 2% 2% 2%;
+	border: 1px solid #ccc;
+	h3, h4 {
+		text-align:  center;
+	}
+	.todo_titles{
+		display: flex;
+		justify-content: space-between;
+	}
+	.todo_items{
+		border-bottom: 1px solid #ccc;
+		display: flex;
+		justify-content: space-between;
 	}
 }
 
