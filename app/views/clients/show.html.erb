@@ -5,12 +5,14 @@
 </div>
 <div class="client_info">
 	<h3>Client Info</h3>
-		<p><%= @client.fname %></p>
-		<p><%= @client.lname %></p>
-		<p><%= @client.address %></p>
-		<p><%= @client.business_name %></p>
-		<p><%= @client.email %></p>
-		<p><%= @client.phone %></p>
+		<p><strong>Name:</strong> <%= @client.fname %><%= @client.lname %></p>
+		<p><strong>Address:</strong> <%= @client.street %>
+		<%= @client.state %>
+		<%= @client.city %>,
+		<%= @client.zip %></p>
+		<p><strong>Business Name:</strong> <%= @client.business_name %></p>
+		<p><strong>Email: </strong><%= @client.email %></p>
+		<p><strong>Phone: </strong><%= @client.phone %></p>
 </div>
 
 <div class="add_job_form">
@@ -45,8 +47,14 @@
 		<p><%= f.text_field :fname %></p>
 		<p><%= f.label :last_name %></p>
 		<p><%= f.text_field :lname %></p>
-		<p><%= f.label :address %></p>
-		<p><%= f.text_field :address %></p>
+		<p><%= f.label :street_and_apt %></p>
+		<p><%= f.text_field :street %></p>
+		<p><%= f.label :city %></p>
+		<p><%= f.text_field :city %></p>
+		<p><%= f.label :state %></p>
+		<p><%= f.text_field :state %></p>
+		<p><%= f.label :zip%></p>
+		<p><%= f.text_field :zip %></p>
 		<p><%= f.label :phone_number %></p>
 		<p><%= f.text_field :phone %></p>
 		<p><%= f.label :email %></p>

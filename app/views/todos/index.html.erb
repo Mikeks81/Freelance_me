@@ -1,0 +1,10 @@
+<h1>Todos#index</h1>
+<p>Find me in app/views/todos/index.html.erb</p>
+<h3>Todo List</h3>
+<p>Todo list for:</p>
+<%= @date.strftime("%b %d, %Y")%>
+<%= form_for @todo do |f| %>
+<p><%= f.date_field :date %></p>
+<p><%= f.text_field :item, placeholder: :task %></p>
+<p><%= f.submit "Add Task"%></p>
+<% end %>

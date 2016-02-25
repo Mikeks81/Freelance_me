@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
  root 'sessions#index'
 
  resources :sessions
@@ -11,6 +10,7 @@ Rails.application.routes.draw do
   get '/jobs/:id/invoice' => 'jobs#invoice'
   get '/jobs/:id/send_pdf' => 'jobs#send_pdf'
  end  
+ resources :todos
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
