@@ -1,10 +1,10 @@
 <% @clients.each do |c| %>
 	<% if c.user_id == current_user.id %>
 		<div class="client_box">
-			<p><%= c.fname %><%= c.lname %></p>
-			<p><%= c.business_name %></p>
-			<p><%= c.email %></p>
-			<p><%= link_to "View Client", client_path(c) 	%>
+			<p><strong>Name:</strong> <%= c.fname %> <%= c.lname %></p>
+			<p><strong>Business:</strong> <%= c.business_name %></p>
+			<p><strong>Email: </strong><%= c.email %></p>
+			<p><%= link_to "View Client", client_path(c) %>
 			<%= link_to "Show Jobs (#{c.jobs.count})", "#", id: :show_jobs %> 
 			</p>
 			<div class="client_job_list">
@@ -18,8 +18,8 @@
 					<% end %>
 				<% end %>
 			</div>
-		<% elsif current_user.clients.count == 0 %>
-			<p>You have no Clients.</p>
 		</div>
-	<% end %>
+	<% elsif current_user.clients.count == 0 %>
+					<p>You have no Clients.</p>
+	<% end %>	
 <% end %>

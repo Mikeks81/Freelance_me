@@ -1,6 +1,8 @@
 <h1>Clients#show</h1>
 <p>Find me in app/views/clients/show.html.erb</p>
-
+<div class="delete_client">
+	<%= link_to "Delete Client", @client, method: :delete %>
+</div>
 <div class="client_info">
 	<h3>Client Info</h3>
 		<p><%= @client.fname %></p>
@@ -35,3 +37,25 @@
 		<p><%= f.submit "Add Job" %></p>
 	<% end %>
 </div>
+
+<div class="edit_client_form">
+	<h3>Update Client Info</h3>
+	<%= form_for @client do |f| %>
+		<p><%= f.label :first_name %></p>
+		<p><%= f.text_field :fname %></p>
+		<p><%= f.label :last_name %></p>
+		<p><%= f.text_field :lname %></p>
+		<p><%= f.label :address %></p>
+		<p><%= f.text_field :address %></p>
+		<p><%= f.label :phone_number %></p>
+		<p><%= f.text_field :phone %></p>
+		<p><%= f.label :email %></p>
+		<p><%= f.text_field :email %></p>
+		<p><%= f.label :business_name %></p>
+		<p><%= f.text_field :business_name %></p>
+		<p><%= f.submit "Submit", id: :edit_client_submit %></p>
+	<% end %>
+</div>
+
+
+

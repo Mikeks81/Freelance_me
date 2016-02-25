@@ -2,6 +2,11 @@
 <div class="user_greeting">
 	<h2>Hello <%= @user.fname %></h2>
 </div>
+<div class="calendar">
+	<div class="container">
+	<%= render partial: 'calendar', locals: {events: @jobs} %>
+	</div>
+</div>
 
 <div class="client_container">
 	<div class="add_client_form_container">
@@ -9,7 +14,12 @@
 		<% if flash[:notice] %>
 			<%= flash[:notice] %>
 		<%end%>
-		<%= button_tag "Add Client +", type: "button", id: :add_client_button %>
+		<div class="add_client_button">
+			<%= button_tag "Add Client +", type: "button", id: :add_client_button %>
+		</div>
+	</div>
+	<div class="client_list_container">
+		<h3>Client List</h3>
 		<div class="add_client_form">
 			<%= form_for(@client, remote: true)  do |f| %>
 				<p><%= f.label :first_name %></p>
@@ -24,20 +34,11 @@
 				<p><%= f.text_field :email %></p>
 				<p><%= f.label :business_name %></p>
 				<p><%= f.text_field :business_name %></p>
-				<p><%= f.submit "Submit"%></p>
+				<p><%= f.submit "Submit", id: :add_client_submit %></p>
 			<% end %>
 		</div>
 	</div>
-	<div class="client_list_container">
-		<h3>Client List</h3>
-		<div class="client_list">
+	<div class="client_list">
 			<%= render partial: 'client_list', locals: {clients: @clients} %>
-		</div>
-	</div>
-</div>
-<p></p>
-<div class="calendar">
-	<div class="container">
-	<%= render partial: 'calendar', locals: {events: @jobs} %>
 	</div>
 </div>

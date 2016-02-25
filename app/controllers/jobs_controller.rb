@@ -55,6 +55,10 @@ class JobsController < ApplicationController
   end
 
   def destroy
+    @job = Job.find(params[:id])
+    @job.destroy
+    flash[:notice] = "Job Removed."
+    redirect_to user_path(current_user)
   end
 
   private 
