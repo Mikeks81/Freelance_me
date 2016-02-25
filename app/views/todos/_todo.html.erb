@@ -1,0 +1,18 @@
+<h3>Todo List</h3>
+<h4><%= @date.strftime("%b %d, %Y")%></h4>
+<div class="todo_titles">
+	<strong>Todo List</strong> <strong>Date</strong><strong>Menu</strong>
+</div>
+
+<% @todos.each do |t| %>
+	<div class="todo_items" id="todo_<%= t.id %>">
+		<p><%= t.item %></p>
+    	<p><%= t.date.strftime('%m/%d/%Y') %></p>
+    	<p><%= link_to "Delete", todo_path(t), method: :delete, remote: true %></p>
+    </div>
+<% end %>
+<%= form_for(@todo, remote: true) do |f| %>
+	<p><%= f.hidden_field :date, value: @date.strftime("%b %d, %Y")  %></p>
+	<p><%= f.text_field :item, placeholder: :task %></p>
+	<p><%= f.submit "Add Task"%></p>
+<% end %>

@@ -25,7 +25,7 @@ module FreelanceTool
 
     config.beginning_of_week = :sunday
     config.time_zone = 'Eastern Time (US & Canada)'
-    config.active_record.default_timezone = 'Eastern Time (US & Canada)'
+    # config.active_record.default_timezone = 'Eastern Time (US & Canada)'
 
   end
 end

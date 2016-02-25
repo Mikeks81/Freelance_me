@@ -1,10 +1,16 @@
 <h1>Todos#index</h1>
 <p>Find me in app/views/todos/index.html.erb</p>
 <h3>Todo List</h3>
-<p>Todo list for:</p>
+<p>Todo list</p>
 <%= @date.strftime("%b %d, %Y")%>
+<% @todos.each do |t| %>
+	<p><%= t.item %>
+	   <%= t.date %>
+	   <%= link_to "Delete", todo_path(t), method: :delete %>
+	</p>
+<% end %>
 <%= form_for @todo do |f| %>
-<p><%= f.date_field :date %></p>
+<p><%= f.hidden_field :date, value: @date.strftime("%b %d, %Y")  %></p>
 <p><%= f.text_field :item, placeholder: :task %></p>
 <p><%= f.submit "Add Task"%></p>
 <% end %>

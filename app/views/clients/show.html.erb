@@ -32,7 +32,7 @@
 		<p><%= f.label :job_date %></p>
 		<p><%= f.date_select :date_of_job %></p>
 		<p><%= f.label :time_of_job %></p>
-		<p><%= f.time_select :time, {ampm: true} %></p>
+		<p><%= f.time_select :time, {minute_step: 15, ampm: true} %></p>
 		<p><%= f.label :notes %></p>
 		<p><%= f.text_area :notes %></p>
 		<%#= f.hidden_field :client_id, value: @client.id %>

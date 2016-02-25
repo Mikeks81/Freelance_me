@@ -18,7 +18,15 @@ $(function(){
 
 	$('#add_client_button').on('click',
 		function(){
-			$('.add_client_form').toggle(350);
+			$('.outer_modal').fadeIn(150);
+		});
+	$("#add_client_submit").on('click',
+		function(){
+			$('.outer_modal').fadeOut(150);
+		});
+	$('.modal_close_button').on('click',
+		function(){
+			$('.outer_modal').fadeOut(150);
 		});
 	$("#show_jobs").on('click',
 		function(e){
@@ -26,9 +34,7 @@ $(function(){
 			// $('.client_job_list').toggle(100);
 			$(this).parent().next().toggle(100);
 		});
-	$("#add_client_submit").on('click',
-		function(){
-			$('.add_client_form').toggle(350);
-		});
+	
+
 	
 });
