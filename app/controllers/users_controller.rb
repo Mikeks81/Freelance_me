@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   def index
     @user = User.new
+    # if params[:search]
+    #   @client_search = Client.search(params[:search]).order('created_at DESC')
+    #   redirect_to user_path(current_user)
+    # end
   end
 
   def create
@@ -17,10 +21,13 @@ class UsersController < ApplicationController
 
   def show
     if current_user
+      if params[:search]
+        @client_search = Client.search(params[:search]).order('created_at DESC')
+      end
       @user = User.find(params[:id])
       @client = Client.new
-      @clients = Client.all
-      @jobs = Job.all
+      @clients = Client.all.order('created_at DESC')
+      @jobs = Job.all.order('created_at DESC')
       @todo = Todo.new
       @date = Date.today
       @todos = Todo.all
@@ -30,6 +37,14 @@ class UsersController < ApplicationController
       end
     else 
       redirect_to root_path
+    end
+  end
+
+  def search
+    if params[:search]
+      @client_search = Client.search(params[:search]).order('created_at DESC')
+    else
+      @client_search = Client.all.order('created_at DESC')
     end
   end
 

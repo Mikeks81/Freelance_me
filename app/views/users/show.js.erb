@@ -4,3 +4,5 @@ $(".container").html("<%= j render(partial: 'calendar', locals: {events: @jobs})
 $(".todo_list").html("<%= j render(partial: 'todos/todo', locals: {todo: @todo, date: @date, todos: @todos}) %>");
 $(".todo_items").last().css('display', 'none')
 $(".todo_items").last().slideDown();
+
+$("#partial_client_search").html("<%= j render(partial: 'client_search') %>");
