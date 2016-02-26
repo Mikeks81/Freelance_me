@@ -58,20 +58,45 @@
 <div class="client_container">
 	<div class="add_client_form_container">
 		<h3>Add a Client</h3>
-		<% if flash[:notice] %>
-			<%= flash[:notice] %>
-		<%end%>
+
 		<div class="add_client_button">
 			<%= button_tag "Add Client +", type: "button", id: :add_client_button %>
 		</div>
+
 	</div>
 
 	<div class="client_list_container">
 		<h3>Client List</h3>
 	</div>
 
+	<div id="client_menu">
+		<div class="all_clients">
+			<%= link_to "All Clients", "#" %>
+		</div>
+		<div class="search_results">
+			<%= link_to "Search", "#" %>
+		</div>
+	</div>
+
 	<div class="client_list">
-			<%= render partial: 'client_list', locals: {clients: @clients} %>
+		<%= render partial: 'client_list', locals: {clients: @clients} %>
+	</div>
+
+	<div id="client_search_wrapper">
+		<div class="job_search">
+			<%= form_tag(user_path, :method => "get", id: "search-form") do %>
+			<%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+			<%= submit_tag "Search" %>
+			<% end %>
+		</div>
+	
+		<div class="client_list">
+			<% if @client_search.present? %>
+				<%= render partial: 'client_search' %>
+			<% else %>
+				<p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+			<% end %>
+		</div>
 	</div>
 
 </div>

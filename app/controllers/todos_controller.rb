@@ -9,17 +9,12 @@ class TodosController < ApplicationController
   def create
       @date = Date.today
       @todos = Todo.all
-  	@todo = current_user.todos.build(todo_params)
-  	# respond_to do |format|
+  		@todo = current_user.todos.build(todo_params)
 	  	if @todo.save
-	  		# format.html { redirect_to user_show(current_user), notice: "Task added"}
-	  		# format.js
 	  		redirect_to user_path(current_user)
 	  	else
-	  		# format.html { redirect_to user_path(current_user), alert: "Task could not be removed" }
 	  		redirect_to user_path(current_user)
 	  	end
-	  # end
   end
   
   def show
@@ -35,10 +30,7 @@ class TodosController < ApplicationController
   		else
   			format.html { redirect_to user_path(current_user), alert: "Task Could not be Removed" }
   		end 
-
   	end
-  	# flash[:notice] = "Task Removed"
-  	# redirect_to user_path(current_user)
   end
 
   private

@@ -34,7 +34,21 @@ $(function(){
 			// $('.client_job_list').toggle(100);
 			$(this).parent().next().toggle(100);
 		});
-	
+	$('.all_clients').on('click', 
+		function(){
+			$('.all_clients').css('border', '1px solid #888');
+			$('.all_clients').css('display', 'block');
+			$('.search_results').css('border', '1px solid #ccc');
+			$('.search_results').css('display', 'none');
+
+		});
+	$('.search_results').on('click',
+		function(){
+			$('.all_clients').css('border', '1px solid #ccc');
+			$('.all_clients').css('display', 'none');
+			$('.search_results').css('border','1px solid #888');
+			$('.search_results').css('display','block');
+		});
 
 	
 });
