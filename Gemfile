@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# allows easy form customization and generations
+gem 'simple_form'
+
 gem 'pry'
 # wkhtmltopdf-binary is needed by wicked_pdf - it's a html to PDF renderer
 gem 'wkhtmltopdf-binary'

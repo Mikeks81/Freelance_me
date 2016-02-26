@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'jobitems/create'
+
+  get 'jobitems/update'
+
+  get 'expenses/create'
+
+  get 'expenses/update'
+
  root 'sessions#index'
 
  resources :sessions
@@ -11,6 +19,8 @@ Rails.application.routes.draw do
   get '/jobs/:id/send_pdf' => 'jobs#send_pdf'
  end  
  resources :todos
+ resources :expenses
+ resources :jobitems
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

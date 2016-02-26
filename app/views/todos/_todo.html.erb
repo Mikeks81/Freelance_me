@@ -8,7 +8,7 @@
 	<div class="todo_items" id="todo_<%= t.id %>">
 		<p><%= t.item %></p>
     	<p><%= t.date.strftime('%m/%d/%Y') %></p>
-    	<p><%= link_to "Delete", todo_path(t), method: :delete, remote: true %></p>
+    	<p><%= link_to "Completed", todo_path(t), method: :delete, remote: true %></p>
     </div>
 <% end %>
 <%= form_for(@todo, remote: true) do |f| %>

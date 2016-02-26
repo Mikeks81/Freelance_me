@@ -25,13 +25,14 @@ class JobsController < ApplicationController
   def show
     @client = Client.find(params[:client_id])
     @job = Job.find(params[:id])
+    @expense = Expense.new
+    @jobitem = Jobitem.new
     respond_to do |format|
       format.html
       format.pdf do
         render :pdf => 'file_name',
         :template => 'jobs/show.pdf.erb',
-        :layout => 'pdf.html.erb',
-        :show_as_html => params[:debug].present?
+        :layout => 'pdf.html.erb'
       end
     end
   end
