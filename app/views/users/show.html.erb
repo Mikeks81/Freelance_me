@@ -78,25 +78,25 @@
 		</div>
 	</div>
 
-	<div class="client_list">
+	<div class="client_list" id="all_client_list">
 		<%= render partial: 'client_list', locals: {clients: @clients} %>
 	</div>
 
 	<div id="client_search_wrapper">
 		<div class="job_search">
-			<%= form_tag(user_path, :method => "get", id: "search-form") do %>
+			<%= form_tag(user_path, :method => "get", id: "search-form", remote: true) do %>
 			<%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
 			<%= submit_tag "Search" %>
 			<% end %>
 		</div>
 	
+
 		<div class="client_list">
-			<% if @client_search.present? %>
+			<div id="partial_client_search">
 				<%= render partial: 'client_search' %>
-			<% else %>
-				<p>There are no posts containing the term(s) <%= params[:search] %>.</p>
-			<% end %>
+			</div>
 		</div>
+
 	</div>
 
 </div>

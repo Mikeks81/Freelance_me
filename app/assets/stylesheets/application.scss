@@ -125,20 +125,27 @@ body{
 
 	#client_menu{
 		width: 100%;
+		height: 25px;
 		display: flex;
 		justify-content: space-around;
 		.all_clients{
 			text-align: center;
 			width: 50%;
-			border: 1px solid #888;
+			padding-top: 3px;
+			background-color: #fc755d; 
 		}
 		
 		.search_results{
 			text-align: center;
 			width: 50%;
+			padding-top: 3px;
 			border: 1px solid #ccc;
 		}
-		.all_clients a, .search_results a{
+		.all_clients a{
+			text-decoration: none;
+			color: #ffffff;
+		}
+		.search_results a{
 			text-decoration: none;
 		}
 	}
@@ -194,7 +201,7 @@ body{
 	margin-left: 40px;
 	padding: 0 2% 2% 2%;
 	border: 1px solid #ccc;
-	h3, h4 {
+	h3, h4, #todo_date {
 		text-align:  center;
 	}
 	.todo_titles{
