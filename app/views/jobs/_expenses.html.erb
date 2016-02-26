@@ -1,0 +1,5 @@
+<%= simple_form_for expenses_path(@expense) do |f| %>
+	<%= f.input :description, placeholder: 'Expense Description', error: 'Please enter a description' %>
+	<%= f.input :amount, placeholder: 'Amount', error: 'Please enter an amount' %>
+	<%= f.button :submit %> 
+<% end %>

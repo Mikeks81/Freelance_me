@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  amount: 9.99
+  date: 2016-02-26
+  job_id: 
+
+two:
+  description: MyText
+  amount: 9.99
+  date: 2016-02-26
+  job_id: 

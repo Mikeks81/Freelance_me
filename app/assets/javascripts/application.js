@@ -48,9 +48,13 @@ $(function(){
 
 			$('.all_clients').css('border', 'none');
 
+			// $('.all_clients').css('width', '70%');
+
 			$('.search_results').css('background-color', '#ffffff');
 
 			$('.search_results').css('border', '1px solid #ccc');
+
+			// $('.search_results').css('width', '30%');
 
 			$('.search_results').css('border-left', 'none');
 

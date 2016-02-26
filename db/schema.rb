@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160225151801) do
+ActiveRecord::Schema.define(version: 20160226205141) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,28 @@ ActiveRecord::Schema.define(version: 20160225151801) do
   end
 
   add_index "clients", ["user_id"], name: "index_clients_on_user_id", using: :btree
+
+  create_table "expenses", force: :cascade do |t|
+    t.text     "description"
+    t.decimal  "amount"
+    t.date     "date"
+    t.integer  "job_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "expenses", ["job_id"], name: "index_expenses_on_job_id", using: :btree
+
+  create_table "jobitems", force: :cascade do |t|
+    t.text     "name"
+    t.date     "date"
+    t.decimal  "price"
+    t.integer  "job_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "jobitems", ["job_id"], name: "index_jobitems_on_job_id", using: :btree
 
   create_table "jobs", force: :cascade do |t|
     t.integer  "client_id"
@@ -73,6 +95,8 @@ ActiveRecord::Schema.define(version: 20160225151801) do
   end
 
   add_foreign_key "clients", "users"
+  add_foreign_key "expenses", "jobs"
+  add_foreign_key "jobitems", "jobs"
   add_foreign_key "jobs", "clients"
   add_foreign_key "todos", "users"
 end
