@@ -1,0 +1,6 @@
+<%= form_for ([@client,@job,@jobitem]) do |f| %>
+	<%= f.text_field :name, placeholder: :name %>
+	<%= f.date_field :date %>
+	<%= f.text_field :price, placeholder: :price %>
+	<p><%= f.submit 'Add Item' %></p>
+<% end %>

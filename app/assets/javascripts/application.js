@@ -32,10 +32,9 @@ $(function(){
 
 	// ### show and hide jobs of each client on User/show ## 
 
-	$("#show_jobs").on('click',
+	$("#show_jobs a").on('click',
 		function(e){
 			e.preventDefault();
-			// $('.client_job_list').toggle(100);
 			$(this).parent().next().toggle(100);
 		});
 
