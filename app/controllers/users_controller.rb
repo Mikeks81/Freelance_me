@@ -30,7 +30,7 @@ class UsersController < ApplicationController
       @jobs = Job.all.order('created_at DESC')
       @todo = Todo.new
       @date = Date.today
-      @todos = Todo.all
+      @todos = Todo.where(user_id: current_user.id)
       respond_to do |format|
         format.html
         format.js

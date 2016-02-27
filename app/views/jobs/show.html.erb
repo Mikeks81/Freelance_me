@@ -48,7 +48,7 @@
 
 	<div class="pdf_options">
 	<p><%= link_to :controller => "jobs", :action =>'show', format: 'pdf' do %>
-			<%='Printable (PDF)' %>
+			<%='View/Print (PDF)' %>
 			<% end %>
 	</p>
 	<p><%= link_to :controller => "jobs", :action => "send_pdf", format: 'pdf', client_id: @client.id, id: @job.id do %>
