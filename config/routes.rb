@@ -1,12 +1,4 @@
 Rails.application.routes.draw do
-  get 'jobitems/create'
-
-  get 'jobitems/update'
-
-  get 'expenses/create'
-
-  get 'expenses/update'
-
  root 'sessions#index'
 
  resources :sessions
@@ -14,13 +6,16 @@ Rails.application.routes.draw do
  get 'users/invoice' => 'users#invoice'
  resources :users
  resources :clients do
-  resources :jobs
   get '/jobs/:id/invoice' => 'jobs#invoice'
   get '/jobs/:id/send_pdf' => 'jobs#send_pdf'
+  resources :jobs do
+  resources :expenses
+  resources :jobitems
+  end
  end  
  resources :todos
- resources :expenses
- resources :jobitems
+ 
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

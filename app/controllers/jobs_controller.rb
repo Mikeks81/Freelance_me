@@ -25,8 +25,10 @@ class JobsController < ApplicationController
   def show
     @client = Client.find(params[:client_id])
     @job = Job.find(params[:id])
-    @expense = Expense.new
     @jobitem = Jobitem.new
+    @jobitems = Jobitem.where(job_id: @job.id)
+    @expense = Expense.new
+    @expenses = Expense.where(job_id: @job.id)
     respond_to do |format|
       format.html
       format.pdf do

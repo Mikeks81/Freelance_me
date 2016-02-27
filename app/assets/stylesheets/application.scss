@@ -102,11 +102,15 @@ body{
 	width: 42%;
 	max-width: 42%;
 	float:left;
-	.add_client_button button{
+	.add_client_button{
 		width: 100%;
 		border: 1px solid #ccc;
 		border-radius: 3px;
-		background: transparent;
+		text-align: center;
+	}
+	.add_client_button a{
+		text-decoration: none;
+		padding: 0 130px 0 130px;
 	}
 	.client_box{
 		border: 1px solid #ccc;
@@ -219,9 +223,38 @@ body{
 }
 
 // ######## Job Show ############
-.job_list_show {
-	width: 60%;
-	height: 100vh;
-	float: left;
+#job_list_show_container{
+	width: 90%;
+	border: 1px solid #ccc;
+	overflow: auto;
+	padding: 15px;
+	border-radius: 3px;
+
+	.job_list_show {
+		width: 80%;
+		height: auto;
+		float: left;
+	}
+	.pdf_options {
+		width: 20%;
+		float: left;
+		text-align: right;
+	}
+	#job_jobitems{
+		clear: both;
+		width: 100%;
+	}
+	#jobitem_form input{
+		border-radius: 3px;
+		border: 1px solid #ccc;
+		background: transparent;
+	}
+	#expense_form input {
+		border-radius: 3px;
+		border: 1px solid #ccc;
+		background: transparent;
+	}
+
+
 }
 
