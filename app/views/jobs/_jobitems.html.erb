@@ -3,13 +3,13 @@
 	<p><strong>Total:</strong> <%= number_to_currency(@total_itemized)%></p>
 </div>
 	<% @jobitems.each do |j| %>
-		<p class="jobitem_box" id="jobitem_box<%= j.id %>">
-			<strong><%= j.name %></strong> 
-			<strong><%= number_to_currency(j.price) %></strong> 
-			<strong><%= j.date %>
+		<div class="jobitem_box" id="jobitem_box<%= j.id %>">
+			<p><%= j.name %></p> 
+			<p><%= number_to_currency(j.price) %></p> 
+			<p><%= j.date %>
 			<%= link_to 'X', client_job_jobitem_path(@client,@job,j), method: :delete %>
-			</strong> 
-		</p>
+			</p> 
+		</div>
 	<% end %>
 <div id="jobitem_form">
 <%= form_for ([@client,@job,@jobitem]) do |f| %>

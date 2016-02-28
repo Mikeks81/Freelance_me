@@ -3,12 +3,12 @@
 	<p><strong>Total:</strong> <%= number_to_currency(@total_payments)%></p>
 </div>
 <% @payments.each do |e| %>
-	<p class="payemnt_box" id="payment_box<%= e.id %>">
-		<strong>Tender:</strong> <%= e.form %>
-		<strong>Date:</strong> <%= e.date %>
-		<strong>Amount:</strong> <%= number_to_currency(e.amount) %>
-		<%= link_to 'X', client_job_payment_path(@client,@job,e), method: :delete %>
-	</p>
+	<div class="payment_box" id="payment_box<%= e.id %>">
+		<p><%= e.form %></p>
+		<p><%= e.date %></p>
+		<p><%= number_to_currency(e.amount) %>
+		<%= link_to 'X', client_job_payment_path(@client,@job,e), method: :delete %></p>
+	</div>
 <% end %>
 <div id="payment_form">
 	<%= form_for [@client,@job,@payment] do |f| %>

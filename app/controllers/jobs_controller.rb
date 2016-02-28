@@ -47,7 +47,7 @@ class JobsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render :pdf => 'file_name',
+        render :pdf => 'Invoice',
         :template => 'jobs/show.pdf.erb',
         :layout => 'pdf.html.erb'
       end
@@ -57,7 +57,7 @@ class JobsController < ApplicationController
   def send_pdf
     @client = Client.find(params[:client_id])
     @job = Job.find(params[:id])
-    pdf = render_to_string :pdf => "file_name",
+    pdf = render_to_string :pdf => "Invoice",
         :template => 'jobs/show.pdf.erb',
         :layout => 'pdf.html.erb'
     JobPdf.pdf_email(pdf,@client,@job).deliver_now
