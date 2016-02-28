@@ -1,13 +1,14 @@
 <div id="expense_title"><h3>Job Expenses</h3><p><strong>Total:</strong> <%= number_to_currency(@total_expenses)%></p></div>
 <% @expenses.each do |e| %>
-	<p class="expense_box" id="expense_box<%= e.id %>">
-		 <strong><%= e.description %></strong>
-		 <strong><%= number_to_currency(e.amount) %></strong>
-		<strong><%= e.date %>    
+	<div class="expense_box" id="expense_box<%= e.id %>">
+		 <p><%= e.description %></p>
+		 <p><%= number_to_currency(e.amount) %></p>
+		<p><%= e.date %>    
 			<%= link_to 'X', client_job_expense_path(@client,@job,e), method: :delete %>
-		</strong>
-	</p>
+		</p>
+	</div>
 <% end %>
+
 <div id="expense_form">
 	<%= form_for [@client,@job,@expense], remote: true do |f| %>
 		<%= f.text_field :description, placeholder: 'Expense Description' %>

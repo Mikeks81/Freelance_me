@@ -10,7 +10,7 @@
 			<%= 'Email (PDF)' %>
 			<% end %>
 		</p>
-		<p><%= link_to 'Delete Job', [@client,@job], method: :delete %></p>
+		<p><%= link_to 'Delete Job', [@client,@job], method: :delete, data: {confirm: "Delete Job?"} %></p>
 	</div>
 
 	<div id="job_price_balance">
@@ -30,14 +30,15 @@
 		<p class="stripe"><strong>Time:</strong> <%= @job.time.strftime("%I:%M %p")%></p>
 		<p><strong>Notes:</strong> <%= @job.notes%></p>
 	</div>
-	<div id="job_payments">
-		<%= render partial: 'payments/payments' %>
-	</div>
+	
+	<div id="job_jobitems">
+		<%= render partial: 'jobitems' %>
+	</div>	
 </div>
 
-<div id="job_jobitems">
-		<%= render partial: 'jobitems' %>
-</div>	
+<div id="job_payments">
+		<%= render partial: 'payments/payments' %>
+</div>
 
 <div id="job_expenses">
 	<%= render partial: 'expenses/expenses' %>

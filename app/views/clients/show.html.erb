@@ -1,7 +1,7 @@
 <h1>Clients#show</h1>
 <p>Find me in app/views/clients/show.html.erb</p>
 <div class="delete_client">
-	<%= link_to "Delete Client", @client, method: :delete %>
+	<%= link_to "Delete Client", @client, method: :delete, data: {confirm: "Delete Client?"} %>
 </div>
 <div class="client_info">
 	<h3>Client Info</h3>

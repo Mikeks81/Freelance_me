@@ -77,10 +77,13 @@
 			<%= link_to "Search", "#" %>
 		</div>
 	</div>
-
+	
 	<div class="client_list" id="all_client_list">
+		<%= will_paginate @clients %>
 		<%= render partial: 'client_list', locals: {clients: @clients} %>
+		<%= will_paginate @clients %>
 	</div>
+
 
 	<div id="client_search_wrapper">
 		<div class="job_search">
