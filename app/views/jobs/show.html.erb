@@ -1,67 +1,42 @@
-<h3>Client Info</h3>
-<div class="client_list">
-		<%#= render partial: 'client_list', locals: {clients: @clients} %>
-</div>
+
 
 <div id="job_list_show_container">
-	<div class="job_list_show">
-		<p><strong>Client Name:</strong> <%= @job.client.fname%></p>
-		<p><strong>Business Name:</strong> <%= @job.client.business_name%></p>
-		<p><strong>Client Email:</strong> <%= @job.client.email %></p>
-		<p><strong>Job Name:</strong> <%= @job.name%></p>
-		<p><strong>Job Description:</strong> <%= @job.job_description%></p>
-		<p><strong>Date of Job:</strong> <%= @job.date_of_job%></p>
-		<p><strong>Time:</strong> <%= @job.time.strftime("%I:%M %p")%></p>
-		<p><strong>Price:</strong> <%= @job.price%></p>
-		<p><strong>Balance:</strong> <%= @job.balance%></p>
-		<p><strong>Notes:</strong> <%= @job.notes%></p>
-
-		<div id="job_jobitems">
-			<h3>Itemized Pricing</h3>
-			<% @jobitems.each do |j| %>
-				<p id="jobitem_box<%= j.id %>">
-					<strong>Name:</strong> <%= j.name %>
-					<strong>Price:</strong> <%= j.price %>
-					<strong>Date:</strong> <%= j.date %>
-				</p>
-			<% end %>
-			<div id="jobitem_form">
-				<%= render partial: 'jobitems' %>
-			</div>
-		</div>	
-
-		<div id="job_expenses">
-			<h3>Job Expenses</h3>
-			<% @expenses.each do |e| %>
-				<p id="expense_box<%= e.id %>">
-					<strong>Description:</strong> <%= e.description %>
-					<strong>Price:</strong> <%= e.amount %>
-					<strong>Date:</strong> <%= e.date %>
-				</p>
-			<% end %>
-			<div id="expense_form">
-				<%= render partial: 'expenses' %>
-			</div>
-		</div>
-
-	</div>
-
 	<div class="pdf_options">
-	<p><%= link_to :controller => "jobs", :action =>'show', format: 'pdf' do %>
-			<%='View/Print (PDF)' %>
+		<p><%= link_to :controller => "jobs", :action =>'show', format: 'pdf' do %>
+				<%='View/Print (PDF)' %>
+				<% end %>
+		</p>
+		<p><%= link_to :controller => "jobs", :action => "send_pdf", format: 'pdf', client_id: @client.id, id: @job.id do %>
+			<%= 'Email (PDF)' %>
 			<% end %>
-	</p>
-	<p><%= link_to :controller => "jobs", :action => "send_pdf", format: 'pdf', client_id: @client.id, id: @job.id do %>
-		<%= 'Email (PDF)' %>
-		<% end %>
-	</p>
-	<p><%= link_to 'Delete Job', [@client,@job], method: :delete %></p>
+		</p>
+		<p><%= link_to 'Delete Job', [@client,@job], method: :delete %></p>
 	</div>
 
+	<div id="job_price_balance">
+		<p><strong>Price:</strong> $<%= @job.price%></p>
+		<p class="red"><strong class="red">Balance:</strong> $<%= @job.balance%></p>
+	</div>
+
+	<div class="job_list_show">
+		<h3>Client Info</h3>
+		<p class="stripe"><strong>Client Name:</strong> <%= @job.client.fname%></p>
+		<p><strong>Business Name:</strong> <%= @job.client.business_name%></p>
+		<p class="stripe"><strong>Client Email:</strong> <%= @job.client.email %></p>
+		<p><strong>Job Name:</strong> <%= @job.name%></p>
+		<p class="stripe"><strong>Job Description:</strong> <%= @job.job_description%></p>
+		<p><strong>Date of Job:</strong> <%= @job.date_of_job%></p>
+		<p class="stripe"><strong>Time:</strong> <%= @job.time.strftime("%I:%M %p")%></p>
+		<p><strong>Notes:</strong> <%= @job.notes%></p>
+	</div>
 </div>
 
-<div class="delete_job">
-		
+<div id="job_jobitems">
+		<%= render partial: 'jobitems' %>
+</div>	
+
+<div id="job_expenses">
+	<%= render partial: 'expenses/expenses' %>
 </div>
 
 <div class="edit_job_form">

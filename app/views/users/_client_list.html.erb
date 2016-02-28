@@ -4,6 +4,7 @@
 			<p><strong>Name:</strong> <%= c.fname %> <%= c.lname %></p>
 			<p><strong>Business:</strong> <%= c.business_name %></p>
 			<p><strong>Email: </strong><%= c.email %></p>
+			<br>
 			<p><%= link_to "View Client", client_path(c) %></p>
 			<p id="show_jobs"><%= link_to "Show Jobs (#{c.jobs.count})", "#" %> </p>
 			
