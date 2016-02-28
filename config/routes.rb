@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :jobs do
   resources :expenses
   resources :jobitems
+  resources :payments
   end
  end  
  resources :todos

@@ -37,6 +37,10 @@ body{
 	color: #fc755d;
 }
 
+.green {
+	color: #16ce1f;
+}
+
 
 @import 'navbar';
 
@@ -255,11 +259,11 @@ body{
 }
 
 .pdf_options{
-	width: 45%;
+	width: 35%;
 	float:left;
-	font-size: 15px;
+	font-size: 13px;
 	margin: 0 0 10px 0px;
-	padding: 0 15px 0 15px;
+	padding: 3.31px 15px 3.31px 15px;
 	border: 1px solid #ccc;
 	border-radius: 3px;
 	text-align: center;
@@ -275,6 +279,30 @@ body{
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 	font-size: 15px;
+}
+
+#job_payments{
+	width: 93.5%;
+	padding: 20px;
+	float:left;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	
+	#payment_title{
+		display: flex;
+		justify-content: space-between;
+	}
+	.payemnt_box{
+		border-bottom: 1px solid #ccc;
+		display: flex;
+		justify-content: space-between;
+	}
+	#payment_form input {
+		border-radius: 3px;
+		border: 1px solid #ccc;
+		background: transparent;
+	}
+
 }
 
 #job_jobitems {
@@ -341,4 +369,10 @@ body{
 	padding: 0 15px 0 15px;
 	border: 1px solid #ccc;
 	border-radius: 3px;
+}
+
+
+
+.edit_job_form {
+	clear: both;
 }

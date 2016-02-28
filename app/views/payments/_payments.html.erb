@@ -1,0 +1,20 @@
+<div id="payment_title">
+	<h3>Payment History</h3>
+	<p><strong>Total:</strong> <%= number_to_currency(@total_payments)%></p>
+</div>
+<% @payments.each do |e| %>
+	<p class="payemnt_box" id="payment_box<%= e.id %>">
+		<strong>Tender:</strong> <%= e.form %>
+		<strong>Date:</strong> <%= e.date %>
+		<strong>Amount:</strong> <%= number_to_currency(e.amount) %>
+		<%= link_to 'X', client_job_payment_path(@client,@job,e), method: :delete %>
+	</p>
+<% end %>
+<div id="payment_form">
+	<%= form_for [@client,@job,@payment] do |f| %>
+		<%= f.text_field :form, placeholder: 'Type of Payment' %>
+		<%= f.text_field :amount, placeholder: 'Amount of Payment' %>
+		<%= f.date_field :date %>
+		<p><%= f.submit "Add Payment" %> </p>
+	<% end %>
+</div>

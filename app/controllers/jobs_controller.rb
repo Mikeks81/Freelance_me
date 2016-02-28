@@ -29,13 +29,19 @@ class JobsController < ApplicationController
     @jobitems = Jobitem.where(job_id: @job.id)
     @total_itemized = 0
       @jobitems.each do |e|
-          @total_itemized = @total_itemized + e.price
+        @total_itemized = @total_itemized + e.price
       end 
     @expense = Expense.new
     @expenses = Expense.where(job_id: @job.id)
     @total_expenses = 0
       @expenses.each do |e|
-          @total_expenses = @total_expenses + e.amount
+        @total_expenses = @total_expenses + e.amount
+      end
+    @payment = Payment.new
+    @payments = Payment.where(job_id: @job.id).order('date ASC')
+    @total_payments = 0
+      @payments.each do |e|
+        @total_payments = @total_payments + e.amount
       end
 
     respond_to do |format|

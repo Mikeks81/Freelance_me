@@ -22,11 +22,13 @@ class ExpensesController < ApplicationController
   end
 
   def destroy
+    @client = Client.find(params[:client_id])
+    @job = Job.find(params[:job_id])
     @expense = Expense.find(params[:id])
     @expense.destroy
     flash[:notice] = "Expense Removed"
     respond_to do |format|
-      format.html
+      format.html { redirect_to client_job_path(@client,@job)}
       format.js
     end
   end
