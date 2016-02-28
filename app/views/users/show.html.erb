@@ -85,7 +85,7 @@
 	<div id="client_search_wrapper">
 		<div class="job_search">
 			<%= form_tag(user_path, :method => "get", id: "search-form", remote: true) do %>
-			<%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+			<%= text_field_tag :search, params[:search], placeholder: "Search Clients by Name or Business" %>
 			<%= submit_tag "Search" %>
 			<% end %>
 		</div>

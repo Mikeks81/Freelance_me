@@ -3,13 +3,18 @@ class ExpensesController < ApplicationController
     @client = Client.find(params[:client_id])
     @job = Job.find(params[:job_id])
   	@expense = @job.expenses.build(expense_params)
-  	if @expense.save
-  		flash[:notice] = "Expense Added"
-  		redirect_to client_job_path(@client,@job)
-  	else
-  		flash[:notice] = "#{errors.full_messages.first}"
-  		redirect_to client_job_path(@client,@job)
-  	end
+    respond_to do |format|
+    	if @expense.save
+        format.html {redirect_to client_job_path(@client,@job), notice: "Expense Added"}
+    		format.js {redirect_to client_job_path(@client,@job), notice: "Expense Added"}
+        # flash[:notice] = "Expense Added"
+        # redirect_to client_job_path(@client,@job)
+    	else
+    		format.html {format.html {redirect_to client_job_path(@client,@job), notice: "Expense could not be added"}}
+        # flash[:notice] = "Expense could not be added"
+        # redirect_to client_job_path(@client,@job)
+    	end
+    end
   end	
 
   def update

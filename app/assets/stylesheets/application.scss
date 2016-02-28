@@ -33,6 +33,10 @@ body{
 	@include margin_padding(0);
 }
 
+.red {
+	color: #fc755d;
+}
+
 
 @import 'navbar';
 
@@ -126,6 +130,7 @@ body{
 	.client_job_list{
 		display: none;
 	}
+
 
 	#client_menu{
 		width: 100%;
@@ -224,37 +229,116 @@ body{
 
 // ######## Job Show ############
 #job_list_show_container{
-	width: 90%;
+	width: 55%;
+	float: left;
 	border: 1px solid #ccc;
 	overflow: auto;
 	padding: 15px;
+	margin-bottom: 15px;
 	border-radius: 3px;
 
 	.job_list_show {
-		width: 80%;
+		width: 100%;
 		height: auto;
 		float: left;
 	}
-	.pdf_options {
-		width: 20%;
-		float: left;
-		text-align: right;
+
+	.job_list_show p {
+		// border-bottom: 1px solid #ccc;
 	}
-	#job_jobitems{
-		clear: both;
-		width: 100%;
+
+}
+
+.stripe {
+	background-color: #efefef;
+	padding: 5px;
+}
+
+.pdf_options{
+	width: 45%;
+	float:left;
+	font-size: 15px;
+	margin: 0 0 10px 0px;
+	padding: 0 15px 0 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	text-align: center;
+	display: flex;
+	justify-content: space-around;
+}	
+
+#job_price_balance{
+	display: flex;
+	justify-content: space-around;
+	border-radius: 3px;
+	border-top: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	font-size: 15px;
+}
+
+#job_jobitems {
+	width: 34%;
+	float:left;
+	margin: 0 0 15px 30px;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+
+	#jobitems_title{
+		display: flex;
+		justify-content: space-between;
 	}
+
+	.jobitem_box{
+		border-bottom: 1px solid #ccc;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	#job_jobitems p {
+		border-bottom: 1px solid #ccc;
+	}
+
 	#jobitem_form input{
 		border-radius: 3px;
 		border: 1px solid #ccc;
 		background: transparent;
 	}
+}
+
+#job_expenses {
+	width: 34%;
+	float:left;
+	margin-left: 30px;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+
+	#expense_title {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.expense_box {
+		border-bottom: 1px solid #ccc;
+		display: flex;
+		justify-content: space-between;
+	}
+
+
 	#expense_form input {
 		border-radius: 3px;
 		border: 1px solid #ccc;
 		background: transparent;
 	}
-
-
 }
 
+.edit_job_form {
+	width: 55%;
+	float:left;
+	margin: 0 0 10px 0px;
+	padding: 0 15px 0 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}

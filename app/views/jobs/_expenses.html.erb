@@ -1,6 +1,0 @@
-<%= form_for ([@client,@job,@expense]) do |f| %>
-	<%= f.text_field :description, placeholder: 'Expense Description' %>
-	<%= f.text_field :amount, placeholder: :price %>
-	<%= f.date_field :date %>
-	<p><%= f.submit "Add Expense" %> </p>
-<% end %>
