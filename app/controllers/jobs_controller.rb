@@ -61,15 +61,8 @@ class JobsController < ApplicationController
         :template => 'jobs/show.pdf.erb',
         :layout => 'pdf.html.erb'
     JobPdf.pdf_email(pdf,@client,@job).deliver_now
-    # mail(:subject => 'Your Invoice', :to => @client.email) do |format|
-    #   format.text
-    #   format.pdf do
-    #     attachments['invoice.pdf'] = WickedPdf.new.pdf_from_string(
-    #       render_to_string(:pdf => "file_name",:template => 'jobs/show.pdf.erb',
-    #         :layout => 'pdf.html.erb')
-    #       )
-    #   end
-    # end
+    flash[:notice] = "Email sent to #{@client.email}."
+    redirect_to client_job_path(@client,@job)
   end
 
   def destroy
