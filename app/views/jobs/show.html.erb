@@ -14,8 +14,9 @@
 	</div>
 
 	<div id="job_price_balance">
-		<p><strong>Price:</strong> $<%= @job.price%></p>
-		<p class="red"><strong class="red">Balance:</strong> $<%= @job.balance%></p>
+		<p><strong>Price:</strong> <%= number_to_currency(@job.price) %></p>
+		<p class="red"><strong class="red">Balance:</strong> <%= number_to_currency(@job.balance - @total_payments)%></p>
+		<p class="green"><strong class="green">Profit:</strong> <%= number_to_currency(@job.price - @total_expenses)%></p>
 	</div>
 
 	<div class="job_list_show">
@@ -28,6 +29,9 @@
 		<p><strong>Date of Job:</strong> <%= @job.date_of_job%></p>
 		<p class="stripe"><strong>Time:</strong> <%= @job.time.strftime("%I:%M %p")%></p>
 		<p><strong>Notes:</strong> <%= @job.notes%></p>
+	</div>
+	<div id="job_payments">
+		<%= render partial: 'payments/payments' %>
 	</div>
 </div>
 

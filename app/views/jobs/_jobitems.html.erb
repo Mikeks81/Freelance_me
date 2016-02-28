@@ -1,12 +1,14 @@
 <div id="jobitems_title">
 	<h3>Itemized Balance</h3>
-	<p><strong>Total:</strong> $<%= @total_itemized%></p>
+	<p><strong>Total:</strong> <%= number_to_currency(@total_itemized)%></p>
 </div>
 	<% @jobitems.each do |j| %>
 		<p class="jobitem_box" id="jobitem_box<%= j.id %>">
-			<strong>Name:</strong> <%= j.name %>
-			<strong>Price:</strong> $<%= j.price %>
-			<strong>Date:</strong> <%= j.date %>
+			<strong><%= j.name %></strong> 
+			<strong><%= number_to_currency(j.price) %></strong> 
+			<strong><%= j.date %>
+			<%= link_to 'X', client_job_jobitem_path(@client,@job,j), method: :delete %>
+			</strong> 
 		</p>
 	<% end %>
 <div id="jobitem_form">
