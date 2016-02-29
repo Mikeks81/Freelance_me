@@ -1,27 +1,32 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
 <h3>Account Details</h3>
 
 <div class="user_profile">
 	<h4>Profile</h4>
 
-	<p>First Name: <%= @user.fname %></p>
-	<p>Last Name: <%= @user.lname %></p>
-	<p>Email: <%= @user.email %></p>
-	<p>Business Name: <%= @user.business_name %></p>
-	<p>Number of Clients: <%= @user.clients.count %></p>
+	<p class="stripe"><strong>First Name:</strong> <%= @user.fname %></p>
+	<p><strong>Last Name:</strong> <%= @user.lname %></p>
+	<p class="stripe"><strong>Email:</strong> <%= @user.email %></p>
+	<p><strong>Business Name:</strong> <%= @user.business_name %></p>
+	<p class="stripe"><strong>Number of Clients:</strong> <%= @user.clients.count %></p>
+	<p><strong>Number of Jobs:</strong> <%= @user.jobs.count %></p>
+	<p class="stripe"><strong>Member Since:</strong> <%= @user.created_at.strftime('%B %Y') %></p>
 </div>
 <!-- <p>Number of Jobs: </p> -->
 <div class="edit_user_form">
-	<%= form_for @user do |f| %>
-	<p><%= f.label :first_name %></p>
+	<h4>Edit Profile</h4>
+	<p><%= form_for @user do |f| %>
+	<p><%= f.label :first_name %>:</p>
 	<p><%= f.text_field :fname %></p>
-	<p><%= f.label :last_name %></p>
+	<p><%= f.label :last_name %>:</p>
 	<p><%= f.text_field :lname %></p>
-	<p><%= f.label :email %></p>
+	<p><%= f.label :email %>:</p>
 	<p><%= f.text_field :email %></p>
-	<p><%= f.label :business_name %></p>
+	<p><%= f.label :business_name %>:</p>
 	<p><%= f.text_field :business_name %></p>
+	<p><%= f.label :password %></p>
+	<p><%= f.password_field :password %></p>
+	<p><%= f.label :password_confirmation %></p>
+	<p><%= f.password_field :password_confirmation %></p>
 	<p><%= f.submit "Edit Account" %></p>
 	<% end %>
 </div>

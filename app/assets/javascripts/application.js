@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require d3
 //= require_tree .
+
 
 $(function(){
 
@@ -84,13 +86,28 @@ $(function(){
 
 			$('.search_results').css('border', 'none');
 
-			// $('#all_client_list').css('display', 'none');
-
 			$('#all_client_list').fadeOut(100);
 			
-			// $('#client_search_wrapper').css('display','block');
 			$('#client_search_wrapper').delay(100).fadeIn(100);
 		});
+
+	// hide and show client edit form on client/edit
+	$('#edit_client_form_show').on('click',
+		function(e){
+			e.preventDefault();
+			$('.edit_client_form').slideToggle();
+		});
+
+	// Refreshed jobs balance bar on button press 
+
+	$('#payment_button,#expense_button').on('submit', 
+		function(e){
+			e.preventDefault();
+			console.log("heeeerrree")
+			$('#job_price_balance').delay(100).html("<%= j render(partial: 'jobs/job_price_balance')%>");
+		});
+
+	
 
 	
 });

@@ -1,0 +1,6 @@
+$('#job_payments').html("<%= j render(partial: 'payments/payments')%>");
+$('#payment_box<%= @payment.id %>').hide();
+$('#payment_box<%= @payment.id %>').slideDown();
+// $('#job_payments').delay(700).html("<%= j render(partial: 'payments/payments')%>");
+
+

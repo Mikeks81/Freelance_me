@@ -4,7 +4,7 @@
 		 <p><%= e.description %></p>
 		 <p><%= number_to_currency(e.amount) %></p>
 		<p><%= e.date %>    
-			<%= link_to 'X', client_job_expense_path(@client,@job,e), method: :delete %>
+			<%= link_to 'X', client_job_expense_path(@client,@job,e), method: :delete, remote: true %>
 		</p>
 	</div>
 <% end %>
@@ -13,7 +13,7 @@
 	<%= form_for [@client,@job,@expense], remote: true do |f| %>
 		<%= f.text_field :description, placeholder: 'Expense Description' %>
 		<%= f.text_field :amount, placeholder: :price %>
-		<%= f.date_field :date %>
-		<p><%= f.submit "Add Expense" %> </p>
+		<%= f.date_field :date, :value => Time.now.strftime('%Y-%m-%d') %>
+		<p><%= f.submit "Add Expense", id: :expense_button %> </p>
 	<% end %>
 </div>

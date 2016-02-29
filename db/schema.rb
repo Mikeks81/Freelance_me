@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160228025748) do
+ActiveRecord::Schema.define(version: 20160229012053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,9 +69,11 @@ ActiveRecord::Schema.define(version: 20160228025748) do
     t.decimal  "price",           precision: 8, scale: 2
     t.decimal  "balance",         precision: 8, scale: 2
     t.date     "date_of_end"
+    t.integer  "user_id"
   end
 
   add_index "jobs", ["client_id"], name: "index_jobs_on_client_id", using: :btree
+  add_index "jobs", ["user_id"], name: "index_jobs_on_user_id", using: :btree
 
   create_table "payments", force: :cascade do |t|
     t.decimal  "amount"
@@ -109,6 +111,7 @@ ActiveRecord::Schema.define(version: 20160228025748) do
   add_foreign_key "expenses", "jobs"
   add_foreign_key "jobitems", "jobs"
   add_foreign_key "jobs", "clients"
+  add_foreign_key "jobs", "users"
   add_foreign_key "payments", "jobs"
   add_foreign_key "todos", "users"
 end

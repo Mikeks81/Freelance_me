@@ -135,6 +135,12 @@ body{
 		display: none;
 	}
 
+	.client_job_list p{
+		width: 98%;
+		background-color: #efefef;
+		padding: 5px;
+	}
+
 
 	#client_menu{
 		width: 100%;
@@ -271,6 +277,95 @@ body{
 	}
 }
 
+// @@@@@@@@@ USER/EDIT @@@@@@@@@@@@@@@
+
+.user_profile{
+	width: 45%;
+	margin-right: 30px;
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	float: left;
+}
+
+.edit_user_form{
+	width: 45%;
+	padding: 15px 25px 15px 25px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	float: left;
+
+	input {
+		width: 100%;
+		height: 25px;
+		border-radius: 3px;
+		border: 1px solid #ccc;
+		background-color: transparent;
+	}
+
+}
+
+//@@@@@@@@@@@@ CLIENT EDIT @@@@@@@@@@@@@
+.client_info_box {
+	float:left;
+	width: 45%;
+	margin-right: 65px;
+
+	.client_info {
+		width: 100%;
+		padding: 15px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+	}
+
+	.delete_client {
+		display: flex;
+		justify-content: space-between;
+	}
+	.edit_client_form {
+		border: 1px solid #ccc;
+		padding: 0 0 0 30px;
+		display: none;
+	}
+	#edit_client_submit{
+		color: #fc755d;
+		border: 1px solid #fc755d;
+	}
+	input {
+		width: 90%;
+		height: 25px;
+		border-radius: 3px;
+		border: 1px solid #ccc;
+		background-color: transparent;
+	}
+	textarea {
+		@extend input;
+	}
+}
+
+.add_job_form {
+	width: 45%;
+	margin-right: 30px;
+	padding: 0 0 0 30px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	float: left;
+	input {
+		width: 90%;
+		height: 25px;
+		border-radius: 3px;
+		border: 1px solid #ccc;
+		background-color: transparent;
+	}
+	textarea {
+		@extend input;
+	}
+	#add_job_submit{
+		color: #fc755d;
+		border: 1px solid #fc755d;
+	}
+}
+
 // ######## Job Show ############
 #job_list_show_container{
 	width: 55%;
@@ -305,7 +400,7 @@ body{
 	margin: 0 0 10px 0px;
 	padding: 3.31px 15px 3.31px 15px;
 	border: 1px solid #ccc;
-	border-radius: 3px;
+	border-radius: 3px 0 0 3px;
 	text-align: center;
 	display: flex;
 	justify-content: space-around;
@@ -313,8 +408,9 @@ body{
 
 #job_price_balance{
 	display: flex;
+	max-height: 62px;
 	justify-content: space-around;
-	border-radius: 3px;
+	border-radius: 0 3px 3px 0;
 	border-top: 1px solid #ccc;
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
