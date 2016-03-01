@@ -11,7 +11,7 @@ class ClientsController < ApplicationController
        # JobPdf.send_signup_email(@user).deliver
        ####
       flash[:notice] = "Client Added"
-      redirect_to @user
+      redirect_to client_path(@client)
     else
       flash[:notice] = "#{@client.errors.full_messages.first}"
       redirect_to @user

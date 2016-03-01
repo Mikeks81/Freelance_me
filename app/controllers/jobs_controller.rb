@@ -3,6 +3,7 @@ class JobsController < ApplicationController
     @user = current_user
     @client = Client.find(params[:client_id])
     @job = @client.jobs.build(job_params)
+    @job.user_id = @user.id
     if @job.save
       flash[:notice] = "Job Added"
       redirect_to client_job_path(@client,@job)
