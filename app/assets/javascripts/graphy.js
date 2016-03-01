@@ -18,12 +18,17 @@ function draw(data){
 
   // pulls price out of every record to graph
    a = [];
+   sum = 0
     for (i = 0; i < data.length; i++) {
+        console.log(data[i].price);
+        sum += parseInt(data[i].price,10);
         a.push(data[i].price);
     }
+    avg = d3.round(sum/a.length)
     console.log(a);
-  // var data  = [ 5, 10, 13, 19, 21, 25, 22, 18, 15, 13,11, 12, 15, 20, 18, 17, 16, 18, 23, 25 ];
-  // var a = [ 5, 10, 13, 19, 21, 25, 22, 18, 15, 13,11, 12, 15, 20, 18, 17, 16, 18, 23, 25, 70 ];
+    console.log(sum);
+    console.log(avg);
+
   // select svg element
     var svg = d3.select("#graph")
                 .attr("width", w)
@@ -75,6 +80,15 @@ function draw(data){
             .attr("font-family", "Arial")
             .attr("font-size", "11px")
             .attr("fill", "white");
+
+            // creating x axis
+            var xAxis = d3.svg.axis()
+                  .scale(xScale)
+                  .orient("bottom");
+
+            //calling the xAxis function ( or var ) and placing them on the chart.
+            svg.append("g")
+                .call(xAxis);
 }
  
 // function draw(data) {

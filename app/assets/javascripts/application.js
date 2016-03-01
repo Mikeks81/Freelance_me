@@ -42,7 +42,8 @@ $(function(){
 
 	// ### search bar menu click (All Clients) on User/show #### 
 	$('.all_clients').on('click', 
-		function(){
+		function(e){
+			e.preventDefault();
 			$('.all_clients').css('background-color', '#fc755d');
 
 			$('.all_clients a').css('color', '#ffffff');
@@ -71,7 +72,8 @@ $(function(){
 
 	// ### search bar menu click (Search Clients) on User/show #### 
 	$('.search_results').on('click',
-		function(){
+		function(e){
+			e.preventDefault();
 			$('.all_clients').css('background-color', '#ffffff');
 
 			$('.all_clients a').css('color', '#888');
