@@ -1,22 +1,53 @@
-<h1>Clients#show</h1>
-<p>Find me in app/views/clients/show.html.erb</p>
-<div class="delete_client">
-	<%= link_to "Delete Client", @client, method: :delete, data: {confirm: "Delete Client?"} %>
-</div>
-<div class="client_info">
-	<h3>Client Info</h3>
-		<p><strong>Name:</strong> <%= @client.fname %><%= @client.lname %></p>
-		<p><strong>Address:</strong> <%= @client.street %>
-		<%= @client.state %>
-		<%= @client.city %>,
-		<%= @client.zip %></p>
-		<p><strong>Business Name:</strong> <%= @client.business_name %></p>
-		<p><strong>Email: </strong><%= @client.email %></p>
-		<p><strong>Phone: </strong><%= @client.phone %></p>
+<div class="client_info_box">
+	<div class="client_info">
+			
+			<div class="delete_client">
+				<h3>Client Info</h3>
+				<p>
+					<%= link_to "Edit", "#", id: :edit_client_form_show %>
+					<%= link_to "Delete Client", @client, method: :delete, data: {confirm: "Delete Client?"} %>
+				</p>
+			</div>
+	
+				<p class="stripe"><strong>Name:</strong> <%= @client.fname %><%= @client.lname %></p>
+				<p><strong>Street/Apt:</strong> <%= @client.street %>
+				<p class="stripe"><strong>City:</strong> <%= @client.city %></p>
+				<p><strong>State:</strong> <%= @client.state %></p>
+				<p class="stripe"><strong>Zip Code:</strong> <%= @client.zip %></p>
+				<p><strong>Business Name:</strong> <%= @client.business_name %></p>
+				<p class="stripe"><strong>Email: </strong><%= @client.email %></p>
+				<p><strong>Phone: </strong><%= @client.phone %></p>
+				<p class="stripe"><strong>Number of Jobs: </strong><%= @client.jobs.count %></p>
+	
+		<div class="edit_client_form">
+			<h3>Update Client Info</h3>
+				<%= form_for @client do |f| %>
+					<p><%= f.label :first_name %></p>
+					<p><%= f.text_field :fname %></p>
+					<p><%= f.label :last_name %></p>
+					<p><%= f.text_field :lname %></p>
+					<p><%= f.label :street_and_apt %></p>
+					<p><%= f.text_field :street %></p>
+					<p><%= f.label :city %></p>
+					<p><%= f.text_field :city %></p>
+					<p><%= f.label :state %></p>
+					<p><%= f.text_field :state %></p>
+					<p><%= f.label :zip%></p>
+					<p><%= f.text_field :zip %></p>
+					<p><%= f.label :phone_number %></p>
+					<p><%= f.text_field :phone %></p>
+					<p><%= f.label :email %></p>
+					<p><%= f.text_field :email %></p>
+					<p><%= f.label :business_name %></p>
+					<p><%= f.text_field :business_name %></p>
+					<p><%= f.submit "Submit", id: :edit_client_submit %></p>
+				<% end %>
+		</div>
+	</div>
 </div>
 
 <div class="add_job_form">
-	<h3>Add Job</h3>
+	<h3 class='red'>Add Job</h3>
 	<% if flash[:notice] %>
 		<%= flash[:notice] %>
 	<%end%>
@@ -30,40 +61,16 @@
 		<p><%= f.label :current_balance %></p>
 		<p><%= f.text_field :balance %></p>
 		<p><%= f.label :job_date %></p>
-		<p><%= f.date_select :date_of_job %></p>
+		<p><%= f.date_field :date_of_job, :value => Time.now.strftime('%Y-%m-%d') %></p>
 		<p><%= f.label :time_of_job %></p>
 		<p><%= f.time_select :time, {minute_step: 15, ampm: true} %></p>
 		<p><%= f.label :notes %></p>
 		<p><%= f.text_area :notes %></p>
-		<%#= f.hidden_field :client_id, value: @client.id %>
-		<p><%= f.submit "Add Job" %></p>
+		<p><%= f.submit "Add Job", id: :add_job_submit %></p>
 	<% end %>
 </div>
 
-<div class="edit_client_form">
-	<h3>Update Client Info</h3>
-	<%= form_for @client do |f| %>
-		<p><%= f.label :first_name %></p>
-		<p><%= f.text_field :fname %></p>
-		<p><%= f.label :last_name %></p>
-		<p><%= f.text_field :lname %></p>
-		<p><%= f.label :street_and_apt %></p>
-		<p><%= f.text_field :street %></p>
-		<p><%= f.label :city %></p>
-		<p><%= f.text_field :city %></p>
-		<p><%= f.label :state %></p>
-		<p><%= f.text_field :state %></p>
-		<p><%= f.label :zip%></p>
-		<p><%= f.text_field :zip %></p>
-		<p><%= f.label :phone_number %></p>
-		<p><%= f.text_field :phone %></p>
-		<p><%= f.label :email %></p>
-		<p><%= f.text_field :email %></p>
-		<p><%= f.label :business_name %></p>
-		<p><%= f.text_field :business_name %></p>
-		<p><%= f.submit "Submit", id: :edit_client_submit %></p>
-	<% end %>
-</div>
+
 
 
 

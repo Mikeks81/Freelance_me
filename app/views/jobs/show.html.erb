@@ -14,13 +14,11 @@
 	</div>
 
 	<div id="job_price_balance">
-		<p><strong>Price:</strong> <%= number_to_currency(@job.price) %></p>
-		<p class="red"><strong class="red">Balance:</strong> <%= number_to_currency(@job.balance - @total_payments)%></p>
-		<p class="green"><strong class="green">Profit:</strong> <%= number_to_currency(@job.price - @total_expenses)%></p>
+		<%= render partial: 'job_price_balance' %>
 	</div>
 
 	<div class="job_list_show">
-		<h3>Client Info</h3>
+		<h3>Job Info</h3>
 		<p class="stripe"><strong>Client Name:</strong> <%= @job.client.fname%></p>
 		<p><strong>Business Name:</strong> <%= @job.client.business_name%></p>
 		<p class="stripe"><strong>Client Email:</strong> <%= @job.client.email %></p>

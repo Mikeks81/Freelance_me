@@ -1,4 +1,5 @@
 class Job < ActiveRecord::Base
+  belongs_to :user
   belongs_to :client
   has_many :expenses
   has_many :jobitems

@@ -3,6 +3,7 @@ class JobsController < ApplicationController
     @user = current_user
     @client = Client.find(params[:client_id])
     @job = @client.jobs.build(job_params)
+    @job.user_id = @user.id
     if @job.save
       flash[:notice] = "Job Added"
       redirect_to client_job_path(@client,@job)
@@ -46,6 +47,7 @@ class JobsController < ApplicationController
 
     respond_to do |format|
       format.html
+      format.js
       format.pdf do
         render :pdf => 'Invoice',
         :template => 'jobs/show.pdf.erb',
@@ -55,12 +57,13 @@ class JobsController < ApplicationController
   end
 
   def send_pdf
+    @user = current_user
     @client = Client.find(params[:client_id])
     @job = Job.find(params[:id])
     pdf = render_to_string :pdf => "Invoice",
         :template => 'jobs/show.pdf.erb',
         :layout => 'pdf.html.erb'
-    JobPdf.pdf_email(pdf,@client,@job).deliver_now
+    JobPdf.pdf_email(pdf,@user,@client,@job).deliver_now
     flash[:notice] = "Email sent to #{@client.email}."
     redirect_to client_job_path(@client,@job)
   end

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'charts/index' => 'charts#index'
+
+  get 'charts/data', :defaults => { :format => 'json' }
+
  root 'sessions#index'
 
  resources :sessions
