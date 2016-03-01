@@ -27,6 +27,9 @@
 	color: #888;
 }
 
+a {
+	color: #888;
+}
 
 
 body{
@@ -259,7 +262,7 @@ body{
 
 .todo_list{
 	float: left;
-	width: 45.8%;
+	width: 95.5%;
 	margin-left: 40px;
 	padding: 0 2% 2% 2%;
 	border: 1px solid #ccc;
@@ -398,7 +401,7 @@ body{
 	float:left;
 	font-size: 13px;
 	margin: 0 0 10px 0px;
-	padding: 3.31px 15px 3.31px 15px;
+	padding: 6.31px 15px 0 15px;
 	border: 1px solid #ccc;
 	border-radius: 3px 0 0 3px;
 	text-align: center;
@@ -408,7 +411,8 @@ body{
 
 #job_price_balance{
 	display: flex;
-	max-height: 62px;
+	min-height: 49px;
+	padding-top: 20px;
 	justify-content: space-around;
 	border-radius: 0 3px 3px 0;
 	border-top: 1px solid #ccc;
