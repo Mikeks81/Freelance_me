@@ -79,7 +79,7 @@
 	</div>
 	
 	<div class="client_list" id="all_client_list">
-		<%= will_paginate @clients %>
+		<p><%= will_paginate @clients %></p>
 		<%= render partial: 'client_list', locals: {clients: @clients} %>
 		<%= will_paginate @clients %>
 	</div>
@@ -96,7 +96,9 @@
 
 		<div class="client_list">
 			<div id="partial_client_search">
+			<!-- <p><%#= will_paginate @clients %></p> -->
 				<%= render partial: 'client_search' %>
+			<%#= will_paginate @clients %>
 			</div>
 		</div>
 

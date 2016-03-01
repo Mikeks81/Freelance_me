@@ -5,6 +5,6 @@ class Client < ActiveRecord::Base
   self.per_page = 5
 
   def self.search(search)
-  	where("fname ILIKE? OR lname ILIKE? OR business_name ILIKE?","%#{search}%","%#{search}%","%#{search}%")
+  	where("fname ILIKE? OR lname ILIKE? OR business_name ILIKE? OR email ILIKE?","%#{search}%","%#{search}%","%#{search}%","%#{search}%")
   end
 end
