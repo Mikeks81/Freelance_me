@@ -35,6 +35,7 @@ class JobsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @client = Client.find(params[:client_id])
     @job = Job.find(params[:id])
     @jobitem = Jobitem.new

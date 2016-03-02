@@ -23,6 +23,8 @@
 	<p><%= f.text_field :email %></p>
 	<p><%= f.label :business_name %>:</p>
 	<p><%= f.text_field :business_name %></p>
+	<p><%= f.label "Logo (Will be resized to 1000 x 200" %>:</p>
+	<p><%= f.file_field :logo, id: :file_upload %></p>
 	<p><%= f.label :password %></p>
 	<p><%= f.password_field :password %></p>
 	<p><%= f.label :password_confirmation %></p>

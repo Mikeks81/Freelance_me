@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'rmagick', '~> 2.15', '>= 2.15.4'
+gem 'carrierwave'
 gem 'will_paginate', '~> 3.0.6'
 gem 'pry'
 # wkhtmltopdf-binary is needed by wicked_pdf - it's a html to PDF renderer
