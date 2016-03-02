@@ -1,16 +1,22 @@
 <h3>Todo List</h3>
 <p id="todo_date"><%= @date.strftime("%b %d, %Y")%></p>
-<div class="todo_titles">
-	<strong>Todo List</strong> <strong>Date</strong><strong>Menu</strong>
-</div>
+<table id="todo_table">
+<thead class="todo_titles">
+	<tr>
+		<th class="todo_first">Todo List</th> 
+		<th>Date</th>
+		<th class="todo_last">Menu</th>
+	</tr>
+</thead>
 
 <% @todos.each do |t| %>
-	<div class="todo_items" id="todo_<%= t.id %>">
-		<p><%= t.item %></p>
-    	<p><%= t.date.strftime('%m/%d/%Y') %></p>
-    	<p><%= link_to "Completed", todo_path(t), method: :delete, remote: true %></p>
-    </div>
+	<tbody class="todo_items" id="todo_<%= t.id %>">
+		<td class="todo_first"><%= t.item %></td>
+    	<td><%= t.date.strftime('%m/%d/%Y') %></td>
+    	<td class="todo_last"><%= link_to "Completed", todo_path(t), method: :delete, remote: true %></td>
+    </tbody>
 <% end %>
+</table>
 <%= form_for(@todo, remote: true) do |f| %>
 	<p><%= f.hidden_field :date, value: @date.strftime("%b %d, %Y")  %></p>
 	<p><%= f.text_field :item, placeholder: :task %></p>

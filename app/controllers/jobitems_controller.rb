@@ -3,13 +3,15 @@ class JobitemsController < ApplicationController
   	@client = Client.find(params[:client_id])
     @job = Job.find(params[:job_id])
   	@jobitem = @job.jobitems.build(jobitem_params)
-  	if @jobitem.save
-  		flash[:notice] = "Item Added"
-  		redirect_to client_job_path(@client,@job)
-  	else
-  		flash[:notice] = "#{errors.full_messages.first}"
-  		redirect_to client_job_path(@client,@job)
-  	end
+    @jobitems = Jobitem.where(job_id: @job.id)
+  	respond_to do |format|
+      if @jobitem.save
+    		format.html {redirect_to client_job_path(@client,@job)}
+        format.js 
+    	else
+    		format.html {redirect_to client_job_path(@client,@job)}
+    	end
+    end
   end
 
   def update
@@ -20,8 +22,10 @@ class JobitemsController < ApplicationController
     @job = Job.find(params[:job_id])
   	@jobitem = Jobitem.find(params[:id])
   	@jobitem.destroy
-  	flash[:notice] = "Item Removed"
-  	redirect_to client_job_path(@client,@job)
+  	respond_to do |format|
+      format.html {redirect_to client_job_path(@client,@job)}
+      format.js
+    end
   end
 
   private

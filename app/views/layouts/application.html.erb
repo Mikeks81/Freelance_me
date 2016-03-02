@@ -32,9 +32,13 @@
 	</nav>
 </div>
 <% end %>
-<% if flash[:notice] %>
-	<%= flash[:notice] %>
-<%end%>
+
+	<% if flash[:notice] %>
+	<div id="flashy">
+		<%= flash[:notice] %>
+	</div>
+	<%end%>
+
 <div class="site_container">
 <%= yield %>
 </div>
