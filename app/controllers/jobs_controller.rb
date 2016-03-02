@@ -17,6 +17,17 @@ class JobsController < ApplicationController
   end
 
   def update
+    @user = current_user
+    @client = Client.find(params[:client_id])
+    @job = Job.find(params[:id])
+    @job.update(job_params)
+    if @job.save
+      flash[:notice] = "Job Updated"
+      redirect_to client_job_path(@client,@job)
+    else
+      flash[:notice] = "Unable to updat Job"
+      redirect_to client_job_path(@client,@job)
+    end 
   end
 
   def new 
@@ -24,6 +35,7 @@ class JobsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @client = Client.find(params[:client_id])
     @job = Job.find(params[:id])
     @jobitem = Jobitem.new

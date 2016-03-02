@@ -6,7 +6,8 @@
 			<%= form_for @client do |f| %>
 				<div class="form_label_field">
 					<p><%= f.label :first_name %> :</p>
-					<p><%= f.text_field :fname %></p>
+					<p><%= f.text_field :fname,
+					class: "mdl-textfield mdl-js-textfield" %></p>
 				</div>
 				<div class="form_label_field">
 				<p><%= f.label :last_name %> :</p>
@@ -51,13 +52,16 @@
 </div>
 <div class="calendar">
 	<div class="container">
-	<%= render partial: 'calendar', locals: {events: @jobs} %>
+		<%= render partial: 'calendar', locals: {events: @jobs} %>
+	</div>
+	<div class="todo_list">
+		<%= render partial: 'todos/todo', locals: {todo: @todo, date: @date, todos: @todos} %>
 	</div>
 </div>
 
 <div class="client_container">
 	<div class="add_client_form_container">
-		<h3>Add a Client</h3>
+		<h3>Add a Client:</h3>
 
 		<div class="add_client_button">
 			<%= link_to "Add Client", "#", id: :add_client_button %>
@@ -89,7 +93,7 @@
 		<div class="job_search">
 			<%= form_tag(user_path, :method => "get", id: "search-form", remote: true) do %>
 			<%= text_field_tag :search, params[:search], placeholder: "Search Clients by Name or Business" %>
-			<%= submit_tag "Search" %>
+			<%= submit_tag "Search", id: :search_button %>
 			<% end %>
 		</div>
 	
@@ -106,7 +110,5 @@
 
 </div>
 
-<div class="todo_list">
-	<%= render partial: 'todos/todo', locals: {todo: @todo, date: @date, todos: @todos} %>
-</div>
+
 

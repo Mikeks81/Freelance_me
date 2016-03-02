@@ -4,7 +4,7 @@ class ChartsController < ApplicationController
 
   def data
   	@user = current_user
-  	@userJobs = @user.jobs
+  	@userJobs = @user.jobs.order('created_at ASC')
   	# @userClients = @user.clients 
   	userjobs = @userJobs.as_json
   	# userclients = @userClients.as_json

@@ -1,21 +1,42 @@
-<h1>Jobs#show</h1>
-<p>Find me in app/views/jobs/show.html.erb</p>
-<div class="client_list">
-		<%#= render partial: 'client_list', locals: {clients: @clients} %>
+<div id="pdf_logo"><%= wicked_pdf_image_tag @user.logo %></div>
+<div id="pdf_user_info">
+	<p><%= @user.fname+ " " +@user.lname %></p>
+	<p><%= @user.email %></p>
+	<p><%= @user.business_name %></p>
 </div>
+<h2 id="invoice_title">Invoice</h2>
 
 <div class="job_list">
-	<p>Client Name: <%= @job.client.fname%></p>
-	<p>Job Name: <%= @job.name%></p>
-	<p>Job Description: <%= @job.job_description%></p>
-	<p>Date of Job: <%= @job.date_of_job%></p>
-	<p>Time: <%= @job.time.strftime("%I:%M %p")%></p>
-	<p>Price: <%= @job.price%></p>
-	<p>Balance: <%= @job.balance%></p>
-	<p>Notes: <%= @job.notes%></p>
-	<p><%#= link_to 'Printable Receipt (PDF)', url_for([@client,@job],:controller => "jobs", :action =>'invoice', format: 'pdf') %></p>
-	<p><%#= link_to :controller => "jobs", :action =>'invoice', format: 'pdf' do %>
-		<%#='Printable Receipt (PDF)' %>
-		<%# end %>
-	</p>
+	<p><strong>Client Name:</strong> <%= @job.client.fname%></p>
+	<p><strong>Job Name:</strong> <%= @job.name%></p>
+	<p><strong>Job Description:</strong> <%= @job.job_description%></p>
+	<p><strong>Date of Job:</strong> <%= @job.date_of_job%></p>
+	<p><strong>Time:</strong> <%= @job.time.strftime("%I:%M %p")%></p>
+	<p><strong>Notes:</strong> <%= @job.notes%></p>
+	<p><strong>Price:</strong> <%= number_to_currency(@job.price)%></p>
+	<p class="red"><strong class="red">Balance:</strong> <%= number_to_currency(@job.balance)%></p>
+	<div id="itemized_pdf_container">
+		<h3>Itemized Balance:</h3>
+			<table class="pdf_table">
+				<tr>
+					<th><strong>Date</strong></th>
+					<th><strong>Description</strong></th>
+					<th><strong>Price</strong></th>
+				</tr>
+				<% @jobitems.each do |j| %>
+					<tr class="job_item_info_pdf">
+						<td><%= j.date.strftime("%m/%d/%Y") %></td>
+						<td><%= j.name %></td>
+						<td><%= number_to_currency(j.price) %></td>
+					</tr>
+				<% end %>
+			</table>
+
+	<div id="pdf_footer">
+			<p>Thank you for your business,</p>
+			<p class="sig"><%= @user.fname + " " + @user.lname %></p>
+			<p class="sig"><%= @user.business_name %></p>
+	</div>
+	</div>
+	
 </div>

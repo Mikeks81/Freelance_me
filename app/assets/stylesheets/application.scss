@@ -27,6 +27,9 @@
 	color: #888;
 }
 
+a {
+	color: #888;
+}
 
 
 body{
@@ -110,22 +113,33 @@ body{
 	width: 42%;
 	max-width: 42%;
 	float:left;
-	.add_client_button{
-		width: 100%;
-		border: 1px solid #ccc;
-		border-radius: 3px;
-		text-align: center;
+	.add_client_form_container h3{
+		float: left;
+		text-decoration: underline;
 	}
+
+	.add_client_button{
+		width: 57%;
+	    float: left;
+	    border: 1px solid #ccc;
+	    border-radius: 3px;
+	    margin-top: 33px;
+	    margin-left: 26px;
+	    text-align: center;
+	}
+
 	.add_client_button a{
 		text-decoration: none;
-		padding: 0 130px 0 130px;
+		padding: 0 30px 0 30px;
 	}
+
 	.client_box{
 		border: 1px solid #ccc;
 		border-radius: 3px;
 		margin-bottom: 10px;
 		padding: 10px;
 	}
+
 	.client_box p {
 		display: inline-block;
 		font-size: 13px;
@@ -141,6 +155,10 @@ body{
 		padding: 5px;
 	}
 
+	.client_list_container h3{
+		width: 100%;
+		clear:both;
+	}
 
 	#client_menu{
 		width: 100%;
@@ -215,6 +233,20 @@ body{
     	}	
     }
 
+    #search {
+    	width: 70%;
+    	height: 20px;
+    	border-radius: 3px;
+    	border: 1px solid #ccc;
+    }
+    #search_button {
+    	width: 28%;
+    	height: 23px;
+    	background-color: transparent;
+    	border: 1px solid #ccc;
+    	border-radius: 3px;
+    }
+
 }
 
 .calendar{
@@ -259,7 +291,7 @@ body{
 
 .todo_list{
 	float: left;
-	width: 45.8%;
+	width: 95.5%;
 	margin-left: 40px;
 	padding: 0 2% 2% 2%;
 	border: 1px solid #ccc;
@@ -294,6 +326,10 @@ body{
 	border: 1px solid #ccc;
 	border-radius: 5px;
 	float: left;
+
+	#file_upload{
+		background-color: transparent;
+	}
 
 	input {
 		width: 100%;
@@ -398,7 +434,7 @@ body{
 	float:left;
 	font-size: 13px;
 	margin: 0 0 10px 0px;
-	padding: 3.31px 15px 3.31px 15px;
+	padding: 6.31px 15px 0 15px;
 	border: 1px solid #ccc;
 	border-radius: 3px 0 0 3px;
 	text-align: center;
@@ -408,7 +444,8 @@ body{
 
 #job_price_balance{
 	display: flex;
-	max-height: 62px;
+	min-height: 49px;
+	padding-top: 20px;
 	justify-content: space-around;
 	border-radius: 0 3px 3px 0;
 	border-top: 1px solid #ccc;
@@ -519,8 +556,6 @@ body{
 	border-radius: 3px;
 }
 
-
-
 .edit_job_form {
 	clear: both;
 }
@@ -530,4 +565,42 @@ body{
 .bar:hover {
 	fill: #fc755d;
 }
+
+// @@@@@@@@@@@@@@@@ PDF Styling @@@@@@@@@@@@@@
+#pdf_logo {
+	width: 90%;
+	max-height: 200;
+	margin: 0 auto;
+}
+
+#pdf_user_info p {
+	display: inline-block;
+	padding: 0 45px 0 45px;
+}
+
+#invoice_title{
+	text-align: center;
+}
+
+#itemized_pdf_container {
+	margin-top: 40px;
+}
+.pdf_table{
+	width: 90%;
+	margin: 0 auto;
+	text-align: left;
+}
+td{
+	padding: 5px;
+	border-bottom: 1px solid #ccc;
+}
+
+#pdf_footer {
+	margin-top: 40px;
+}
+
+.sig {
+	@include margin_padding(0);
+}
+
 

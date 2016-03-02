@@ -9,6 +9,7 @@
 <body>
 <h1>Jobs#show</h1>
 <p>Find me in app/views/jobs/show.html.erb</p>
+hlkjhk
 <div class="client_list">
 		<%#= render partial: 'client_list', locals: {clients: @clients} %>
 </div>
@@ -22,6 +23,8 @@
 	<p>Price: <%= @job.price%></p>
 	<p>Balance: <%= @job.balance%></p>
 	<p>Notes: <%= @job.notes%></p>
+	<h3>Itemized pricing:</h3>
+	<p><%  %></p>
 	<p><%#= link_to 'Printable Receipt (PDF)', url_for([@client,@job],:controller => "jobs", :action =>'invoice', format: 'pdf') %></p>
 	<p><%#= link_to :controller => "jobs", :action =>'invoice', format: 'pdf' do %>
 		<%#='Printable Receipt (PDF)' %>
