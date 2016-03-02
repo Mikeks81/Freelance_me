@@ -1,0 +1,23 @@
+<div id="jobitems_title">
+	<h3>Itemized Balance</h3>
+	<p><strong>Total:</strong> <%= number_to_currency(@total_itemized)%></p>
+</div>
+	<% @jobitems.each do |j| %>
+		<table id="jobitem_table">
+		<tbody class="jobitem_box" id="jobitem_box<%= j.id %>">
+			<td class="td_first"><%= j.name %></td> 
+			<td class="td_center"><%= number_to_currency(j.price) %></td> 
+			<td class="td_date"><%= j.date.strftime("%m/%d/%Y") %></td>
+			<td class="td_last"><%= link_to 'X', client_job_jobitem_path(@client,@job,j), method: :delete, remote: true %>
+			</td> 
+		</tbody>
+		</table>
+	<% end %>
+<div id="jobitem_form">
+<%= form_for [@client,@job,@jobitem], remote: true do |f| %>
+	<%= f.text_field :name, placeholder: :name, id: :job_item_name %>
+	<%= f.text_field :price, placeholder: :price %>
+	<%= f.date_field :date , :value => Time.now.strftime('%Y-%m-%d')%>
+	<%= f.submit 'Add Item', id: :jobitem_button %>
+<% end %>
+</div>

@@ -1,4 +1,3 @@
-console.log("here")
 $('#job_expenses').html("<%= j render(partial: 'expenses/expenses')%>");
 $('#expense_box<%= @expense.id %>').hide();
-$('#expense_box<%= @expense.id %>').slideDown();
+$('#expense_box<%= @expense.id %>').fadeIn();

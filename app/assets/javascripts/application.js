@@ -18,6 +18,9 @@
 
 $(function(){
 
+	// fade flash message out
+	$('#flashy').delay(1300).fadeOut(800);
+
 	// ## modal pop up and close ###
 	$('#add_client_button').on('click',
 		function(){

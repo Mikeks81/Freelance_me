@@ -44,6 +44,18 @@ body{
 	color: #16ce1f;
 }
 
+#flashy {
+	position: fixed;
+	width: 88.5%;
+    height: 20px;
+    font-size: 17px;
+    text-align: center;
+    padding: 10px;
+    margin: 17px 121px;
+    border-radius: 3px;
+    background-color: #fc755d;
+    color: white;
+}
 
 @import 'navbar';
 
@@ -115,22 +127,20 @@ body{
 	float:left;
 	.add_client_form_container h3{
 		float: left;
-		text-decoration: underline;
 	}
 
 	.add_client_button{
-		width: 57%;
-	    float: left;
+		width: 100%;
+		float:left;
 	    border: 1px solid #ccc;
 	    border-radius: 3px;
-	    margin-top: 33px;
-	    margin-left: 26px;
+	    margin-bottom: 20px;
 	    text-align: center;
 	}
 
 	.add_client_button a{
 		text-decoration: none;
-		padding: 0 30px 0 30px;
+		padding: 0 130px 0 130px;
 	}
 
 	.client_box{
@@ -244,7 +254,7 @@ body{
     	height: 23px;
     	background-color: transparent;
     	border: 1px solid #ccc;
-    	border-radius: 3px;
+        border-radius: 3px;
     }
 
 }
@@ -298,14 +308,22 @@ body{
 	h3, h4, #todo_date {
 		text-align:  center;
 	}
+	#todo_table {
+		width: 100%;
+	}
 	.todo_titles{
-		display: flex;
-		justify-content: space-between;
+		width: 100%
 	}
 	.todo_items{
 		border-bottom: 1px solid #ccc;
-		display: flex;
-		justify-content: space-between;
+		width: 100%;
+		text-align: center;
+	}
+	.todo_first{
+		text-align: left;
+	}
+	.todo_last{
+		text-align: right;
 	}
 }
 
@@ -465,24 +483,42 @@ body{
 		display: flex;
 		justify-content: space-between;
 	}
+	#jobitem_table{
+		width: 100%;
+	}
 	.jobitem_box{
-		border-bottom: 1px solid #ccc;
-		display: flex;
-		justify-content: space-between;
 		margin-bottom: 10px;
 	}
-
-	.jobitem_box p{
-		margin: 5px 0 5px 0;
+	.td_center{
+		text-align: left;	
 	}
-
-	#job_jobitems p {
-		border-bottom: 1px solid #ccc;
+	.td_date{
+		text-align: left;
+		width: 14%;
+	}
+	.td_first{
+		text-align:left;
+		width: 55%;
+	}
+	.td_last{
+		text-align: right;
+		width: 5%;
+	}
+	#job_item_name {
+		width: 54%;
+	}
+	#jobitem_price {
+		width: 24%;
 	}
 	#jobitem_form input {
+		height: 20px;
+		margin: 10px 0 5px 0;
 		border-radius: 3px;
 		border: 1px solid #ccc;
 		background: transparent;
+	}
+	#jobitem_button {
+		width: 100%;
 	}
 
 }
@@ -494,25 +530,46 @@ body{
 	padding: 20px;
 	border: 1px solid #ccc;
 	border-radius: 3px;
-
 	#payment_title{
 		display: flex;
 		justify-content: space-between;
 	}
-
+	#payment_table {
+		width: 100%;
+	}
 	.payment_box{
-		border-bottom: 1px solid #ccc;
-		display: flex;
-		justify-content: space-between;
 		margin-bottom: 10px;
 	}
-	.payment_box p{
-		margin: 5px 0 5px 0;	
+	.td_center{
+		text-align: center;	
+	}
+	.td_first{
+		text-align:left;
+		width: 30%;
+	}
+	.td_date {
+		text-align: left;
+    	width: 14%;
+	}
+	.td_last{
+		text-align: right;
+		width: 5%;
+	}
+	#payment_form{
+		margin-top: 15px;
+	}
+	#payment_type{
+		width: 41%;
 	}
 	#payment_form input{
+		height: 20px;
 		border-radius: 3px;
 		border: 1px solid #ccc;
 		background: transparent;
+	}
+	#payment_button {
+		width: 100%;
+		margin-top: 10px;
 	}
 }
 
@@ -528,22 +585,42 @@ body{
 		display: flex;
 		justify-content: space-between;
 	}
-
+	#expense_table {
+		width: 100%;
+	}
 	.expense_box {
-		border-bottom: 1px solid #ccc;
-		display: flex;
-		justify-content: space-between;
 		margin-bottom: 10px;
 	}
-
-	.expense_box p {
-		margin: 5px 0 5px 0;
+	.td_center{
+		text-align: center;	
 	}
-
+	.td_first{
+		text-align:left;
+		width: 30%;
+	}
+	.td_date{
+		text-align: left;
+		width: 14%;
+	}
+	.td_last{
+		text-align: right;
+		width: 5%;
+	}
+	#expense_form {
+		margin-top: 15px;
+	}
+	#expense_description {
+		width: 41%;
+	}
 	#expense_form input {
+		height: 20px;
 		border-radius: 3px;
 		border: 1px solid #ccc;
 		background: transparent;
+	}
+	#expense_button {
+		margin-top: 10px;
+		width: 100%;
 	}
 }
 
