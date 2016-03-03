@@ -128,12 +128,17 @@ body{
 	width: 90%;
 	top: 0;
 }
+.user_greeting h3{
+	margin-left: 40px;
+}
+
 .client_container{
 	width: 42%;
 	max-width: 42%;
 	float:left;
 	.add_client_form_container h3{
 		float: left;
+		margin: 5px 0 20px 0;
 	}
 
 	.add_client_button{
@@ -149,6 +154,7 @@ body{
 		text-decoration: none;
 		padding: 0 130px 0 130px;
 	}
+
 
 	.client_box{
 		border: 1px solid #ccc;
@@ -753,6 +759,7 @@ body{
 	width: 62.5%;
 	float: left;
 	padding: 0 20px 20px 20px;
+	margin-top: 40px;
 	border: 1px solid #ccc;
 	border-radius: 3px;
 
@@ -765,8 +772,10 @@ body{
 
 #ytd_stats {
 	width: 25%;
+	height: 496px;
 	float: left;
 	margin-left: 30px;
+	margin-top: 40px;
 	padding: 0 20px 20px 20px;
 	border: 1px solid #ccc;
 	border-radius: 3px;
@@ -781,18 +790,28 @@ body{
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 #pdf_logo {
-	width: 90%;
+	width: 85%;
 	max-height: 200;
 	margin: 0 auto;
 }
 
+#pdf_user_info{
+	width: 100%;
+}
 #pdf_user_info p {
 	display: inline-block;
-	padding: 0 45px 0 45px;
+	padding: 0 45px 0 85px;
+	margin: 0;
+	font-size: 10px
 }
 
 #invoice_title{
 	text-align: center;
+}
+
+.job_list{
+	margin-left: 50px;
+	width: 85%
 }
 
 #itemized_pdf_container {

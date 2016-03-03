@@ -1,4 +1,5 @@
-<div id="pdf_logo"><%= wicked_pdf_image_tag @user.logo %></div>
+<div id="pdf_logo"><%= wicked_pdf_image_tag @user.logo %>
+</div>
 <div id="pdf_user_info">
 	<p><%= @user.fname+ " " +@user.lname %></p>
 	<p><%= @user.email %></p>
@@ -8,13 +9,13 @@
 
 <div class="job_list">
 	<p><strong>Client Name:</strong> <%= @job.client.fname%></p>
-	<p><strong>Job Name:</strong> <%= @job.name%></p>
+	<p class="stripe"><strong>Job Name:</strong> <%= @job.name%></p>
 	<p><strong>Job Description:</strong> <%= @job.job_description%></p>
-	<p><strong>Date of Job:</strong> <%= @job.date_of_job%></p>
+	<p class="stripe"><strong>Date of Job:</strong> <%= @job.date_of_job%></p>
 	<p><strong>Time:</strong> <%= @job.time.strftime("%I:%M %p")%></p>
-	<p><strong>Notes:</strong> <%= @job.notes%></p>
+	<p class="stripe"><strong>Notes:</strong> <%= @job.notes%></p>
 	<p><strong>Price:</strong> <%= number_to_currency(@job.price)%></p>
-	<p class="red"><strong class="red">Balance:</strong> <%= number_to_currency(@job.balance)%></p>
+	<p class="red stripe"><strong class="red">Balance:</strong> <%= number_to_currency(@job.balance)%></p>
 	<div id="itemized_pdf_container">
 		<h3>Itemized Balance:</h3>
 			<table class="pdf_table">
