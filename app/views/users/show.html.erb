@@ -47,9 +47,6 @@
 	</div>
 </div>
 
-<div class="user_greeting">
-	<h3>Hello <%= @user.fname %></h3>
-</div>
 <div class="calendar">
 	<div class="container">
 		<%= render partial: 'calendar', locals: {events: @jobs} %>

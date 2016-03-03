@@ -7,10 +7,10 @@
   
 </head>
 <body>
-<h1>Thank you for your business, <%#= @client.fname + @client.lname%>!!!</h1>
+<h1>Thank you for your business, <%= @client.fname + @client.lname%>!!!</h1>
     <p>Invoice attached below.</p>
     <p>Regards,</p>
-    <p><%#= user.fname %></p>
+    <p><%= @user.fname %></p>
 <script src=""></script>
 </body>
 </html>

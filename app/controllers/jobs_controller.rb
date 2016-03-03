@@ -39,13 +39,13 @@ class JobsController < ApplicationController
     @client = Client.find(params[:client_id])
     @job = Job.find(params[:id])
     @jobitem = Jobitem.new
-    @jobitems = Jobitem.where(job_id: @job.id)
+    @jobitems = Jobitem.where(job_id: @job.id).order('date ASC')
     @total_itemized = 0
       @jobitems.each do |e|
         @total_itemized = @total_itemized + e.price
       end 
     @expense = Expense.new
-    @expenses = Expense.where(job_id: @job.id)
+    @expenses = Expense.where(job_id: @job.id).order('date ASC')
     @total_expenses = 0
       @expenses.each do |e|
         @total_expenses = @total_expenses + e.amount
