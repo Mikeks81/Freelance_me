@@ -23,13 +23,13 @@
 					<th><strong>Description</strong></th>
 					<th><strong>Price</strong></th>
 				</tr>
-				<% @jobitems.each do |j| %>
-					<tr class="job_item_info_pdf">
-						<td><%= j.date.strftime("%m/%d/%Y") %></td>
-						<td><%= j.name %></td>
-						<td><%= number_to_currency(j.price) %></td>
-					</tr>
-				<% end %>
+					<% @jobitems.each do |j| %>
+						<tr class="job_item_info_pdf">
+							<td><%= j.date.strftime("%m/%d/%Y") %></td>
+							<td><%= j.name %></td>
+							<td><%= number_to_currency(j.price) %></td>
+						</tr>
+					<% end %>
 			</table>
 
 	<div id="pdf_footer">

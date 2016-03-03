@@ -72,6 +72,7 @@ class JobsController < ApplicationController
     @user = current_user
     @client = Client.find(params[:client_id])
     @job = Job.find(params[:id])
+    @jobitems = Jobitem.where(job_id: @job.id)
     pdf = render_to_string :pdf => "Invoice",
         :template => 'jobs/show.pdf.erb',
         :layout => 'pdf.html.erb'
