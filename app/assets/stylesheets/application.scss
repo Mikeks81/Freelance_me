@@ -63,12 +63,15 @@ body{
 	margin-left: 100px;
 	padding: 20px;
 	overflow: auto;
+
 }
 .outer_modal{
 	position: fixed;
 	width: 90%;
 	height: 95vh;
-	background-color: rgba(147, 147, 147, 0.85);
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	background-color: rgba(255, 255, 255, 0.9);
 	display: none;
 	.inner_modal{
 		width: 470px;
@@ -83,7 +86,7 @@ body{
 		font-size: 30px;
 	}
 	.modal_close_button a {
-		color: white;
+		color: #888;
 		padding: 10px;
 		text-decoration: none;
 	}
@@ -92,7 +95,7 @@ body{
 		justify-content: space-between;
 	}
 	.form_label_field label,p,h2{
-		color: white;
+		color: #888;
 	}
 	.form_label_field label {
 		font-size: 20px;
@@ -104,15 +107,15 @@ body{
 		font-size: 20px;
 		border-radius: 3px;
 		background-color: transparent;
-		border: 1px solid white;
+		border: 1px solid #888;
 	}
 	#add_client_submit{
 		width: 100%;
 		height: 30px;
-		color: white;
+		color: #888;
 		font-size: 20px;
 		border-radius: 3px;
-		border: 1px solid white;
+		border: 1px solid #888;
 		background: transparent;
 
 	}
@@ -325,9 +328,25 @@ body{
 	.todo_last{
 		text-align: right;
 	}
+	#todo_item{
+		width: 100%;
+		height: 20px;
+		border-radius: 3px;
+		border: 1px solid #ccc;
+	}
+	#todo_submit {
+		width: 100%;
+		height:20px;
+		border-radius: 3px;
+		border: 1px solid #ccc;
+		background-color: #ccc;
+		color: white;
+	}
 }
-
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // @@@@@@@@@ USER/EDIT @@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 
 .user_profile{
 	width: 45%;
@@ -336,6 +355,10 @@ body{
 	border: 1px solid #ccc;
 	border-radius: 5px;
 	float: left;
+
+	#current_logo {
+		width: 97%;
+	}
 }
 
 .edit_user_form{
@@ -358,8 +381,10 @@ body{
 	}
 
 }
-
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 //@@@@@@@@@@@@ CLIENT EDIT @@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 .client_info_box {
 	float:left;
 	width: 45%;
@@ -419,8 +444,11 @@ body{
 		border: 1px solid #fc755d;
 	}
 }
-
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // ######## Job Show ############
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
 #job_list_show_container{
 	width: 55%;
 	float: left;
@@ -435,8 +463,16 @@ body{
 		height: auto;
 		float: left;
 	}
+	h3 {
+		float: left;
+	}
+
+	#job_edit_link{
+		margin: 40px 0 0 131px;
+	}
 
 	.job_list_show p {
+		clear:both;
 		// border-bottom: 1px solid #ccc;
 	}
 
@@ -515,10 +551,12 @@ body{
 		margin: 10px 0 5px 0;
 		border-radius: 3px;
 		border: 1px solid #ccc;
-		background: transparent;
+		// background: transparent;
 	}
 	#jobitem_button {
 		width: 100%;
+		// background-color: #fc755d; 
+		color: white;
 	}
 
 }
@@ -565,11 +603,13 @@ body{
 		height: 20px;
 		border-radius: 3px;
 		border: 1px solid #ccc;
-		background: transparent;
+		// background: transparent;
 	}
 	#payment_button {
 		width: 100%;
 		margin-top: 10px;
+		color: white;
+		// background-color: #fc755d;
 	}
 }
 
@@ -616,11 +656,13 @@ body{
 		height: 20px;
 		border-radius: 3px;
 		border: 1px solid #ccc;
-		background: transparent;
+		// background: transparent;
 	}
 	#expense_button {
 		margin-top: 10px;
 		width: 100%;
+		color: white;
+		// background-color: #ff9b89;
 	}
 }
 
@@ -636,14 +678,40 @@ body{
 .edit_job_form {
 	clear: both;
 }
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@ Charts @@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#graph_container{ 
+	width: 62.5%;
+	float: left;
+	padding: 0 20px 20px 20px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
 
-// @@@@@@@@@@@@ Charts @@@@@@@@@@@@@@@@@@
-
-.bar:hover {
-	fill: #fc755d;
+	#graph {
+	}
+	.bar:hover {
+		fill: #fc755d;
+	}
 }
 
+#ytd_stats {
+	width: 25%;
+	float: left;
+	margin-left: 30px;
+	padding: 0 20px 20px 20px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	strong {
+		margin-left: 5px;
+	}
+}
+
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // @@@@@@@@@@@@@@@@ PDF Styling @@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 #pdf_logo {
 	width: 90%;
 	max-height: 200;

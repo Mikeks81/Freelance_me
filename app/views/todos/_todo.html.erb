@@ -1,4 +1,4 @@
-<h3>Todo List</h3>
+<h3>To do List</h3>
 <p id="todo_date"><%= @date.strftime("%b %d, %Y")%></p>
 <table id="todo_table">
 <thead class="todo_titles">
@@ -20,5 +20,5 @@
 <%= form_for(@todo, remote: true) do |f| %>
 	<p><%= f.hidden_field :date, value: @date.strftime("%b %d, %Y")  %></p>
 	<p><%= f.text_field :item, placeholder: :task %></p>
-	<p><%= f.submit "Add Task"%></p>
+	<p><%= f.submit "Add Task", id: :todo_submit %></p>
 <% end %>

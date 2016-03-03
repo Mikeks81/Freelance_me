@@ -25,10 +25,10 @@ class TodosController < ApplicationController
   	@todo = Todo.find(params[:id])
 		respond_to do |format|
 	  	if @todo.destroy
-  			format.html {redirect_to user_show(current_user), notice: "Task Removed"}
+  			format.html {redirect_to user_show(current_user)}
   			format.js 
   		else
-  			format.html { redirect_to user_path(current_user), alert: "Task Could not be Removed" }
+  			format.html { redirect_to user_path(current_user)}
   		end 
   	end
   end

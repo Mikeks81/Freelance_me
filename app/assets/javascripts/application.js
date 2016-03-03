@@ -40,7 +40,8 @@ $(function(){
 	$("#show_jobs a").on('click',
 		function(e){
 			e.preventDefault();
-			$(this).parent().next().toggle(100);
+			console.log("hereeeee")
+			$(this).parent().nextAll().toggle(200);
 		});
 
 	// ### search bar menu click (All Clients) on User/show #### 

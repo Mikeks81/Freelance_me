@@ -1,17 +1,19 @@
 class ExpensesController < ApplicationController
   def create
+    @user = current_user
     @client = Client.find(params[:client_id])
     @job = Job.find(params[:job_id])
-  	@expense = @job.expenses.build(expense_params)
     @expenses = Expense.where(job_id: @job.id)
+  	@expense = @job.expenses.build(expense_params)
+    @expense.user_id = @user.id
     respond_to do |format|
     	if @expense.save
-        format.html {redirect_to client_job_path(@client,@job), notice: "Expense Added"}
+        format.html {redirect_to client_job_path(@client,@job)}
     		format.js 
         # flash[:notice] = "Expense Added"
         # redirect_to client_job_path(@client,@job)
     	else
-    		format.html {format.html {redirect_to client_job_path(@client,@job), notice: "Expense could not be added"}}
+    		format.html {redirect_to client_job_path(@client,@job)}
         # flash[:notice] = "Expense could not be added"
         # redirect_to client_job_path(@client,@job)
     	end
@@ -27,7 +29,6 @@ class ExpensesController < ApplicationController
     @job = Job.find(params[:job_id])
     @expense = Expense.find(params[:id])
     @expense.destroy
-    flash[:notice] = "Expense Removed"
     respond_to do |format|
       format.html { redirect_to client_job_path(@client,@job)}
       format.js
