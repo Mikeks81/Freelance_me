@@ -51,7 +51,7 @@ $(function(){
 		});
 
 	// hide user greeting after page load
-	$('.user_greeting').delay(2000).slideUp(700);
+	// $('.user_greeting').delay(2000).slideUp(700);
 
 
 	// ### show and hide jobs of each client on User/show ## 
