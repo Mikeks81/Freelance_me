@@ -19,6 +19,9 @@
 
 	<div class="job_list_show">
 		<h3>Job Info</h3>
+		<div id="job_edit_link">
+			<%= link_to "Edit Job", "#" %>
+		</div>
 		<p class="stripe"><strong>Client Name:</strong> <%= @job.client.fname%></p>
 		<p><strong>Business Name:</strong> <%= @job.client.business_name%></p>
 		<p class="stripe"><strong>Client Email:</strong> <%= @job.client.email %></p>
@@ -42,26 +45,44 @@
 	<%= render partial: 'expenses/expenses' %>
 </div>
 
-<div class="edit_job_form">
-	<h3>Edit Job</h3>
-	<%= form_for [@client,@job] do |f| %>
-		<p><%= f.label :name %></p>
-		<p><%= f.text_field :name %></p>
-		<p><%= f.label :description_of_job %></p>
-		<p><%= f.text_area :job_description %></p>
-		<p><%= f.label :price %></p>
-		<p><%= f.text_field :price %></p>
-		<p><%= f.label :current_balance %></p>
-		<p><%= f.text_field :balance %></p>
-		<p><%= f.label :job_date %></p>
-		<p><%= f.date_field :date_of_job %></p>
-		<p><%= f.label :time_of_job %></p>
-		<p><%= f.time_select :time, {ampm: true} %></p>
-		<p><%= f.label :notes %></p>
-		<p><%= f.text_area :notes %></p>
-		<%#= f.hidden_field :client_id, value: @client.id %>
-		<p><%= f.submit "Update" %></p>
-	<% end %>
+<div class="outer_modal">
+	<div class="inner_modal">
+		<p class="modal_close_button"><a href="#">&#10008;</a></p>
+			<h3>Edit Job</h3>
+			<div class="add_client_form">
+			<%= form_for [@client,@job] do |f| %>
+			<div class="form_label_field">
+				<p><%= f.label :name %></p>
+				<p><%= f.text_field :name %></p>
+			</div>
+			<div class="form_label_field">
+				<p><%= f.label :description_of_job %></p>
+				<p><%= f.text_area :job_description %></p>
+			</div>
+			<div class="form_label_field">
+				<p><%= f.label :price %></p>
+				<p><%= f.text_field :price %></p>
+			</div>
+			<div class="form_label_field">
+				<p><%= f.label :current_balance %></p>
+				<p><%= f.text_field :balance %></p>
+			</div>
+			<div class="form_label_field">
+				<p><%= f.label :job_date %></p>
+				<p><%= f.date_field :date_of_job %></p>
+			</div>
+			<div class="form_label_field">
+				<p><%= f.label :time_of_job %></p>
+				<p><%= f.time_select :time, {ampm: true} %></p>
+			</div>
+			<div class="form_label_field">
+				<p><%= f.label :notes %></p>
+				<p><%= f.text_area :notes %></p>
+			</div>
+				<p><%= f.submit "Update" %></p>
+			<% end %>
+			</div>
+	</div>
 </div>
 
 

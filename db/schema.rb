@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302002138) do
+ActiveRecord::Schema.define(version: 20160302215547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,9 +40,11 @@ ActiveRecord::Schema.define(version: 20160302002138) do
     t.integer  "job_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
 
   add_index "expenses", ["job_id"], name: "index_expenses_on_job_id", using: :btree
+  add_index "expenses", ["user_id"], name: "index_expenses_on_user_id", using: :btree
 
   create_table "jobitems", force: :cascade do |t|
     t.text     "name"
@@ -82,9 +84,11 @@ ActiveRecord::Schema.define(version: 20160302002138) do
     t.integer  "job_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   add_index "payments", ["job_id"], name: "index_payments_on_job_id", using: :btree
+  add_index "payments", ["user_id"], name: "index_payments_on_user_id", using: :btree
 
   create_table "todos", force: :cascade do |t|
     t.string   "item"
@@ -110,9 +114,11 @@ ActiveRecord::Schema.define(version: 20160302002138) do
 
   add_foreign_key "clients", "users"
   add_foreign_key "expenses", "jobs"
+  add_foreign_key "expenses", "users"
   add_foreign_key "jobitems", "jobs"
   add_foreign_key "jobs", "clients"
   add_foreign_key "jobs", "users"
   add_foreign_key "payments", "jobs"
+  add_foreign_key "payments", "users"
   add_foreign_key "todos", "users"
 end

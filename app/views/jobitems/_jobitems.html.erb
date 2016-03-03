@@ -4,13 +4,13 @@
 </div>
 	<% @jobitems.each do |j| %>
 		<table id="jobitem_table">
-		<tbody class="jobitem_box" id="jobitem_box<%= j.id %>">
-			<td class="td_first"><%= j.name %></td> 
-			<td class="td_center"><%= number_to_currency(j.price) %></td> 
-			<td class="td_date"><%= j.date.strftime("%m/%d/%Y") %></td>
-			<td class="td_last"><%= link_to 'X', client_job_jobitem_path(@client,@job,j), method: :delete, remote: true %>
-			</td> 
-		</tbody>
+			<tbody class="jobitem_box" id="jobitem_box<%= j.id %>">
+				<td class="td_first"><%= j.name %></td> 
+				<td class="td_center"><%= number_to_currency(j.price) %></td> 
+				<td class="td_date"><%= j.date.strftime("%m/%d/%Y") %></td>
+				<td class="td_last"><%= link_to 'X', client_job_jobitem_path(@client,@job,j), method: :delete, remote: true %>
+				</td> 
+			</tbody>
 		</table>
 	<% end %>
 <div id="jobitem_form">
