@@ -21,7 +21,7 @@ $(function(){
 	// fade flash message out
 	$('#flashy').delay(1300).fadeOut(800);
 
-	// ## modal pop up and close ###
+	// ## modal pop up and close Users/show ###
 	$('#add_client_button').on('click',
 		function(){
 			$('.outer_modal').fadeIn(150);
@@ -33,6 +33,21 @@ $(function(){
 	$('.modal_close_button').on('click',
 		function(){
 			$('.outer_modal').fadeOut(150);
+		});
+
+
+	/// modal on Job/show 
+	$('#job_edit_link_a').on('click',
+		function(){
+			$('.outer_modal_job').fadeIn(150);
+		});
+	$("#edit_job_submit").on('click',
+		function(){
+			$('.outer_modal_job').fadeOut(150);
+		});
+	$('.modal_close_button_job').on('click',
+		function(){
+			$('.outer_modal_job').fadeOut(150);
 		});
 
 	// ### show and hide jobs of each client on User/show ## 
