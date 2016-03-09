@@ -11,7 +11,7 @@
 	<p class="stripe">Payments Received:   <strong><%= number_to_currency(@ytd_totalpayments) %></strong></p>
 	<p>% Payments Received:   
 		<strong>
-		<% if @ytd_paymentrecievedpercent > 0 %>
+		<% if @ytd_paymentrecievedpercent != nil %>
 			<%= @ytd_paymentrecievedpercent.round %>%
 		<% else %>
 			0%
