@@ -9,7 +9,14 @@
 	<p class="stripe green" class="green">Revenue:   <strong class="green"><%= number_to_currency(@ytd_totalrevenue) %></strong></p>
 	<p class="red">Payment(s) Due:   <strong class="red"><%= number_to_currency(@ytd_totalpaymentdue) %></strong></p>
 	<p class="stripe">Payments Received:   <strong><%= number_to_currency(@ytd_totalpayments) %></strong></p>
-	<p>% Payments Received:   <strong><%= @ytd_paymentrecievedpercent %>%</strong></p>
+	<p>% Payments Received:   
+		<strong>
+		<% if @ytd_paymentrecievedpercent > 0 %>
+			<%= @ytd_paymentrecievedpercent.round %>%
+		<% else %>
+			0%
+		<%end %> 
+		</strong></p>
 	
 	<p class="stripe">Number of Jobs:   <strong><%= @ytd_totaljobs %></strong></p>
 	<p>Clients Added:   <strong><%= @ytd_totalclients %></strong></p>
