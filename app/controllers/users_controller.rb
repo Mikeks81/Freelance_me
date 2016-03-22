@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
     else
       flash[:notice] = "#{@user.errors.full_messages.first}"
-      render 'sessions/index'
+      redirect_to users_path
     end
   end
 
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Account Updated"
       redirect_to edit_user_path(@user)
     else
-      flash[:notice] = "#{errors.full_messages.first}"
+      flash[:notice] = "#{@user.errors.full_messages.first}"
       redirect_to edit_user_path(@user)
     end
   end

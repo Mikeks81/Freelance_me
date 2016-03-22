@@ -17,13 +17,18 @@
 			0%
 		<%end %> 
 		</strong></p>
-	
+		
 	<p class="stripe">Number of Jobs:   <strong><%= @ytd_totaljobs %></strong></p>
 	<p>Clients Added:   <strong><%= @ytd_totalclients %></strong></p>
-	<p class="stripe">Higest Price Job:   <strong><%= link_to client_job_path(@ytd_h_job_client_id,@ytd_h_job_id) do %>
+	<p class="stripe">Higest Price Job:   <strong>
+	<%= link_to client_job_path(@ytd_h_job_client_id,@ytd_h_job_id) do %>
 			<%= number_to_currency(@ytd_highest_price_job) %>
 		<% end %>
 	</strong></p>
 
+</div>
+
+<div id="num_jobs_graph_container">
+		
 </div>
 

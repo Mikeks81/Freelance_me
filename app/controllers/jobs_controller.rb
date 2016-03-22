@@ -8,7 +8,7 @@ class JobsController < ApplicationController
       flash[:notice] = "Job Added"
       redirect_to client_job_path(@client,@job)
     else
-      flash[:notice] = "Error. Job not added"
+      flash[:notice] = "#{@job.errors.full_messages.first}"
       redirect_to client_path(@client)
     end
   end
@@ -25,7 +25,7 @@ class JobsController < ApplicationController
       flash[:notice] = "Job Updated"
       redirect_to client_job_path(@client,@job)
     else
-      flash[:notice] = "Unable to updat Job"
+      flash[:notice] = "#{@job.errors.full_messages.first}"
       redirect_to client_job_path(@client,@job)
     end 
   end

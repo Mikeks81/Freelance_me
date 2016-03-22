@@ -9,7 +9,9 @@ class ChartsController < ApplicationController
     @ytd_totalgross = 0
     @ytd_highest_price_job = 0
     @ytd_h_job_client_id = 0
+
     @ytd_h_job_id = 0
+
       @jobs.each do |j|
         if j.date_of_job.year == Time.now.year
           @ytd_totalgross += j.price
@@ -20,7 +22,9 @@ class ChartsController < ApplicationController
           end
         end
       end
+
     @ytd_totalexpenses = 0
+
       @expenses.each do |e|
         if e.date.year == Time.now.year
           @ytd_totalexpenses += e.amount 
@@ -59,6 +63,18 @@ class ChartsController < ApplicationController
   			render :json =>userjobs
   		}
   	end 
+  end
+
+  def num_of_jobs
+    @user = current_user
+    @userJobs = @user.jobs.order('created_at ASC')
+    @userJobs = @userJobs.group_by {|t| t.date_of_job.beginning_of_month.month}
+    userjobnum = @userJobs.as_json
+    respond_to do |format|
+      format.json {
+        render :json =>userjobnum
+      }
+    end
   end
 
 end
