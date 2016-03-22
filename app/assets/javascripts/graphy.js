@@ -1,7 +1,7 @@
 $.ajax({
            type: "GET",
            contentType: "application/json; charset=utf-8",
-           url: 'data',
+           url: '/charts/data',
            dataType: 'json',
            success: function (data) {
                draw(data);
@@ -12,7 +12,7 @@ $.ajax({
        });
 function draw(data){
   // width and height 
-    var w = 800;
+    var w = 715;
     var h = 400;
     var barPadding = 1;
 
@@ -33,10 +33,6 @@ function draw(data){
     var svg = d3.select("#graph")
                 .attr("width", w)
                 .attr("height", h);
-
-    // var line = d3.svg.line()
-    //           .x(function(d) {return Math.random() * 400; }) 
-    //           .y(function(d) { return Math.random() * 300; });
 
   // creating rect's inside the svg
           svg.selectAll("rect")
@@ -115,6 +111,85 @@ function draw(data){
             //calling the xAxis function ( or var ) and placing them on the chart.
             // svg.append("g")
             //     .call(xAxis);
+}
+
+$.ajax({
+           type: "GET",
+           contentType: "application/json; charset=utf-8",
+           url: '/charts/num_of_jobs',
+           dataType: 'json',
+           success: function (data) {
+               numOfJobs(data);
+           },
+           error: function (result) {
+               error();
+           }
+       });
+function numOfJobs(data){
+    console.log(data);
+    var months = ["Jan","Feb","March","April","May","June","July","August","September","October","November","December"];
+    var monthToJobsArr = []
+    var monthToJobs = {"1":"0" , "2":"0" , "3":"0" , "4":"0" , "5":"0" , "6":"0" , "7":"0" , "8":"0" , "9":"0" , "10":"0" , "11":"0" , "12":"0"}
+
+    for (var i = 1; i <= 12; i++ ){
+      if (data[i]){
+        monthToJobs[i] = data[i].length;
+        monthToJobsArr.push(data[i].length);  
+      }
+      else {
+        monthToJobs[i] = 0;
+        monthToJobsArr.push(0);
+      }
+    }
+  
+    // width and height 
+    var w = 715;
+    var h = 400;
+    var margin = {left: 30, top: 30, right: 30, bottom: 30};
+    var innerW = w - margin.left - margin.right;
+    var innerH = h - margin.top - margin.bottom;
+    var circleRadius = 5
+    var xColumn = ""
+    var yColumn = ""
+    
+    // select svg element
+    var svg = d3.select("#num_jobs_graph_container").append("svg")
+        .attr("width", w)
+        .attr("height", h);
+
+    var g = svg.append("g")
+        .attr("transform", "translate("+margin.left+","+margin.top+")");
+    var xAxisG = g.append("g")
+        .attr("transform", "translate(0," + innerHeight + ")");
+    var yAxisG = g.append("g");
+
+    var xScale = d3.scale.linear().range([0,innerW]);
+    var yScale = d3.scale.linear().range([innerH,0]);
+
+    var xAxis = d3.svg.axis().scale(xScale).orient("bottom");
+    var yAxis = d3.svg.axis().scale(yScale).orient("left");
+
+    function render(data){
+
+      xScale.domain(d3.extent(monthToJobsArr));
+      yScale.domain(d3.extent(monthToJobsArr));
+
+      xAxisG.call(xAxis);
+      yAxisG.call(yAxis);
+
+      var circles = g.selectAll("circle").data(data);
+      circles.enter().append("circle")
+        .attr("r", circleRadius);
+
+      circles
+        .attr("cx",function(d){ return xScale(d);})
+        .attr("cy", function(d){ return yScale(d);});
+
+      circles.exit().remove();
+    }
+
+    render(monthToJobsArr);
+                
 }
  
 // function draw(data) {
