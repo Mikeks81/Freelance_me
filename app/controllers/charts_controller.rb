@@ -51,7 +51,6 @@ class ChartsController < ApplicationController
           @ytd_totalclients += 1
         end
       end
-
   end
 
   def data
