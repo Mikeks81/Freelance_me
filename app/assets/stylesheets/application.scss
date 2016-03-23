@@ -135,8 +135,8 @@ body{
 }
 
 .client_container{
-	width: 42%;
-	max-width: 42%;
+	width: 45%;
+	max-width: 45%;
 	float:left;
 	.add_client_form_container h3{
 		float: left;
@@ -279,11 +279,11 @@ body{
 .calendar{
 	width:50%;
 	float: left;
-	margin-right: 80px;
+	margin-right: 45px;
 	.container{
 		width: 100%;
 		margin: 0 auto;
-		margin-left: 40px;
+		margin-left: 10px;
 		margin-bottom: 30px;
 
 		display: inline-block;
@@ -320,7 +320,7 @@ body{
 .todo_list{
 	float: left;
 	width: 95.5%;
-	margin-left: 40px;
+	margin-left: 10px;
 	padding: 0 2% 2% 2%;
 	border: 1px solid #ccc;
 	h3, h4, #todo_date {
@@ -439,7 +439,7 @@ body{
 }
 
 .add_job_form {
-	width: 45%;
+	width: 43%;
 	margin-right: 30px;
 	padding: 0 0 0 30px;
 	border: 1px solid #ccc;
@@ -889,14 +889,14 @@ td{
 
 path { 
     stroke: steelblue;
-    stroke-width: 2;
+    stroke-width: 3;
     fill: none;
 }
 
 .axis path,
 .axis line {
     fill: none;
-    stroke: grey;
+    stroke: black;
     stroke-width: 1;
     shape-rendering: crispEdges;
 }

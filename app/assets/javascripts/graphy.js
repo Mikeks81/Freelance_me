@@ -157,30 +157,30 @@ function numOfJobs(data){
     width = 715 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
-// Parse the date / time
-var parseDate = d3.time.format("%B").parse;
+  // Parse the date / time
+  var parseDate = d3.time.format("%B").parse;
 
-// Set the ranges
-var x = d3.time.scale().range([0, width]);
-var y = d3.scale.linear().range([height, 0]);
+  // Set the ranges
+  var x = d3.time.scale().range([0, width]);
+  var y = d3.scale.linear().range([height, 0]);
 
-// Define the axes
-var xAxis = d3.svg.axis()
+  // Define the axes
+  var xAxis = d3.svg.axis()
     .scale(x)
     .orient("bottom")
     .ticks(12)
     .tickFormat(d3.time.format("%b"));
 
-var yAxis = d3.svg.axis().scale(y)
+  var yAxis = d3.svg.axis().scale(y)
     .orient("left");
 
-// Define the line
-var valueline = d3.svg.line()
+  // Define the line
+  var valueline = d3.svg.line()
     .x(function(d) { return x(d.date); })
     .y(function(d) { return y(d.jobs); });
     
-// Adds the svg canvas
-var svg = d3.select("#num_jobs_graph_container")
+  // Adds the svg canvas
+  var svg = d3.select("#num_jobs_graph_container")
     .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
