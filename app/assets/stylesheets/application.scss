@@ -135,8 +135,8 @@ body{
 }
 
 .client_container{
-	width: 42%;
-	max-width: 42%;
+	width: 45%;
+    max-width: 45%;
 	float:left;
 	.add_client_form_container h3{
 		float: left;
@@ -279,11 +279,11 @@ body{
 .calendar{
 	width:50%;
 	float: left;
-	margin-right: 80px;
+	margin-right: 48px;
 	.container{
 		width: 100%;
 		margin: 0 auto;
-		margin-left: 40px;
+		margin-left: 10px;
 		margin-bottom: 30px;
 
 		display: inline-block;
@@ -320,7 +320,7 @@ body{
 .todo_list{
 	float: left;
 	width: 95.5%;
-	margin-left: 40px;
+	margin-left: 10px;
 	padding: 0 2% 2% 2%;
 	border: 1px solid #ccc;
 	h3, h4, #todo_date {
@@ -536,6 +536,7 @@ body{
 	overflow: auto;
 	padding: 15px;
 	margin-bottom: 15px;
+	margin-left: 10px;
 	border-radius: 3px;
 
 	.job_list_show {
@@ -564,10 +565,11 @@ body{
 }
 
 .pdf_options{
+	max-height: 63px;
 	width: 35%;
 	float:left;
 	font-size: 13px;
-	margin: 0 0 10px 0px;
+	// margin: 0 0 0 0px;
 	padding: 6.31px 15px 0 15px;
 	border: 1px solid #ccc;
 	border-radius: 3px 0 0 3px;
