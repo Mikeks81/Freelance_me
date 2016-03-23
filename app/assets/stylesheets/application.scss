@@ -811,6 +811,29 @@ body{
 	}
 }
 
+#num_jobs_graph_container {
+	width: 62.5%;
+    float: left;
+    padding: 0 20px 20px 20px;
+    margin-top: 40px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+
+    path { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+	}
+
+	.axis path,
+	.axis line {
+	    fill: none;
+	    stroke: grey;
+	    stroke-width: 1;
+	    shape-rendering: crispEdges;
+	}
+}
+
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // @@@@@@@@@@@@@@@@ PDF Styling @@@@@@@@@@@@@@
@@ -862,4 +885,18 @@ td{
 	@include margin_padding(0);
 }
 
+// ################## LINE GRAPH #########################
 
+path { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}

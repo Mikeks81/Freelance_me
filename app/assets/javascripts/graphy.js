@@ -108,6 +108,7 @@ function draw(data){
   // LINE CHART 
 
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 $.ajax({
            type: "GET",
            contentType: "application/json; charset=utf-8",
@@ -139,113 +140,89 @@ function numOfJobs(data){
         optData.push(dataHash);  // pushing dataHash into optData
       }
       else {
-        dataHash.x = months[i];
-        dataHash.y = 0
+        dataHash.date = months[i];
+        dataHash.jobs = 0
         monthToJobs[i] = 0;
         monthToJobsArr.push(0);
         optData.push(dataHash); 
       }
+      console.log(dataHash);
     }
-    console.log(monthToJobs);
-    console.log(monthToJobsArr);
-    console.log(optData);
+    data = optData;
+    // console.log(monthToJobs);
+    // console.log(monthToJobsArr);
+    // console.log([data.date,data.jobs]);
 
-    /// gonna be honest and i copied a lot of this shit but i have a gist of an idea of what it all does but i'm not too solid bout it. 
+    var margin = {top: 30, right: 30, bottom: 30, left: 40},
+    width = 715 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
 
-    // width and height 
-    var w = 715;
-    var h = 400;
-    var margin = {left: 30, top: 30, right: 30, bottom: 30};
-    var innerW = w - margin.left - margin.right;
-    var innerH = h - margin.top - margin.bottom;
+// Parse the date / time
+var parseDate = d3.time.format("%B").parse;
+
+// Set the ranges
+var x = d3.time.scale().range([0, width]);
+var y = d3.scale.linear().range([height, 0]);
+
+// Define the axes
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom")
+    .ticks(12)
+    .tickFormat(d3.time.format("%b"));
+
+var yAxis = d3.svg.axis().scale(y)
+    .orient("left");
+
+// Define the line
+var valueline = d3.svg.line()
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y(d.jobs); });
     
-    var parseDate = d3.time.format("%d-%b-%y").parse;
+// Adds the svg canvas
+var svg = d3.select("#num_jobs_graph_container")
+    .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+        .attr("transform", 
+              "translate(" + margin.left + "," + margin.top + ")");
 
-    var xScale = d3.time.scale()
-      .range([0,w]);
+//d3.csv("data.csv", function(error, data) {
+   data.forEach(function(d) {
+        d.date = parseDate(d.date);
+        d.jobs = +d.jobs;
+    });
 
-    var yScale = d3.scale.linear()
-      .range([h,0]);
+    // Scale the range of the data
+    x.domain(d3.extent(data, function(d) { return d.date; }));
+    y.domain([0, d3.max(data, function(d) { return d.jobs; })]);
 
-    var xAxis = d3.svg.axis()
-      .scale(xScale)
-      .orient("bottom");
-
-    var yAxis = d3.svg.axis()
-      .scale(yScale)
-      .orient("left")
-
-    var line = d3.svg.line()
-      .x(function(d) { return xScale(d.date); })
-      .y(function(d) { return yScale(d.jobs); })
-
-    // select svg element
-    var svg = d3.select("#num_jobs_graph_container").append("svg")
-        .attr("width", w)
-        .attr("height", h)
-      .append("g")
-        .attr("transform","translate("+margin.left+","+margin.top+ ")");
-
-    x.domain(d3.extent(data, function(d){ return d.date; }));
-    y.domain(d3.extent(data, function(d){ return d.jobs; }));
-
-    svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0,"+h+")")
-      .call(xAxis);
-
-    svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-     .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("Jobs Per Month");
-
+    // Add the valueline path.
     svg.append("path")
-      .datum(data)
-      .attr("class", "line")
-      .attr("d", line)
+        .attr("class", "line")
+        .attr("d", valueline(data));
 
+    // Add the X Axis
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis)
+      .selectAll("text")
+        .attr("y", 0)
+        .attr("x", 9)
+        .attr("dy", ".35em")
+        .attr("transform", "rotate(45)")
+        .style("text-anchor", "start");
 
-    // var g = svg.append("g")
-    //     .attr("transform", "translate("+margin.left+","+margin.top+")");
-    // var xAxisG = g.append("g")
-    //     .attr("transform", "translate(0," + innerHeight/2.1 + ")");
-    // var yAxisG = g.append("g");
-
-    // var xScale = d3.scale.linear().range([0,innerW]);
-    // var yScale = d3.scale.linear().range([innerH,0]);
-
-    // var xAxis = d3.svg.axis()
-    // .scale(xScale)
-    // .orient("bottom");
-    // // .ticks(d3.time.months)
-    // // .tickSize(16, 0)
-    // // .tickFormat(d3.time.format("%B"));
-    // var yAxis = d3.svg.axis().scale(yScale).orient("left");
-
-    // function render(data){
-
-    //   xScale.domain([1,12]);
-    //   yScale.domain([0,d3.max(monthToJobsArr)]);
-
-    //   xAxisG.call(xAxis);
-    //   yAxisG.call(yAxis);
-
-    //   var circles = g.selectAll("circle").data(data);
-    //   circles.enter().append("circle")
-    //     .attr("r", circleRadius);
-
-    //   circles
-    //     .attr("cx",function(d){ return xScale(d);})
-    //     .attr("cy", function(d){ return yScale(d);});
-
-    //   circles.exit().remove();
-    // }
-
-    // render(monthToJobsArr);
-                
+    // Add the Y Axis
+    svg.append("g")
+        .attr("class", "y axis")
+        .call(yAxis)
+      .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("dy", ".71em")
+        .style("text-anchor", "end")
+        .text("Jobs Per Month");                
 }
