@@ -63,6 +63,13 @@ $(function(){
 			$(this).parent().nextAll().toggle(200);
 		});
 
+	$('#search_results_show').on('click',
+		function(e){
+			e.preventDefault();
+			console.log("hereeeeeshow")
+			$(this).parent().nextAll().toggle(200);
+		});
+
 	// ### search bar menu click (All Clients) on User/show #### 
 	$('.all_clients').on('click', 
 		function(e){
