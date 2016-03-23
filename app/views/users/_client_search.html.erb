@@ -6,7 +6,7 @@
 				<p><strong>Business:</strong> <%= c.business_name %></p>
 				<p><strong>Email: </strong><%= c.email %></p>
 				<p><%= link_to "View Client", client_path(c) %>
-				<%= link_to "Show Jobs (#{c.jobs.count})", "#", id: :show_jobs %> 
+				<%= link_to "Show Jobs (#{c.jobs.count})", "#", id: :search_results_show %> 
 				</p>
 				<div class="client_job_list">
 					<% if c.jobs.count != 0 %>
