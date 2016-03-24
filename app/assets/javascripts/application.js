@@ -60,14 +60,12 @@ $(function(){
 	$("#show_jobs a").on('click',
 		function(e){
 			e.preventDefault();
-			console.log("hereeeee")
 			$(this).parent().nextAll().toggle(200);
 		});
 	// using a third argument for .on for an added DOM element. 
 	$('#partial_client_search').on('click','#search_results_show',
 		function(e){
 			e.preventDefault();
-			console.log("hereeeeeshow")
 			$(this).parent().nextAll().toggle(200);
 		});
 

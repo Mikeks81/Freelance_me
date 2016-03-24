@@ -4,8 +4,8 @@ class Client < ActiveRecord::Base
 
   validates :fname, presence: true
   validates :lname, presence: true
-  validates :email, presence: true, uniqueness: true
-  validates :phone, numericality: true
+  validates :email, presence: true
+  # validates :phone, numericality: true
   validates :zip, numericality: true
 
   self.per_page = 6
