@@ -136,7 +136,7 @@ body{
 
 .client_container{
 	width: 45%;
-    max-width: 45%;
+	max-width: 45%;
 	float:left;
 	.add_client_form_container h3{
 		float: left;
@@ -206,6 +206,7 @@ body{
 			padding-top: 3px;
 			border: 1px solid #ccc;
 		}
+
 		.all_clients a{
 			padding: 0 70px 0 70px;
 			text-decoration: none;
@@ -216,8 +217,29 @@ body{
 			text-decoration: none;
 		}
 	}
+
 	#client_search_wrapper{
 		display: none;
+
+		.job_search {
+			margin-bottom: 15px
+		}
+		.search_client_box {
+			@extend .client_box;
+		}
+
+		.search_client_box p {
+			display: inline-block;
+			font-size: 13px;
+		}
+		.search_client_job_list{
+			display: none;
+		}
+		.search_client_job_list p {
+			width: 98%;
+			background-color: #efefef;
+			padding: 5px;
+		}
 	}
 
 	.pagination{
@@ -279,7 +301,7 @@ body{
 .calendar{
 	width:50%;
 	float: left;
-	margin-right: 48px;
+	margin-right: 45px;
 	.container{
 		width: 100%;
 		margin: 0 auto;
@@ -439,7 +461,7 @@ body{
 }
 
 .add_job_form {
-	width: 45%;
+	width: 43%;
 	margin-right: 30px;
 	padding: 0 0 0 30px;
 	border: 1px solid #ccc;
@@ -536,7 +558,6 @@ body{
 	overflow: auto;
 	padding: 15px;
 	margin-bottom: 15px;
-	margin-left: 10px;
 	border-radius: 3px;
 
 	.job_list_show {
@@ -569,7 +590,6 @@ body{
 	width: 35%;
 	float:left;
 	font-size: 13px;
-	// margin: 0 0 0 0px;
 	padding: 6.31px 15px 0 15px;
 	border: 1px solid #ccc;
 	border-radius: 3px 0 0 3px;
@@ -891,7 +911,7 @@ td{
 
 path { 
     stroke: steelblue;
-    stroke-width: 2;
+    stroke-width: 3;
     fill: none;
 }
 
