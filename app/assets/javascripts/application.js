@@ -18,6 +18,7 @@
 
 $(function(){
 
+
 	// fade flash message out
 	$('#flashy').delay(1300).fadeOut(800);
 
@@ -62,8 +63,8 @@ $(function(){
 			console.log("hereeeee")
 			$(this).parent().nextAll().toggle(200);
 		});
-
-	$('#search_results_show').on('click',
+	// using a third argument for .on for an added DOM element. 
+	$('#partial_client_search').on('click','#search_results_show',
 		function(e){
 			e.preventDefault();
 			console.log("hereeeeeshow")

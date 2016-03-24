@@ -1,14 +1,14 @@
 <% if @client_search.present? %>
 	<% @client_search.each do |c| %>
 		<% if c.user_id == current_user.id %>
-			<div class="client_box">
+			<div class="search_client_box">
 				<p><strong>Name:</strong> <%= c.fname %> <%= c.lname %></p>
 				<p><strong>Business:</strong> <%= c.business_name %></p>
 				<p><strong>Email: </strong><%= c.email %></p>
-				<p><%= link_to "View Client", client_path(c) %>
-				<%= link_to "Show Jobs (#{c.jobs.count})", "#", id: :search_results_show %> 
+				<p><%= link_to "View Client", client_path(c) %></p>
+				<p><%= link_to "Show Jobs (#{c.jobs.count})", "#", id: :search_results_show %> 
 				</p>
-				<div class="client_job_list">
+				<div class="search_client_job_list">
 					<% if c.jobs.count != 0 %>
 						<% c.jobs.each do |j| %>
 						<p>

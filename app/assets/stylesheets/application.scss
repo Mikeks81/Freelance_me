@@ -206,6 +206,7 @@ body{
 			padding-top: 3px;
 			border: 1px solid #ccc;
 		}
+
 		.all_clients a{
 			padding: 0 70px 0 70px;
 			text-decoration: none;
@@ -216,8 +217,29 @@ body{
 			text-decoration: none;
 		}
 	}
+
 	#client_search_wrapper{
 		display: none;
+
+		.job_search {
+			margin-bottom: 15px
+		}
+		.search_client_box {
+			@extend .client_box;
+		}
+
+		.search_client_box p {
+			display: inline-block;
+			font-size: 13px;
+		}
+		.search_client_job_list{
+			display: none;
+		}
+		.search_client_job_list p {
+			width: 98%;
+			background-color: #efefef;
+			padding: 5px;
+		}
 	}
 
 	.pagination{
@@ -564,10 +586,10 @@ body{
 }
 
 .pdf_options{
+	max-height: 63px;
 	width: 35%;
 	float:left;
 	font-size: 13px;
-	margin: 0 0 10px 0px;
 	padding: 6.31px 15px 0 15px;
 	border: 1px solid #ccc;
 	border-radius: 3px 0 0 3px;
