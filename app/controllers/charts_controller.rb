@@ -1,44 +1,22 @@
 class ChartsController < ApplicationController
   def index
-    @user = current_user
-    @clients = Client.where(user_id: @user.id)
-    @jobs = Job.where(user_id: @user.id)
-    @expenses = Expense.where(user_id: @user.id)
-    @payments = Payment.where(user_id: @user.id)
-    @daterange = Time.now.beginning_of_year..Time.now.end_of_year
-    @ytd_totalgross = 0
-    @ytd_highest_price_job = 0
-    @ytd_h_job_client_id = 0
+    @clients = current_user.clients
+    @jobs = current_user.jobs
+    @expenses = current_user.expenses
+    @payments = current_user.payments
+  
+    @ytd_totalgross = current_user.current_year_gross_income
 
-    @ytd_h_job_id = 0
+    @ytd_highest_price_job = current_user.highest_price_job
 
-      @jobs.each do |j|
-        if j.date_of_job.year == Time.now.year
-          @ytd_totalgross += j.price
-          if @ytd_highest_price_job < j.price
-              @ytd_highest_price_job = j.price
-              @ytd_h_job_client_id = j.client_id
-              @ytd_h_job_id = j.id
-          end
-        end
-      end
+    @ytd_totalpayments = current_user.ytd_tot_payments
 
-    @ytd_totalexpenses = 0
+    @ytd_totalrevenue = current_user.ytd_revenue
 
-      @expenses.each do |e|
-        if e.date.year == Time.now.year
-          @ytd_totalexpenses += e.amount 
-        end
-      end
-    @ytd_totalpayments = 0
-      @payments.each do |p|
-        if p.date.year == Time.now.year
-          @ytd_totalpayments += p.amount
-        end
-      end
-    @ytd_totalrevenue = @ytd_totalgross - @ytd_totalexpenses
-    @ytd_totalpaymentdue = @ytd_totalgross - @ytd_totalpayments
-    @ytd_paymentrecievedpercent = (@ytd_totalpayments.to_f/@ytd_totalgross.to_f)*100
+    @ytd_totalpaymentdue = current_user.current_year_gross_income - current_user.ytd_tot_payments
+
+    @ytd_paymentrecievedpercent = (current_user.ytd_tot_payments.to_f/current_user.current_year_gross_income.to_f)*100
+    
     @ytd_totaljobs = 0
       @jobs.each do |j|
         if j.date_of_job.year == Time.now.year

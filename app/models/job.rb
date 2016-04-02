@@ -15,9 +15,11 @@ class Job < ActiveRecord::Base
         self.date_of_job ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship .my_related_model
     end
 
-    # def highest_job_price
+    def highest_job_price
+      
 
-    # end
+      
+    end
 
     # def num_of_jobs_per_month
     	
