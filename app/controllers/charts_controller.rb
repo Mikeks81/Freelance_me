@@ -23,6 +23,7 @@ class ChartsController < ApplicationController
           @ytd_totaljobs += 1
         end
       end
+    
     @ytd_totalclients = 0
       @clients.each do |j|
         if j.created_at.year == Time.now.year

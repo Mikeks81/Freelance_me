@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "fog"
 gem 'rmagick', '~> 2.15', '>= 2.15.4'
 gem 'carrierwave'
 gem 'will_paginate', '~> 3.0.6'
