@@ -27,9 +27,13 @@
 
 
 	<p class="stripe">Higest Price Job:   <strong>
+	<% if current_user.jobs != [] %>
 	<%= link_to client_job_path(@ytd_highest_price_job.client.id,@ytd_highest_price_job.id) do %>
 			<%= number_to_currency(@ytd_highest_price_job.price) %>
 		<% end %>
+	<% else %>
+		<p> No jobs added </p>
+	<% end %>
 	</strong></p>
 
 </div>
