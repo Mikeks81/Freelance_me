@@ -1,12 +1,12 @@
 class JobPdf < ApplicationMailer
-	default :from => 'info@michaelsimonitsch.com'
+	default :from => 'mailer@freelanceme.tech'
 
 	def pdf_email(pdf=nil,user,client,job)
 		@user = user
 		@client = client
 		@job = job
   		attachments['Invoice.pdf'] = pdf if pdf.present?
-  		mail( :to => @client.email, :subject => 'Invoice from '+ @user.fname + ' ' +@user.lname )
+  		mail( :to => @client.email, :subject => 'Invoice from '+ @user.fname + ' ' +@user.lname, :from => @user.email )
 	end
 
 	# def send_pdf(user)
