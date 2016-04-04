@@ -6,7 +6,7 @@ gem 'carrierwave'
 gem 'will_paginate', '~> 3.0.6'
 gem 'pry'
 # wkhtmltopdf-binary is needed by wicked_pdf - it's a html to PDF renderer
-gem 'wkhtmltopdf-binary'
+gem 'wkhtmltopdf-binary-edge', '~> 0.12.2.1'
 # wicked_pdf is a wkhtmltopdf-binary wrapper
 gem 'wicked_pdf'
 gem 'bootstrap-sass', '~> 3.3.6'

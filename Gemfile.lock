@@ -305,7 +305,7 @@ GEM
       sprockets-rails (>= 2.0, < 4.0)
     wicked_pdf (1.0.4)
     will_paginate (3.0.7)
-    wkhtmltopdf-binary (0.9.9.3)
+    wkhtmltopdf-binary-edge (0.12.2.1)
     xml-simple (1.1.5)
 
 PLATFORMS
@@ -334,7 +334,7 @@ DEPENDENCIES
   web-console (~> 2.0)
   wicked_pdf
   will_paginate (~> 3.0.6)
-  wkhtmltopdf-binary
+  wkhtmltopdf-binary-edge (~> 0.12.2.1)
 
 BUNDLED WITH
    1.11.2
