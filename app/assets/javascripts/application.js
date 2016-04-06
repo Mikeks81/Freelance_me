@@ -137,8 +137,4 @@ $(function(){
 			console.log("heeeerrree")
 			$('#job_price_balance').delay(100).html("<%= j render(partial: 'jobs/job_price_balance')%>");
 		});
-
-	
-
-	
 });

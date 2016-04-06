@@ -1,16 +1,67 @@
-<h1>Sign In</h1>
-
-<div class="Sing_in">
+<div class="sign_in">
+	<h3>Sign In</h3>
 	<%= form_tag sessions_path do %>
 		<p><%= label_tag :email %></p>
 		<p><%= email_field_tag :email %></p>
 		<p><%= label_tag :password %></p>
 		<p><%= password_field_tag :password %></p>
-		<p><%= submit_tag "Sign In" %></p>
+		<p><%= submit_tag "Sign In", id: :sign_in_button %></p>
 	<% end %>
-	<p><%= link_to "Sign Up", users_path %></p>
+	<p><%= link_to "Sign Up", '#', id: :sign_up_link %></p>
+</div>
+<%= render partial: 'users/signup' %>
+
+<div id="about">
+	<h3>Simplify your life</h3>
+	<p>Manage clients, jobs and finances all in one place. Spend less time with paperwork, excel, making invoices and spend more time focusing on your craft.  </p>
+</div>
+<div id="bullet_points">
+	<div class="features" id="organization">
+		<img src="organization.png">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut
+		</p>
+	</div>
+	<div class="features" id="calendar">
+		<img src="calendar.png">
+		<p>Lorem ipsum dolor sit amet, consectetur 		adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut
+		</p>
+	</div>
+	<div class="features" id="pdf_info">
+		<img src="pdf_icon2.png">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut
+		</p>
+	</div>
+	<div class="features" id="analytics_about">
+		<img src="analytics.png">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut</p>
+	</div>
 </div>
 
+<div id="image_module">
+	<div id="site_images">
+		<div onclick="slideShowLeft();return false" class="image_nav" id="image_nav_left"><a href="#">&#10094;</a></div>
+		<div onclick="slideShowRight();return false" class="image_nav" id="image_nav_right"><a href="#">&#10095;</a></div>	
+		<img id="screen_shots" src="freelanceme-msimonitsch1.png">	
+	</div>
+</div>
+
+<div id="images_about">
+	<h4 id="aboutH4">The Dashboard</h4>
+	<p id="aboutP">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
 
 
 

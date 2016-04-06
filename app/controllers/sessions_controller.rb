@@ -1,9 +1,11 @@
 class SessionsController < ApplicationController
   def index
-
+    @user = User.new
+    render layout: "sessions_layout"
   end
 
   def create
+    render layout: "sessions_layout"
   	@user = User.where(email: params[:email]).first
   	if @user && @user.authenticate(params[:password])
   		session[:user_id] = @user.id

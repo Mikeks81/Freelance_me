@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <head>
+  <title>FreelanceTool</title>
+  <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.indigo-pink.min.css">
+  <%= stylesheet_link_tag    'application', media: 'all'%>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+  <%= favicon_link_tag '/freelance_me_favicon.ico'%>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
+  <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</head>
+<body>
+
+<% if flash[:notice] %>
+	<div id="flashy">
+		<%= flash[:notice] %>
+	</div>
+<%end%>
+<header>
+	<div id="header">
+		<img src="freelance_me_logo.jpg">
+		<p>FreelanceMe</p>
+	</div>
+</header>
+
+<div id="sessions_container">
+<%= yield %>
+</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<div class="sign_up">
+	<h3>Sign Up</h3>
+	<%= form_for @user do |f| %>
+		<p><%= f.label :first_name %></p>
+		<p><%= f.text_field :fname %></p>
+		<p><%= f.label :last_name %></p>
+		<p><%= f.text_field :lname %></p>
+		<p><%= f.label :email %></p>
+		<p><%= f.email_field :email %></p>
+		<p><%= f.label :business_name %></p>
+		<p><%= f.text_field :business_name %></p>
+		<p><%= f.label :password %></p>
+		<p><%= f.password_field :password %></p>
+		<p><%= f.label :password_confirmation %></p>
+		<p><%= f.password_field :password_confirmation %></p>
+		<p><%= f.submit "Sign Up", id: :sign_up_button %></p>
+	<% end %>
+		<p><%= link_to 'Log In', '#' %></p>
+</div>

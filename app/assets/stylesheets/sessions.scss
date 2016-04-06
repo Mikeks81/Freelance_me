@@ -1,3 +1,140 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$blue: #6CBFE4;
+body {
+	background-color: $blue;
+}
+#header {
+	background-color: white;
+	box-shadow: 0 0 10px #888;
+}
+#header p{
+	color: #888;
+	margin-left: 20px;
+	font-size: 2em;
+	display: inline-block;
+}
+#header img {	
+	height: 70px;
+}
+
+
+.sign_in {
+	width: 13%;
+	margin: 3% 0 0 20px;
+	border: 1px solid white;
+	border-radius: 3px;
+	background-color: white;
+	box-shadow: 0 0 10px #888;
+	padding: 0 3%;
+	float: left;
+	h3 {
+		color: $blue;
+	}
+	input {
+		width: 85%;
+		border-radius: 3px;
+		border: 1px solid #ccc;
+	}
+	#sign_in_button {
+		color: white;
+		border: none;
+		background-color: $blue;
+	}
+}
+
+.sign_up {
+	@extend .sign_in;
+	display: none;
+
+	#sign_up_button {
+		@extend #sign_in_button;
+	}
+}
+
+#about{
+	width: 70%;
+	margin-left: 80px;
+	margin-top: 2.5%;
+	float: left;
+}
+#about h3{
+	color: white;
+}
+#about p {
+	color: white;
+	font-size: 1.5em;
+}
+
+#bullet_points {
+	margin-left: 74px;
+	padding-top: 20px;
+	width: 70%;
+	display: flex;
+	justify-content: space-around;
+	float: left;
+
+	.features img {
+		width: 50%;
+		padding: 0 10%;
+	}
+	.features p {
+		color: white;
+		width: 90%;
+		// padding: 0 20%;
+	}
+}
+#image_module{
+	width: 70%;
+	float:left
+}
+.image_nav {
+	position: absolute;
+	width: 5%;
+	padding-top: 256px;
+	padding-bottom: 243.5px;
+	float: left;
+	text-align: center;
+	opacity: 0;
+}
+.image_nav:hover{
+	transition: opacity .2s ease-in-out;
+	opacity: 1;
+	background-color: rgba(215,215,215,.5);
+
+}
+.image_nav a{
+	font-size: 50px;
+	color: #ccc;
+	text-decoration: none;
+}
+#image_nav_left {
+	margin-left: 0px	
+}
+#image_nav_right {
+	 margin-left: 61.5%;
+}
+
+#site_images {
+	width: 95%;
+	margin: 60px 0 0 20px;
+	float: left;
+	#screen_shots {
+		width: 100%;
+	}
+}
+
+#images_about {
+	margin-top: 30px;
+	margin-left: 10px;
+	max-width: 25%;
+	float: left;
+	h4 {
+		color: white;
+	}
+	p {
+		color: white;
+	}
+
+}
