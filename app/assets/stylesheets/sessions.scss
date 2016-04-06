@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $blue: #6CBFE4;
-body {
+#session_body {
 	background-color: $blue;
 }
 #header {
@@ -27,7 +27,7 @@ body {
 	border-radius: 3px;
 	background-color: white;
 	box-shadow: 0 0 10px #888;
-	padding: 0 3%;
+	padding: 0 3% 20px 3%;
 	float: left;
 	h3 {
 		color: $blue;
@@ -47,6 +47,9 @@ body {
 .sign_up {
 	@extend .sign_in;
 	display: none;
+	p {
+		margin: 0;
+	}
 
 	#sign_up_button {
 		@extend #sign_in_button;
@@ -87,6 +90,7 @@ body {
 }
 #image_module{
 	width: 70%;
+	margin-bottom: 70px;
 	float:left
 }
 .image_nav {
@@ -137,4 +141,15 @@ body {
 		color: white;
 	}
 
+}
+
+footer {
+	clear: both;
+	margin-top: 30px;
+	background-color: white;
+	height: 50px;
+
+	h2 {
+		margin: 0;
+	}
 }

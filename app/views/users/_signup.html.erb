@@ -15,5 +15,5 @@
 		<p><%= f.password_field :password_confirmation %></p>
 		<p><%= f.submit "Sign Up", id: :sign_up_button %></p>
 	<% end %>
-		<p><%= link_to 'Log In', '#' %></p>
+		<p><%= link_to 'Log In', '#', id: :log_in_link, onclick: 'signIn();return false' %></p>
 </div>

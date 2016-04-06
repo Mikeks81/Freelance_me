@@ -1,18 +1,3 @@
-function fadeIn(el) {
-  el.style.opacity = 0;
-
-  var last = +new Date();
-  var tick = function() {
-    el.style.opacity = +el.style.opacity + (new Date() - last) / 400;
-    last = +new Date();
-
-    if (+el.style.opacity < 1) {
-      (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
-    }
-  };
-
-  tick();
-}
 
 var rightNav = document.getElementById('image_nav_right');
 var count = 0;
@@ -24,6 +9,9 @@ var imageText = [
 	{h4: "Analytics", p: "Keep track of your business by using the Analytics page. All info here shows your current Year To Date info. Information such as gross income, revenue, payments ,  number of clients and jobs can be found here. There are two dynamic graphs here that visualize your per job amount and the average as well as  jobs per month."}] 
 
 function slideShowRight(){
+	$('#screen_shots').fadeOut(250);
+	// $('#aboutH4').fadeOut(250);
+	// $('#aboutP').fadeOut(250);
 	var imageEl = document.getElementById('screen_shots');
 	var aboutH4 = document.getElementById('aboutH4');
 	var aboutP = document.getElementById('aboutP'); 
@@ -34,16 +22,23 @@ function slideShowRight(){
 	else if ( count < 0){
 		count = 2
 	}
-	imageEl.setAttribute('src',images[count]);
+	window.setTimeout(function(){
+		imageEl.setAttribute('src',images[count]);
+	},250);
 	aboutH4.innerHTML = imageText[count].h4;
 	aboutP.innerHTML = imageText[count].p;
-	fadeIn(imageEl);
-	fadeIn(aboutH4);
-	fadeIn(aboutP);
+	$('#screen_shots').fadeIn(250);
+	// $('#aboutH4').fadeIn(400);
+	// $('#aboutP').fadeIn(500);
 };
 
 function slideShowLeft(){
+	$('#screen_shots').fadeOut(250);
+	// $('#aboutH4').fadeOut(250);
+	// $('#aboutP').fadeOut(250);
 	var imageEl = document.getElementById('screen_shots');
+	var aboutH4 = document.getElementById('aboutH4');
+	var aboutP = document.getElementById('aboutP');
 	count--;
 	if (count < 0){
 		count = 2;
@@ -51,19 +46,23 @@ function slideShowLeft(){
 	else if ( count > 2){
 		count = 0;
 	}
+	window.setTimeout(function(){
 	imageEl.setAttribute('src',images[count]);
+	},250);
 	aboutH4.innerHTML = imageText[count].h4;
 	aboutP.innerHTML = imageText[count].p;
-	fadeIn(imageEl);
-	fadeIn(aboutH4);
-	fadeIn(aboutP);
+	$('#screen_shots').fadeIn(250);
+	// $('#aboutH4').fadeIn(400);
+	// $('#aboutP').fadeIn(500);
 };
 
-var signIn = document.getElementById('sign_up_link');
+function signUp(){
+		$('.sign_in').fadeOut();
+		$('.sign_up').delay(398).fadeIn();
+}
 
-signIn.addEventListener('click',function(){
-	console.log('here');
-	$('.sign_in').fadeOut();
-	$('.sign_up').delay(100).fadeIn();
-});
+function signIn(){
+		$('.sign_up').fadeOut();
+		$('.sign_in').delay(398).fadeIn();
+}
 
