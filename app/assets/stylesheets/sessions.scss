@@ -148,6 +148,7 @@ $blue: #6CBFE4;
 	float: left;
 	#screen_shots {
 		width: 100%;
+		box-shadow: 0 0 15px #888;
 	}
 }
 
@@ -171,7 +172,7 @@ footer {
 	background-color: white;
 	height: 50px;
 
-	h2 {
+	h5 {
 		margin: 0;
 	}
 }
