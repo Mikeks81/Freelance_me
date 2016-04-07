@@ -76,13 +76,16 @@ $blue: #6CBFE4;
 }
 
 #about{
-	width: 70%;
-	margin-left: 80px;
-	margin-top: 2.5%;
-	float: left;
+	width: 70.5%;
+    margin-left: 73px;
+    margin-top: 2.5%;
+    float: left;
 }
 #about h3{
-	color: white;
+	color: #fc755d;
+	background-color: #f4fbff;
+    border-radius: 3px;
+    padding: 10px;
 }
 #about p {
 	color: white;
@@ -94,18 +97,36 @@ $blue: #6CBFE4;
 	padding-top: 20px;
 	width: 70%;
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	float: left;
-
+	#organization {
+		background-color: #83d4f7;
+	}
+	#calendar {
+		background-color: #5fb4d8;
+	}
+	#pdf_info {
+		background-color: #83d4f7;
+	}
+	#analytics_about {
+		background-color: #5fb4d8;
+	}
+	.features {
+		padding: 20px;
+		text-align: center;
+	}
 	.features img {
 		width: 50%;
 		margin-bottom: 20px;
 		padding: 0 10%;
+		// text-align: center;
 	}
 	.features p {
 		color: white;
-		width: 90%;
-		// padding: 0 20%;
+		width: 100%;
+		padding: 0 0;
+		margin: 0;
+		text-align: left;
 	}
 	#analytics_about p {
 		margin-top: 10px;
