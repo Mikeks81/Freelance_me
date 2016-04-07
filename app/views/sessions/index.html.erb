@@ -1,14 +1,24 @@
-<div class="sign_in">
-	<h3>Sign In</h3>
-	<%= form_tag sessions_path do %>
-		<p><%= label_tag :email %></p>
-		<p><%= email_field_tag :email %></p>
-		<p><%= label_tag :password %></p>
-		<p><%= password_field_tag :password %></p>
-		<p><%= submit_tag "Sign In", id: :sign_in_button %></p>
-	<% end %>
-	<p><%= link_to "Sign Up", '#', id: :sign_up_link, onclick: 'signUp();return false' %></p>
+<header>
+	<div id="header">
+		<img src="freelance_me_logo.jpg">
+		<p>FreelanceMe</p>
+	
+
+
+	<div class="sign_in">
+		<h6>Sign In</h6>
+		<%= form_tag sessions_path do %>
+			<%= label_tag :email %>	
+			<%= email_field_tag :email %>	
+			<%= label_tag :password %>	
+			<%= password_field_tag :password %>	
+			<%= submit_tag "Sign In", id: :sign_in_button %>	
+		<% end %>
+	</div>
 </div>
+</header>
+
+
 <%= render partial: 'users/signup' %>
 
 <div id="about">
@@ -18,30 +28,22 @@
 <div id="bullet_points">
 	<div class="features" id="organization">
 		<img src="organization.png">
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut
+		<p>Organize your clients, jobs and finances. Freelance Me organizes your jobs by the clients who hired you. Maintain records of each jobs finances. 
 		</p>
 	</div>
 	<div class="features" id="calendar">
 		<img src="calendar.png">
-		<p>Lorem ipsum dolor sit amet, consectetur 		adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut
+		<p>The Freelance Me Calendar will populate with jobs on the corresponding day. All past, present and future jobs will remain on the calendar. Click the jobs on the calendar to veiw it's details.
 		</p>
 	</div>
 	<div class="features" id="pdf_info">
 		<img src="pdf_icon2.png">
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut
+		<p>Generate Invoice PDF's with your business logo. The generator uses the data you have entered about the job to include total price, balance and an itemized balance. 
 		</p>
 	</div>
 	<div class="features" id="analytics_about">
 		<img src="analytics.png">
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut</p>
+		<p>Keep Track of how much money you've for current YTD. Freelance Me Analytics keeps track and visualizes your gross income, revenue, payments recieved and more. </p>
 	</div>
 </div>
 

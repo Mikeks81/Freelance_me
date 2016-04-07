@@ -21,6 +21,31 @@ $blue: #6CBFE4;
 
 
 .sign_in {
+	width: 41%;
+	display: inline-block;
+	float: right;
+	h6 {
+		color: $blue;
+		margin: 5px 0;
+		
+	}
+	label {
+		font-size: 1em;
+	}
+	input {
+		width: 25%;
+		border-radius: 3px;
+		border: 1px solid #ccc;
+	}
+	#sign_in_button {
+		width: 20%;
+		color: white;
+		border: none;
+		background-color: $blue;
+	}
+}
+
+.sign_up {
 	width: 13%;
 	margin: 3% 0 0 20px;
 	border: 1px solid white;
@@ -31,28 +56,22 @@ $blue: #6CBFE4;
 	float: left;
 	h3 {
 		color: $blue;
+		margin: 20px 0;
 	}
 	input {
 		width: 85%;
 		border-radius: 3px;
 		border: 1px solid #ccc;
 	}
-	#sign_in_button {
-		color: white;
-		border: none;
-		background-color: $blue;
-	}
-}
-
-.sign_up {
-	@extend .sign_in;
-	display: none;
 	p {
 		margin: 0;
 	}
 
 	#sign_up_button {
-		@extend #sign_in_button;
+		margin-top: 20px;
+		color: white;
+		border: none;
+		background-color: $blue;
 	}
 }
 
@@ -80,6 +99,7 @@ $blue: #6CBFE4;
 
 	.features img {
 		width: 50%;
+		margin-bottom: 20px;
 		padding: 0 10%;
 	}
 	.features p {
@@ -87,10 +107,14 @@ $blue: #6CBFE4;
 		width: 90%;
 		// padding: 0 20%;
 	}
+	#analytics_about p {
+		margin-top: 10px;
+	}
 }
 #image_module{
 	width: 70%;
 	margin-bottom: 70px;
+	left: 0;
 	float:left
 }
 .image_nav {
@@ -128,9 +152,9 @@ $blue: #6CBFE4;
 }
 
 #images_about {
-	margin-top: 30px;
-	margin-left: 10px;
+	margin: 30px 0 20px 10px;	
 	max-width: 25%;
+	min-width: 25%;
 	float: left;
 	h4 {
 		color: white;
