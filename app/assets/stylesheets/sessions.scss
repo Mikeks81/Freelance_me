@@ -8,12 +8,16 @@ $blue: #6CBFE4;
 #header {
 	background-color: white;
 	box-shadow: 0 0 10px #888;
+	min-height: 70px;
 }
 #header p{
 	color: #888;
 	margin-left: 20px;
-	font-size: 2em;
-	display: inline-block;
+	margin-top: 20px;
+	font-size: 2.8em;
+	font-family: 'Dancing Script', cursive;
+	// display: inline-block;
+	float: left;
 }
 #header img {	
 	height: 70px;
