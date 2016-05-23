@@ -13,23 +13,14 @@ class ChartsController < ApplicationController
 
     @ytd_totalrevenue = current_user.ytd_revenue
 
-    @ytd_totalpaymentdue = current_user.current_year_gross_income - current_user.ytd_tot_payments
+    @ytd_totalpaymentdue = current_user.ytd_tot_payments_due
 
-    @ytd_paymentrecievedpercent = (current_user.ytd_tot_payments.to_f/current_user.current_year_gross_income.to_f)*100
+    @ytd_paymentrecievedpercent = current_user.ytd_payment_recieved_percent
     
-    @ytd_totaljobs = 0
-      @jobs.each do |j|
-        if j.date_of_job.year == Time.now.year
-          @ytd_totaljobs += 1
-        end
-      end
+    @ytd_totaljobs = current_user.ytd_totaljobs
     
-    @ytd_totalclients = 0
-      @clients.each do |j|
-        if j.created_at.year == Time.now.year
-          @ytd_totalclients += 1
-        end
-      end
+    @ytd_totalclients = current_user.ytd_totalclients
+
   end
 
   def data

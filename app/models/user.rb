@@ -45,6 +45,14 @@ class User < ActiveRecord::Base
 		tot_payments
 	end
 
+	def ytd_tot_payments_due
+		current_year_gross_income - ytd_tot_payments
+	end
+
+	def ytd_payment_recieved_percent 
+		ytd_tot_payments.to_f/current_year_gross_income.to_f*100
+	end
+
 	def highest_price_job
 		highest_job_price = 0 
 		highest_job = ""
@@ -57,6 +65,26 @@ class User < ActiveRecord::Base
 			end
 		end
 		highest_job
+	end
+
+	def ytd_totaljobs
+	  ytd_totaljobs = 0
+      self.jobs.each do |j|
+        if j.date_of_job.year == Time.now.year
+          ytd_totaljobs += 1
+        end
+      end
+      ytd_totaljobs
+	end 
+
+	def ytd_totalclients
+		ytd_totalclients = 0 
+		self.clients.each do |j|
+        if j.created_at.year == Time.now.year
+          ytd_totalclients += 1
+        end
+      end
+      ytd_totalclients
 	end
 
 end
