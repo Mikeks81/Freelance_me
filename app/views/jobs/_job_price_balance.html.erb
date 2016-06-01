@@ -1,3 +1,3 @@
 <p><strong>Price:</strong> <%= number_to_currency(@job.price) %></p>
-<p class="red"><strong class="red">Balance:</strong> <%= number_to_currency(@job.balance - @total_payments)%></p>
-<p class="green"><strong class="green">Profit:</strong> <%= number_to_currency(@job.price - @total_expenses)%></p>
+<p class="red"><strong class="red">Balance:</strong> <%= number_to_currency(@job_current_balance)%></p>
+<p class="green"><strong class="green">Profit:</strong> <%= number_to_currency(@job_current_revenue)%></p>

@@ -37,24 +37,31 @@ class JobsController < ApplicationController
   def show
     @user = current_user
     @client = Client.find(params[:client_id])
+
     @job = Job.find(params[:id])
+    @job_current_balance = Job.job_current_balance(@job.id)
+
     @jobitem = Jobitem.new
     @jobitems = Jobitem.where(job_id: @job.id)
     @total_itemized = Jobitem.jobitem_tot_price(@job.id)
      
     @expense = Expense.new
     @expenses = Expense.where(job_id: @job.id).order('date ASC')
-    @total_expenses = Expense.job_total_expenses(@job.id)
+    @total_expenses = Job.job_total_expenses(@job.id)
+    @job_current_revenue = Job.job_current_revenue(@job.id)
       
     @payment = Payment.new
     @payments = Payment.where(job_id: @job.id).order('date ASC')
-    @total_payments = Payment.job_total_payments(@job.id)
-      # @payments.each do |e|
-      #   @total_payments = @total_payments + e.amount
-      # end
+    @total_payments = Job.job_total_payments(@job.id)
 
     respond_to do |format|
       format.html
+      format.json {
+        render json: {current_balance: @job_current_balance, current_revenue: @job_current_revenue,
+          tot_expenses: @total_expenses,
+          tot_payments: @total_payments
+         }
+      }
       format.js
       format.pdf do
         render :pdf => 'Invoice',

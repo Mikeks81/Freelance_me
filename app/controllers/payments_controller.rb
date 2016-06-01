@@ -10,12 +10,8 @@ class PaymentsController < ApplicationController
 	  	if @payment.save
 	  		format.html {redirect_to client_job_path(@client,@job), notice: "Payemnt Record Added"}
 	  		format.js
-	  		# flash[:notice] = "Payemnt Record Added"
-	  		# redirect_to client_job_path(@client,@job)
 	  	else
 	  		format.html {redirect_to client_job_path(@client,@job), notice: "Payemnt Record Added"}
-	  		# flash[:notice] = "Payemnt Record could not be added"
-	  		# redirect_to client_job_path(@client,@job)
 	  	end
 	  end
 	end

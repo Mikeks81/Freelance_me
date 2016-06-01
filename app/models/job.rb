@@ -15,9 +15,36 @@ class Job < ActiveRecord::Base
         self.date_of_job ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship .my_related_model
     end
 
-    # def num_of_jobs_per_month
-    	
+    def self.job_total_payments job_id
+      payments = Payment.where(job_id: job_id)
+      total = 0 
 
-    	
-    # end
+        payments.each do |p|
+          total += p.amount
+        end
+      total
+    end
+
+    def self.job_total_expenses job_id
+      expenses = Expense.where(job_id: job_id)
+      total = 0
+
+        expenses.each do |e|
+          total += e.amount
+        end
+      total
+    end
+
+    def self.job_current_balance id
+        tot_payments = Job.job_total_payments(id)
+        job = self.find(id)
+        job.price - tot_payments
+    end
+
+    def self.job_current_revenue id
+        tot_rev = Job.job_total_expenses(id)
+        job = self.find(id)
+        job.price - tot_rev
+    end
+
 end
