@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      byebug
+      # byebug
       @url = request.original_url
       @ip = request.remote_ip
       JobPdf.send_signup_email(@user,@url,@ip).deliver_now
