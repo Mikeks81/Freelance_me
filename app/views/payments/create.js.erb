@@ -1,6 +1,8 @@
 $('#job_payments').html("<%= j render(partial: 'payments/payments')%>");
 $('#payment_box<%= @payment.id %>').hide();
 $('#payment_box<%= @payment.id %>').fadeIn();
-// $('#job_payments').delay(700).html("<%= j render(partial: 'payments/payments')%>");
-
+$('#payment_amount').val('');
+$('#payment_date').val('<%= Time.now.strftime("%Y-%m-%d") %>');
+$('#payment_type').val('');
+$('#payment_form > form').attr('action', '/clients/<%= @client.id %>/jobs/<%= @job.id %>/payments');
 

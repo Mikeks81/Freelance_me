@@ -13,11 +13,12 @@
 		</tbody>
 	</table>
 <% end %>
+
 <div id="payment_form">
-	<%= form_for [@client,@job,@payment], remote: true do |f| %>
+	<%= form_for([@client,@job,@payment],action: 'clients/@clients.id/jobs/@job.id/payments',method: 'post', remote: true) do |f| %>
 		<%= f.text_field :form, placeholder: 'Type of Payment', id: :payment_type %>
-		<%= f.text_field :amount, placeholder: 'Amount of Payment' %>
-		<%= f.date_field :date, :value => Time.now.strftime('%Y-%m-%d') %>
+		<%= f.text_field :amount, placeholder: 'Amount of Payment', id: :payment_amount %>
+		<%= f.date_field :date, :value => Time.now.strftime('%Y-%m-%d'), id: :payment_date %>
 		<%= f.submit "Add Payment", id: :payment_button %>
 	<% end %>
 </div>

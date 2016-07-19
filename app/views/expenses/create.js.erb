@@ -1,3 +1,7 @@
 $('#job_expenses').html("<%= j render(partial: 'expenses/expenses')%>");
 $('#expense_box<%= @expense.id %>').hide();
 $('#expense_box<%= @expense.id %>').fadeIn();
+$('#expense_amount').val('');
+$('#expense_date').val('<%= Time.now.strftime("%Y-%m-%d") %>');
+$('#expense_description').val('');
+$('#expense_form > form').attr('action', '/clients/<%= @client.id %>/jobs/<%= @job.id %>/expenses');

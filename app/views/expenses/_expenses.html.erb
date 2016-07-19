@@ -12,7 +12,7 @@
 <% end %>
 
 <div id="expense_form">
-	<%= form_for [@client,@job,@expense], remote: true do |f| %>
+	<%= form_for([@client,@job,@expense],action: '/clients/@client.id/jobs/@job.id/expenses', method: 'post', remote: true) do |f| %>
 		<%= f.text_field :description, placeholder: 'Expense Description' %>
 		<%= f.text_field :amount, placeholder: :price %>
 		<%= f.date_field :date, :value => Time.now.strftime('%Y-%m-%d') %>
