@@ -10,8 +10,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      # byebug
-      JobPdf.send_signup_email(@user).deliver_now
+      byebug
+      @url = request.original_url
+      @ip = request.remote_ip
+      JobPdf.send_signup_email(@user,@url,@ip).deliver_now
       session[:user_id] = @user.id
       flash[:notice] = "Thanks for loggin in!"
       redirect_to user_path(@user)
