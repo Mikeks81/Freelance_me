@@ -5,3 +5,6 @@ $('#expense_amount').val('');
 $('#expense_date').val('<%= Time.now.strftime("%Y-%m-%d") %>');
 $('#expense_description').val('');
 $('#expense_form > form').attr('action', '/clients/<%= @client.id %>/jobs/<%= @job.id %>/expenses');
+debugger
+$('#expense_title > p').html('<strong>Total: </strong> <%= @tot_expenses %>');
+$('#expense_title > p').html('<strong>Total: </strong> <%= @total_expenses %>');
