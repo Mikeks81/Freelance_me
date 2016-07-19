@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      # byebug
+      JobPdf.send_signup_email(@user).deliver_now
       session[:user_id] = @user.id
       flash[:notice] = "Thanks for loggin in!"
       redirect_to user_path(@user)

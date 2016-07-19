@@ -8,8 +8,11 @@ class ExpensesController < ApplicationController
     @expense.user_id = @user.id
     respond_to do |format|
     	if @expense.save
+        # byebug
+        @tot_expense = Job.job_total_expenses(@job.id)
+        p @tot_expense
         format.html {redirect_to client_job_path(@client,@job)}
-    		format.js 
+    		format.js
         # flash[:notice] = "Expense Added"
         # redirect_to client_job_path(@client,@job)
     	else
@@ -18,6 +21,7 @@ class ExpensesController < ApplicationController
         # redirect_to client_job_path(@client,@job)
     	end
     end
+    # getting the updated total after expense save
   end	
 
   def update
