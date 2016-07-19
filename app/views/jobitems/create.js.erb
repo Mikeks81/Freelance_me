@@ -1,3 +1,7 @@
 $('#job_jobitems').html("<%= j render(partial: 'jobitems/jobitems')%>");
 $('#jobitem_box<%= @jobitem.id %>').hide();
 $('#jobitem_box<%= @jobitem.id %>').fadeIn();
+$('#jobitem_price').val('');
+$('#jobitem_date').val('<%= Time.now.strftime("%Y-%m-%d") %>');
+$('#job_item_name').val('');
+$('#jobitem_form > form').attr('action', '/clients/<%= @client.id %>/jobs/<%= @job.id %>/jobitems');

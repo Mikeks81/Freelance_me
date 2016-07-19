@@ -14,7 +14,7 @@
 		</table>
 	<% end %>
 <div id="jobitem_form">
-<%= form_for [@client,@job,@jobitem], remote: true do |f| %>
+<%= form_for([@client,@job,@jobitem],method: :post, remote: true) do |f| %>
 	<%= f.text_field :name, placeholder: :name, id: :job_item_name %>
 	<%= f.text_field :price, placeholder: :price %>
 	<%= f.date_field :date , :value => Time.now.strftime('%Y-%m-%d')%>
