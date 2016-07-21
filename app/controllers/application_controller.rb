@@ -8,5 +8,22 @@ class ApplicationController < ActionController::Base
 		@current_user ||= User.find(session[:user_id]) if session[:user_id]
   	end
   end
+
+  protected
+  def convert_bigD_to_string value
+  	value = value.to_s
+  	after_decimal = value.split('.')[1]
+
+  	if after_decimal.length == 1
+  		after_decimal += "0"
+  		"$" + value.split('.')[0] + "." + after_decimal
+  	else
+  		"$" + value
+  	end
+
+  	 
+
+  end
+
   protect_from_forgery with: :exception
 end

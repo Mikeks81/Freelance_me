@@ -1,1 +1,3 @@
 $('#expense_box<%= @expense.id %>').fadeOut(700);
+$('#expense_title > p').html('<strong>Total: </strong> <%= @tot_expense %>');
+document.getElementById('job_price_balance').children[2].innerHTML = "<strong class='green'>Profit:</strong> <%= @job_revenue %>"

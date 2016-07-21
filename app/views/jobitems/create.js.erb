@@ -5,3 +5,4 @@ $('#jobitem_price').val('');
 $('#jobitem_date').val('<%= Time.now.strftime("%Y-%m-%d") %>');
 $('#job_item_name').val('');
 $('#jobitem_form > form').attr('action', '/clients/<%= @client.id %>/jobs/<%= @job.id %>/jobitems');
+$('#jobitems_title > p').html('<strong>Total: </strong> <%= @tot_jobitem %>');

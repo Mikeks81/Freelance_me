@@ -6,22 +6,18 @@ class ExpensesController < ApplicationController
     @expenses = Expense.where(job_id: @job.id)
   	@expense = @job.expenses.build(expense_params)
     @expense.user_id = @user.id
+
     respond_to do |format|
     	if @expense.save
-        # byebug
-        @tot_expense = Job.job_total_expenses(@job.id)
-        p @tot_expense
+        @tot_expense = convert_bigD_to_string(Job.job_total_expenses(@job.id))
+        @job_revenue = convert_bigD_to_string(Job.job_current_revenue(@job.id))
         format.html {redirect_to client_job_path(@client,@job)}
     		format.js
-        # flash[:notice] = "Expense Added"
-        # redirect_to client_job_path(@client,@job)
     	else
     		format.html {redirect_to client_job_path(@client,@job)}
-        # flash[:notice] = "Expense could not be added"
-        # redirect_to client_job_path(@client,@job)
     	end
     end
-    # getting the updated total after expense save
+
   end	
 
   def update
@@ -32,11 +28,16 @@ class ExpensesController < ApplicationController
     @client = Client.find(params[:client_id])
     @job = Job.find(params[:job_id])
     @expense = Expense.find(params[:id])
-    @expense.destroy
+
     respond_to do |format|
-      format.html { redirect_to client_job_path(@client,@job)}
-      format.js
+      if @expense.destroy
+        @tot_expense = convert_bigD_to_string(Job.job_total_expenses(@job.id))
+        @job_revenue = convert_bigD_to_string(Job.job_current_revenue(@job.id))
+        format.html { redirect_to client_job_path(@client,@job)}
+        format.js
+      end
     end
+    
   end
 
   private
