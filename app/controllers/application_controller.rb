@@ -11,18 +11,14 @@ class ApplicationController < ActionController::Base
 
   protected
   def convert_bigD_to_string value
-  	value = value.to_s
-  	after_decimal = value.split('.')[1]
+  	values = value.to_s.split('.')
 
-  	if after_decimal.length == 1
-  		after_decimal += "0"
-  		"$" + value.split('.')[0] + "." + after_decimal
-  	else
-  		"$" + value
-  	end
+	values[0].reverse!.gsub!(/(\d{3})(?=\d)/, '\\1,').reverse! if values[0].length > 3
 
-  	 
-
+  	values[1] += "0" if values[1].length == 1
+  		
+  	"$" + values.join('.')
+  	
   end
 
   protect_from_forgery with: :exception

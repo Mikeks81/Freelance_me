@@ -6,4 +6,4 @@ $('#payment_date').val('<%= Time.now.strftime("%Y-%m-%d") %>');
 $('#payment_type').val('');
 $('#payment_form > form').attr('action', '/clients/<%= @client.id %>/jobs/<%= @job.id %>/payments');
 $('#payment_title > p').html('<strong>Total: </strong> <%= @total_payments %>');
-document.getElementById('job_price_balance').children[1].innerHTML = "<strong class='red'>Balance</strong> <%= @job_balance %>"
+document.getElementById('job_price_balance').children[1].innerHTML = "<strong class='red'>Balance:</strong> <%= @job_balance %>"
