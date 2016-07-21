@@ -8,6 +8,8 @@ class PaymentsController < ApplicationController
 	  	@payment.user_id = @user.id
 	  	respond_to do |format|
 	  	if @payment.save
+	  		@total_payments = convert_bigD_to_string(Job.job_total_payments(@job.id))
+	  		@job_balance = convert_bigD_to_string(Job.job_current_balance(@job.id))
 	  		format.html {redirect_to client_job_path(@client,@job), notice: "Payemnt Record Added"}
 	  		format.js
 	  	else
@@ -22,6 +24,8 @@ class PaymentsController < ApplicationController
 		@payment = Payment.find(params[:id])
 		respond_to do |format|
 			if @payment.destroy
+				@total_payments = convert_bigD_to_string(Job.job_total_payments(@job.id))
+				@job_balance = convert_bigD_to_string(Job.job_current_balance(@job.id))
 				format.html {redirect_to client_job_path(@client,@job)}
 				format.js
 			else

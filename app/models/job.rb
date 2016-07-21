@@ -35,15 +35,25 @@ class Job < ActiveRecord::Base
       total
     end
 
-    def self.job_current_balance id
-        tot_payments = Job.job_total_payments(id)
-        job = self.find(id)
+    def self.job_total_jobitems job_id
+      job_items = Jobitem.where(job_id: job_id)
+      total = 0
+
+        job_items.each do |t|
+          total += t.price
+        end
+      total
+    end
+
+    def self.job_current_balance job_id
+        tot_payments = Job.job_total_payments(job_id)
+        job = self.find(job_id)
         job.price - tot_payments
     end
 
-    def self.job_current_revenue id
-        tot_rev = Job.job_total_expenses(id)
-        job = self.find(id)
+    def self.job_current_revenue job_id
+        tot_rev = Job.job_total_expenses(job_id)
+        job = self.find(job_id)
         job.price - tot_rev
     end
 
