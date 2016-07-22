@@ -340,6 +340,17 @@ body{
 		padding: 10px;
 		text-decoration: none;
 	}
+	.cal_job > li {
+	    border: solid 1px #ccc;
+	    border-radius: 2px;
+	    list-style: none;
+	    margin: 0 auto;
+	}
+	.cal_job > li > a {
+		font-size: 8px;
+	    text-decoration: none;
+	    margin-left: 7px;
+	}
 }
 
 .todo_list{
