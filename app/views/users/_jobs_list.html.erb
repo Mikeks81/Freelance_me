@@ -1,0 +1,10 @@
+<% @jobs.each do |j| %>
+	<div class="client_box" id="job<%= j.id%>">
+		<p><strong>Name:</strong> <%= j.name %></p>
+		<p><strong>Description:</strong> <%= j.job_description %></p>
+		<p><strong>Client: </strong><%= j.client.fname + " " + j.client.lname %></p>
+		<br>
+		<p><%= link_to "View Client", client_path(j.client.id) %></p>
+		<p><%= link_to "View Job", client_job_path(j.client.id, j)%></p>	
+	</div>
+<% end %>

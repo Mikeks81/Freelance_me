@@ -74,7 +74,7 @@ body{
 	position: fixed;
 	width: 90%;
 	height: 95vh;
-	border: 1px solid #ccc;
+	// border: 1px solid #ccc;
 	border-radius: 3px;
 	background-color: #d6f2ff;
 	// background-color: rgba(221, 221, 221, 0.95);
@@ -113,7 +113,7 @@ body{
 		font-size: 20px;
 		border-radius: 3px;
 		background-color: white;
-		border: .5px solid #ccc;
+		border: none;
 	}
 	#add_client_submit{
 		width: 100%;
@@ -206,18 +206,26 @@ body{
 			border: 1px solid #ccc;
 		}
 
+		.all_jobs{
+			text-align: center;
+			width: 50%;
+			padding-top: 3px;
+			border: 1px solid #ccc;
+		}
+
+
 		.all_clients a{
-			padding: 0 70px 0 70px;
+			// padding: 0 70px 0 70px;
 			text-decoration: none;
 			color: #ffffff;
 		}
-		.search_results a{
-			padding: 0 79px 0 80px;
+		.search_results a, .all_jobs a{
+			// padding: 0 79px 0 80px;
 			text-decoration: none;
 		}
 	}
 
-	#client_search_wrapper{
+	#client_search_wrapper, #all_jobs_list{
 		display: none;
 
 		.job_search {

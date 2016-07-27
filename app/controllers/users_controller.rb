@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       @client = Client.new
       # @clients = Client.all.order('created_at DESC')
       @clients = Client.paginate(:page => params[:page]).order('created_at DESC')
-      @jobs = Job.all.order('created_at DESC')
+      @jobs = Job.paginate(:page => params[:page]).where(user_id: current_user.id).order('created_at DESC')
       @todo = Todo.new
       @date = Date.today
       @todos = Todo.where(user_id: current_user.id)

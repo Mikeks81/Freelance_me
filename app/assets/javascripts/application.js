@@ -79,37 +79,53 @@ $(function(){
 
 			$('.all_clients').css('border', 'none');
 
-			// $('.all_clients').css('width', '70%');
+			$('.search_results, .all_jobs').css('background-color', '#ffffff');
 
-			$('.search_results').css('background-color', '#ffffff');
+			$('.search_results, .all_jobs').css('border', '1px solid #ccc');
 
-			$('.search_results').css('border', '1px solid #ccc');
+			$('.search_results, .all_jobs').css('border-left', 'none');
 
-			// $('.search_results').css('width', '30%');
+			$('.search_results a, .all_jobs a').css('color', '#888');
+
+			$('#all_client_list').delay(100).fadeIn(100);
+			
+			$('#client_search_wrapper, #all_jobs_list').fadeOut(100);
+
+		});
+
+	$('.all_jobs').on('click', 
+		function(e){
+			e.preventDefault();
+			$('.all_jobs').css('background-color', '#fc755d');
+
+			$('.all_jobs a').css('color', '#ffffff');
+
+			$('.all_jobs').css('border', 'none');
+
+			$('.search_results, .all_clients').css('background-color', '#ffffff');
+
+			$('.search_results, .all_clients').css('border', '1px solid #ccc');
 
 			$('.search_results').css('border-left', 'none');
 
-			$('.search_results a').css('color', '#888');
+			$('.search_results a, .all_clients a').css('color', '#888');
 
-			// $('#all_client_list').css('display', 'block');
-			$('#all_client_list').delay(100).fadeIn(100);
+			$('#all_jobs_list').delay(100).fadeIn(100);
 			
-			// $('#client_search_wrapper').css('display', 'none');
-			$('#client_search_wrapper').fadeOut(100);
-
+			$('#all_client_list, #client_search_wrapper').fadeOut(100); 
 		});
 
 	// ### search bar menu click (Search Clients) on User/show #### 
 	$('.search_results').on('click',
 		function(e){
 			e.preventDefault();
-			$('.all_clients').css('background-color', '#ffffff');
+			$('.all_clients, .all_jobs').css('background-color', '#ffffff');
 
-			$('.all_clients a').css('color', '#888');
+			$('.all_clients a, .all_jobs a').css('color', '#888');
 
-			$('.all_clients').css('border', '1px solid #ccc');
+			$('.all_clients, .all_jobs').css('border', '1px solid #ccc');
 
-			$('.all_clients').css('border-right', 'none');
+			$('.all_clients, .all_jobs').css('border-right', 'none');
 
 			$('.search_results').css('background-color', '#fc755d');
 
@@ -117,7 +133,7 @@ $(function(){
 
 			$('.search_results').css('border', 'none');
 
-			$('#all_client_list').fadeOut(100);
+			$('#all_client_list, #all_jobs_list').fadeOut(100);
 			
 			$('#client_search_wrapper').delay(100).fadeIn(100);
 		});
