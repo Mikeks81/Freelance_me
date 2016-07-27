@@ -10,6 +10,7 @@ class Job < ActiveRecord::Base
   validates :price, presence: true
   validates :balance, presence: true 
 
+  # self.per_page = 6
   
    def start_time
         self.date_of_job ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship .my_related_model

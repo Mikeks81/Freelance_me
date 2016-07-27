@@ -74,6 +74,9 @@
 		<div class="all_clients">
 			<%= link_to "All Clients", "#" %>
 		</div>
+		<div class="all_jobs">
+			<%= link_to "All Jobs", "#" %>
+		</div>
 		<div class="search_results">
 			<%= link_to "Search", "#" %>
 		</div>
@@ -83,6 +86,12 @@
 		<p><%= will_paginate @clients %></p>
 		<%= render partial: 'client_list', locals: {clients: @clients} %>
 		<%= will_paginate @clients %>
+	</div>
+
+	<div class="jobs_list" id="all_jobs_list">
+		<%# will_paginate @jobs %>
+		<%= render partial: 'jobs_list' %>
+		<%#= will_paginate @jobs %>
 	</div>
 
 
