@@ -150,7 +150,21 @@ $(function(){
 	$('#payment_button,#expense_button').on('submit', 
 		function(e){
 			e.preventDefault();
-			console.log("heeeerrree")
+			//console.log("heeeerrree")
 			$('#job_price_balance').delay(100).html("<%= j render(partial: 'jobs/job_price_balance')%>");
 		});
 });
+
+// function calToggle(){
+// 	var element = document.getElementById('calendar_toggle');
+// 	var id = element.getAttribute('data-id');
+// 	window.onload = function(){
+// 		if (element.children[0].innerText = "Full Screen"){
+// 			element.children[0].innerText = "Minimize";
+// 			element.children[0].href = "/users/"+id;
+// 		} else {
+// 			element.children[0].innerText = "Full Screen";
+// 			element.children[0].href = "/users/calendar";
+// 		}
+// 	}
+// }

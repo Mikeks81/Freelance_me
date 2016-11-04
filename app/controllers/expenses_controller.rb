@@ -17,7 +17,6 @@ class ExpensesController < ApplicationController
     		format.html {redirect_to client_job_path(@client,@job)}
     	end
     end
-
   end	
 
   def update

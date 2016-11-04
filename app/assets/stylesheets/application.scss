@@ -17,6 +17,9 @@
 // @import "bootstrap-sprockets";
 // @import "bootstrap";
 $blue: #6CBFE4;
+$orange: #eb8d33;
+$burgandy: #aa002a;
+$light_blue: #8cd7f7;
 @mixin margin_padding($num){
 	margin: $num;
 	padding: $num;
@@ -43,6 +46,14 @@ body{
 
 .green {
 	color: #16ce1f;
+}
+
+.light_blue_background {
+	background-color: $light_blue !important;
+}
+
+.width_99{
+	width: 99% !important;
 }
 
 #flashy {
@@ -316,7 +327,24 @@ body{
 		margin-bottom: 30px;
 
 		display: inline-block;
+	}
+	.calendar_toggle{
+		float: right;
+		display: inline-block;
+	    border: 1px solid #ccc;
+	    border-radius: 3px;
+	    text-align: center;
+	    font-size: 13px;
+	    padding: 2px;
+	    margin-bottom: 5px;
+	}
 
+	.calendar_toggle a{
+		text-decoration: none;
+	}
+	.today{
+	    background-color: #fc755d !important;
+    	color: white !important;
 	}
 	// .cal_job li a {
 	// 	// color: #FC755D;
