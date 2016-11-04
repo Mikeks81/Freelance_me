@@ -7,6 +7,9 @@
     <div class="calendar_fwd">
       <%= link_to raw("&raquo;"), url_for(params.merge(start_date: date_range.last + 1.day)), remote: true %>
     </div>
+    <div id="calendar_toggle" class="calendar_toggle">
+      <%= link_to "Full Screen", "/users/calendar", onclick: "calToggle()", data:{ id: @user.id} %>
+    </div>
   </div>
 
   <table class="table table-striped">
