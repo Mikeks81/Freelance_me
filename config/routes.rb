@@ -1,26 +1,31 @@
 Rails.application.routes.draw do
-  get 'charts/index' => 'charts#index'
+  scope "(:locale)", locale: /#{I18n.available_locales.join('|')}/ do
+    get '/' => 'sessions#index'
+    root 'sessions#index'
 
-  get 'charts/data', :defaults => { :format => 'json' }
-  get 'charts/num_of_jobs', :defaults => { :format => 'json'}
 
- root 'sessions#index'
+    get 'charts/index' => 'charts#index'
 
- resources :sessions
- get 'users/calendar' => 'users#calendar'
- get 'users/invoice' => 'users#invoice'
- resources :users
- resources :clients do
-  get '/jobs/:id/invoice' => 'jobs#invoice'
-  get '/jobs/:id/send_pdf' => 'jobs#send_pdf'
-  resources :jobs do
-  resources :expenses
-  resources :jobitems
-  resources :payments
+    get 'charts/data', :defaults => { :format => 'json' }
+    get 'charts/num_of_jobs', :defaults => { :format => 'json'}    
+    resources :sessions
+    get 'users/calendar' => 'users#calendar'
+    get 'users/invoice' => 'users#invoice'
+    resources :users
+    resources :clients do
+      get '/jobs/:id/invoice' => 'jobs#invoice'
+      get '/jobs/:id/send_pdf' => 'jobs#send_pdf'
+      resources :jobs do
+        resources :expenses
+        resources :jobitems
+        resources :payments
+      end
+    end  
+    resources :todos
   end
- end  
- resources :todos
- 
+
+  #redirects any unknown locale to defualt locale -- not needed if parenthesis surrouding locale in scope statement
+  # match '*path', to: redirect("/#{I18n.default_locale}/%{path}")
 
 
   # The priority is based upon order of creation: first created -> highest priority.

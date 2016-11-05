@@ -5,6 +5,12 @@ $blue: #6CBFE4;
 #session_body {
 	background-color: $blue;
 }
+#locale_links {
+	color: white;
+	a {
+		color: white;
+	}
+}
 #header {
 	background-color: white;
 	box-shadow: 0 0 10px #888;

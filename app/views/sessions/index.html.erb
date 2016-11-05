@@ -1,34 +1,36 @@
 <header>
+	<div id="locale_links">
+		<%= link_to_unless_current "English", locale: "en" %> |
+		<%= link_to_unless_current "Espanol", locale: "es" %>
+	</div>	
 	<div id="header">
 		<!-- <img src="freelance_me_logo.jpg"> -->
 		<p>FreelanceMe</p>
-	
-
-
-	<div class="sign_in">
-			<h6>Sign In</h6>
+		
+		<div class="sign_in">
+			<h6><%= t ".sign_in"%></h6>
 				<%= form_tag sessions_path do %>
 					<%#= label_tag :email %>	
-					<%= email_field_tag :email,nil, placeholder: "Email" %>	
+					<%= email_field_tag :email,nil, placeholder: User.human_attribute_name(:email) %>	
 					<%#= label_tag :password %>	
-					<%= password_field_tag :password,nil, placeholder: "Password" %>	
-					<%= submit_tag "Sign In", id: :sign_in_button %>	
+					<%= password_field_tag :password,nil, placeholder: User.human_attribute_name(:password) %>	
+					<%= submit_tag t("helpers.submit.sign_in_user"), id: :sign_in_button %>	
 				<% end %>
+		</div>
 	</div>
-</div>
 </header>
 
 
 <%= render partial: 'users/signup' %>
 
 <div id="about">
-	<h3>Simplify your life</h3>
-	<p>Manage clients, jobs and finances all in one place. Spend less time with paperwork, excel, making invoices and spend more time focusing on your craft.  </p>
+	<h3><%=  t ".summary_title"%></h3>
+	<p><%= t ".description"%> </p>
 </div>
 <div id="bullet_points">
 	<div class="features" id="organization">
 		<img src="organization.png">
-		<p>Organize your clients, jobs and finances. Freelance Me organizes your jobs by the clients who hired you. Maintain records of each jobs finances. 
+		<p><%= t ".features.organization" %>
 		</p>
 	</div>
 	<div class="features" id="calendar">

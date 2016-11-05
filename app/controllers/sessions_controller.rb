@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   	@user = User.where(email: params[:email]).first
   	if @user && @user.authenticate(params[:password])
   		session[:user_id] = @user.id
-  		flash[:notice] = "Welcome back #{@user.fname}."
+  		flash[:notice] = t('sessions.flash.user_log_in', fname: @user.fname)
   		redirect_to user_path(@user)
   	else 
   		flash[:notice] = "Incorrect Email or Password"
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
   def destroy
     @user = current_user
     if @user
-      flash[:notice]="Successfully logged out"
+      flash[:notice]= t "sessions.flash.user_log_out"
       session.clear
       redirect_to root_path
     end
