@@ -42,6 +42,12 @@
 	<%end%>
 
 <div class="site_container">
+<p id="user-locale">
+	<%= t "language" %> 
+	<% I18n.available_locales.each do |l|%>
+		<%= link_to_unless_current l.to_s ,{locale: l,  user: {locale: l, id: current_user.id}}, {controller: 'users', action: 'update', method: 'put'} %>
+	<% end %>
+</p>
 <%= yield %>
 </div>
 

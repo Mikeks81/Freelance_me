@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
 
 	mount_uploader :logo, LogoUploader
 
+	before_create :set_user_locale
+
 	def current_year_gross_income
 		result = 0
 		self.jobs.each do |j|
@@ -85,6 +87,13 @@ class User < ActiveRecord::Base
         end
       end
       ytd_totalclients
+	end
+
+	private
+	# saves users language preference to record by the language links using the current locale
+	def set_user_locale
+		locale = I18n.locale
+		self.locale = locale.to_s
 	end
 
 end

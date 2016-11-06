@@ -8,6 +8,9 @@ class SessionsController < ApplicationController
   	@user = User.where(email: params[:email]).first
   	if @user && @user.authenticate(params[:password])
   		session[:user_id] = @user.id
+      # sets locale for url and flash message on log in -- current_user seems to set after... d
+      #putting User.find(session[:user_id]) in set_locale seems not to correct the problem 
+      I18n.locale = @user.locale.to_sym
   		flash[:notice] = t('sessions.flash.user_log_in', fname: @user.fname)
   		redirect_to user_path(@user)
   	else 

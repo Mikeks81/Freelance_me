@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def current_user
   	if session[:user_id]
-		@current_user ||= User.find(session[:user_id]) if session[:user_id]
+		  @current_user ||= User.find(session[:user_id]) if session[:user_id]
   	end
   end
 
@@ -22,16 +22,15 @@ class ApplicationController < ActionController::Base
     	
   end
 
+  def browser_default_lang
+    #if browser default language is a supported langage return that val
+    lang = request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first 
+    I18n.available_locales.each {|l| return l if l == lang.to_sym}
+  end
+
   def set_locale
-    I18n.locale = params[:locale] if params[:locale].present?
-    #Below are other methods to define locale language
-
-    #url options : prepend(host/lang/path) or append(host/path/lang)
-
-      #current_user.locale -- language set in user profile
-      #request.subdomain -- lookup
-      #request.evn["HTTP_ACCEPT_LANGUAGE"] -- value given by users browser
-      #request.remote_ip -- determine location via some sort of geo location
+    # heirachy of locale set = current_user > params[:locale] > browser_default_lang > application default
+    I18n.locale = current_user.try(:locale) || (params[:locale] if params[:locale].present?) || browser_default_lang || I18n.default_locale
   end
 
   def default_url_options

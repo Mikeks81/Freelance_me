@@ -21,6 +21,8 @@
 
 en:
   hello: "Hello world"
+  lang: "English"
+  language: "Language: "
   sessions:
     flash:
       user_log_in: "Welcome back %{fname}."
@@ -32,6 +34,9 @@ en:
       description: "Manage clients, jobs and finances all in one place. Spend less time with paperwork, excel, making invoices and spend more time focusing on your craft."
       features:
         organization: "Organize your clients, jobs and finances. Freelance Me organizes your jobs by the clients who hired you. Maintain records of each jobs finances."
+  users:
+    flash:
+      language: "Language Preferences Updated"
   activerecord:
     errors:
       messages:
@@ -79,7 +84,8 @@ en:
     - Friday
     - Saturday
     formats:
-      default: "%m-%d-%Y"
+      default: "%m/%d/%Y"
+      abbr_m_long: "%b %d, %Y"
       long: "%B %d, %Y"
       short: "%b %d"
     month_names:

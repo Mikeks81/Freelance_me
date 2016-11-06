@@ -10,7 +10,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      # byebug
       @url = request.original_url
       @ip = request.remote_ip
       JobPdf.send_signup_email(@user,@url,@ip).deliver_now
@@ -62,8 +61,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update(user_params)
     if @user.save
-      flash[:notice] = "Account Updated"
-      redirect_to edit_user_path(@user)
+      user_update_redirect(user_params, @user)
     else
       flash[:notice] = "#{@user.errors.full_messages.first}"
       redirect_to edit_user_path(@user)
@@ -89,6 +87,19 @@ class UsersController < ApplicationController
   private 
 
   def user_params
-    params.require(:user).permit(:fname, :lname, :email, :password, :password_confirmation, :business_name, :logo)
+    params.require(:user).permit(:fname, :lname, :email, :password, :password_confirmation, :business_name, :logo, :locale)
+  end
+
+  helper_method :user_update_redirect
+  def user_update_redirect(user_params,user)
+    if user_params.include?(:locale)
+      #locale is not correctly set before flash message. This is my work around for now to get the correct flash message.
+      I18n.locale = @user.locale.to_sym
+      flash[:notice] = t "users.flash.language"
+      redirect_to user_path(@user)
+    else
+      flash[:notice] = "Account Updated"
+      redirect_to edit_user_path(@user)
+    end
   end
 end

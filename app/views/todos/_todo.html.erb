@@ -1,5 +1,5 @@
 <h3>To do List</h3>
-<p id="todo_date"><%= @date.strftime("%b %d, %Y")%></p>
+<p id="todo_date"><%= l @date, format: :abbr_m_long %></p>
 <table id="todo_table">
 <thead class="todo_titles">
 	<tr>
@@ -12,7 +12,7 @@
 <% @todos.each do |t| %>
 	<tbody class="todo_items" id="todo_<%= t.id %>">
 		<td class="todo_first"><%= t.item %></td>
-    	<td><%= t.date.strftime('%m/%d/%Y') %></td>
+    	<td><%= l t.date, format: :short %></td>
     	<td class="todo_last"><%= link_to "Completed", todo_path(t), method: :delete, remote: true %></td>
     </tbody>
 <% end %>
